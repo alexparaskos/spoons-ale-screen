@@ -1,0 +1,15 @@
+.ale-list-item h4 {
+    margin-bottom:var(--size-spacing-xs)
+}
+
+.ale-list-item h4 > span {
+    margin-right: var(--size-spacing-xs);
+    vertical-align:middle
+}
+
+.ale-list-item .notificationIcon {
+    font-size: .9rem;
+    border-radius: 50%;
+    padding: var(--size-spacing-xs);
+    background:#f2f2f2
+}

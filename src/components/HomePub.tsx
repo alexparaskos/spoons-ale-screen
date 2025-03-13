@@ -3,7 +3,10 @@ import './HomePub.css';
 import { useEffect, useState } from 'react';
 import defaultAles from "../defaultAles.json";
 import permAles from "../permAles.json";
+import ciders from "../ciders.json";
 import AleItem from './AleItem';
+import AutoScroll from './AutoScroll';
+import CiderItem from './CiderItem';
 interface ContainerProps {
 }
 
@@ -25,7 +28,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
       })
   }, [])
   return (
-    <IonGrid className='ion-no-padding'>
+    <IonGrid className='ion-no-padding full-height'>
       <IonRow>
         <IonCol>
           <IonList lines="full" class="list-md-lines-full list-lines-full">
@@ -38,17 +41,23 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             <IonItem color="light-grey" lines='full' className='ion-color ion-color-light-grey item md item-lines-full'>
               <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Our Guest Ciders</IonText>
             </IonItem>
+            {ciders.map((cider) => {
+              return { ...cider, price: true }
+            }).map((i) => <CiderItem cider={i} />)}
           </IonList>
         </IonCol>
         <IonCol>
-        <IonList lines="full" class="list-md-lines-full list-lines-full">
-            <IonItem color="light-grey" lines='full' className='ion-color ion-color-light-grey item md item-lines-full'>
-              <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
-            </IonItem>
-            {cellaredAles.map((ale) => {
-              return { ...ale, price: true }
-            }).map((i) => <AleItem ale={i} />)}
-          </IonList>
+          <IonItem color="light-grey" lines='full' className='ion-color ion-color-light-grey item md item-lines-full'>
+            <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
+          </IonItem>
+          <AutoScroll>
+            <IonList lines="full" class="list-md-lines-full list-lines-full">
+
+              {cellaredAles.map((ale) => {
+                return { ...ale, price: true }
+              }).map((i) => <AleItem ale={i} />)}
+            </IonList>
+          </AutoScroll>
         </IonCol>
       </IonRow>
     </IonGrid>

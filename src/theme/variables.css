@@ -5,6 +5,9 @@ http://ionicframework.com/docs/theming/ */
     --highlight-bg-color: rgba(180, 0, 170, 1);
     --highlight-selected-bg-color: rgba(0, 100, 0, 1)
 }
+.full-height {
+    height: 100vw;
+}
 
 @media screen and (forced-colors: active) {
     :root {

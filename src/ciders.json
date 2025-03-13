@@ -1,24 +1,23 @@
 [
     {
-        "id": 10000144466,
-        "eposName": "Snails Rhubarb",
+        "id": 10000133827,
+        "eposName": "Raspberry Ripple",
+        "description": "Sweet cider infused with tart raspberry rippled through with vanilla.",
         "displayRecords": [
             {
-                "id": 438650,
-                "name": "Snails Bank Rhubarb",
-                "description": "4% ABV, 2.27 units.",
+                "id": 183900,
+                "name": "Snails Bank Raspberry Ripple",
+                "description": "4.0% ABV, 2.3 units",
                 "effectiveDate": "",
                 "expiryDate": "",
                 "image": "",
                 "alt_text": null,
                 "keywords": [
+                    405,
                     1204,
-                    1202,
-                    1509,
-                    1201,
-                    219
+                    1509
                 ],
-                "mayStock": 1,
+                "mayStock": 0,
                 "showPrices": 1
             }
         ],
@@ -32,16 +31,16 @@
                 "description": "",
                 "calories": null,
                 "choices": [],
-                "price": 3.19
+                "price": 3.14
             },
             {
                 "id": 2,
-                "name": "Half pint",
+                "name": "Half Pint",
                 "portion_name": "Half",
                 "description": "",
                 "calories": null,
                 "choices": [],
-                "price": 1.6
+                "price": 1.57
             }
         ],
         "isInstruction": 0,
@@ -49,9 +48,11 @@
         "subcategoryId": 6,
         "minimumCustomerAge": 18,
         "divisionId": 1
-    },{
+    },
+    {
         "id": 10000141649,
         "eposName": "Moonshine",
+        "description": "Medium-Sweet, strong, and very drinkable with a crisp refreshing taste.",
         "displayRecords": [
             {
                 "id": 361691,
@@ -101,6 +102,7 @@
     {
         "id": 10000141651,
         "eposName": "Pear Mania",
+        "description": "Deliciously refreshing flavours of tart pink grapefruit and soft candied sweetness",
         "displayRecords": [
             {
                 "id": 361694,
@@ -146,9 +148,11 @@
         "subcategoryId": 6,
         "minimumCustomerAge": 18,
         "divisionId": 1
-    },{
+    },
+    {
         "id": 10000043785,
         "eposName": "Whisky Cask",
+        "description": "A flavoursome cider, made potent in the oak of Glen Moray whisky cask.",
         "displayRecords": [
             {
                 "id": 310563,
