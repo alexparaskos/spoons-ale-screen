@@ -1,0 +1,8 @@
+{
+  "name": "spoons-ale-screen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "ad427a7d"
+}
