@@ -7,32 +7,23 @@ interface ContainerProps {
     "id": number,
     "eposName": string,
     "description": string,
-    "displayRecords": [
-      {
-        "id": number,
-        "name": string,
-        "description": string,
-        "effectiveDate": string,
-        "expiryDate": string,
-        "image": string,
-        "alt_text": string,
-        "keywords": number[],
-        "mayStock": number,
-        "showPrices": number
-      }
-    ],
-    "showCourseDialog": number,
-    "defaultCourseId": number,
-    "portions":
+    "displayRecords":
     {
       "id": number,
-      "name": "Pint",
-      "portion_name": string,
+      "name": string,
       "description": string,
-      "calories": number,
-      "choices": [],
-      "price": number
-    }[],
+      "effectiveDate": string,
+      "expiryDate": string,
+      "image": string,
+      "alt_text": null,
+      "keywords": number[],
+      "mayStock": number,
+      "showPrices": number
+    }[]
+    ,
+    "showCourseDialog": number,
+    "defaultCourseId": number,
+    "portions": any,
     "isInstruction": number,
     "categoryId": number,
     "subcategoryId": number,
