@@ -33,7 +33,7 @@ const AleItem: React.FC<ContainerProps> = ({ ale }) => {
           </span>
         </h4>
         <IonText color="grey" className='text-sm ion-color text-semi-bold ion-color-grey md'>
-          {ale.abv} ABV {ale.units} units. {ale.product_description}
+          {ale.abv}% ABV {ale.units} units. {ale.product_description}
         </IonText>
       </div>
     </IonItem>
