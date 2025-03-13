@@ -1,0 +1,197 @@
+[
+    {
+        "id": 10000144466,
+        "eposName": "Snails Rhubarb",
+        "displayRecords": [
+            {
+                "id": 438650,
+                "name": "Snails Bank Rhubarb",
+                "description": "4% ABV, 2.27 units.",
+                "effectiveDate": "",
+                "expiryDate": "",
+                "image": "",
+                "alt_text": null,
+                "keywords": [
+                    1204,
+                    1202,
+                    1509,
+                    1201,
+                    219
+                ],
+                "mayStock": 1,
+                "showPrices": 1
+            }
+        ],
+        "showCourseDialog": 0,
+        "defaultCourseId": 12,
+        "portions": [
+            {
+                "id": 1,
+                "name": "Pint",
+                "portion_name": "Standard",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 3.19
+            },
+            {
+                "id": 2,
+                "name": "Half pint",
+                "portion_name": "Half",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 1.6
+            }
+        ],
+        "isInstruction": 0,
+        "categoryId": 7,
+        "subcategoryId": 6,
+        "minimumCustomerAge": 18,
+        "divisionId": 1
+    },{
+        "id": 10000141649,
+        "eposName": "Moonshine",
+        "displayRecords": [
+            {
+                "id": 361691,
+                "name": "Broadoak Moonshine",
+                "description": "7.5% ABV, 4.26 units",
+                "effectiveDate": "",
+                "expiryDate": "",
+                "image": "",
+                "alt_text": null,
+                "keywords": [
+                    405,
+                    1204,
+                    1509
+                ],
+                "mayStock": 0,
+                "showPrices": 1
+            }
+        ],
+        "showCourseDialog": 0,
+        "defaultCourseId": 12,
+        "portions": [
+            {
+                "id": 1,
+                "name": "Pint",
+                "portion_name": "Standard",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 2.99
+            },
+            {
+                "id": 2,
+                "name": "Half pint",
+                "portion_name": "Half",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 1.5
+            }
+        ],
+        "isInstruction": 0,
+        "categoryId": 7,
+        "subcategoryId": 6,
+        "minimumCustomerAge": 18,
+        "divisionId": 1
+    },
+    {
+        "id": 10000141651,
+        "eposName": "Pear Mania",
+        "displayRecords": [
+            {
+                "id": 361694,
+                "name": "Cockeyed Pear Mania",
+                "description": "7.0 ABV, 3.98 units",
+                "effectiveDate": "",
+                "expiryDate": "",
+                "image": "",
+                "alt_text": null,
+                "keywords": [
+                    405,
+                    1204,
+                    1509
+                ],
+                "mayStock": 0,
+                "showPrices": 1
+            }
+        ],
+        "showCourseDialog": 0,
+        "defaultCourseId": 12,
+        "portions": [
+            {
+                "id": 1,
+                "name": "Pint",
+                "portion_name": "Standard",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 2.99
+            },
+            {
+                "id": 2,
+                "name": "Half pint",
+                "portion_name": "Half",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 1.5
+            }
+        ],
+        "isInstruction": 0,
+        "categoryId": 7,
+        "subcategoryId": 6,
+        "minimumCustomerAge": 18,
+        "divisionId": 1
+    },{
+        "id": 10000043785,
+        "eposName": "Whisky Cask",
+        "displayRecords": [
+            {
+                "id": 310563,
+                "name": "Thistly Cross Whisky Cask",
+                "description": "6.7% ABV 560ml, 3.8 units",
+                "effectiveDate": "",
+                "expiryDate": "",
+                "image": "",
+                "alt_text": null,
+                "keywords": [
+                    1204,
+                    1509
+                ],
+                "mayStock": 0,
+                "showPrices": 1
+            }
+        ],
+        "showCourseDialog": 0,
+        "defaultCourseId": 12,
+        "portions": [
+            {
+                "id": 1,
+                "name": "Pint",
+                "portion_name": "Standard",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 2.99
+            },
+            {
+                "id": 2,
+                "name": "Half pint",
+                "portion_name": "Half",
+                "description": "",
+                "calories": null,
+                "choices": [],
+                "price": 1.5
+            }
+        ],
+        "isInstruction": 0,
+        "categoryId": 7,
+        "subcategoryId": 6,
+        "minimumCustomerAge": 18,
+        "divisionId": 1
+    }
+]
