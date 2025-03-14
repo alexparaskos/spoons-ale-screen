@@ -1,8 +1,8 @@
-.ale-list-item h4 {
-    margin-bottom:var(--size-spacing-xs)
+.ale-list-item h5 {
+    margin-bottom:var(--size-spacing-xxs)
 }
 
-.ale-list-item h4 > span {
+.ale-list-item h5 > span {
     margin-right: var(--size-spacing-xs);
     vertical-align:middle
 }
@@ -12,4 +12,7 @@
     border-radius: 50%;
     padding: var(--size-spacing-xs);
     background:#f2f2f2
+}
+.ale-list-item {
+    margin:0
 }
