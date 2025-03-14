@@ -1,4 +1,4 @@
-import { IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList, IonRow, IonText } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList, IonRow, IonText } from '@ionic/react';
 import './HomePub.css';
 import { createRef, useEffect, useRef, useState } from 'react';
 import defaultAles from "../defaultAles.json";
@@ -12,6 +12,7 @@ interface ContainerProps {
 
 const HomePub: React.FC<ContainerProps> = ({ }) => {
   let [ales, setAles] = useState(defaultAles)
+  let [init, setInit] = useState(false)
   const activeAles = ales.filter((ale) => !ale.is_cellared)
   let cellaredAles = ales.filter((ale) => ale.is_cellared)
   const onPermAles = permAles.filter((ale) => ale.product == "IPA" || ale.product == "Abbot Ale")
@@ -26,7 +27,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         top = false
         scrollTop()
       }
-    }, 2000)
+    }, 15000)
   }
   const scrollTop = () => {
     setTimeout(() => {
@@ -36,7 +37,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         top = true
         scrollBottom()
       }
-    }, 2000)
+    }, 15000)
   }
 
   const scrollToggle = () => {
@@ -65,6 +66,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         setAles(data);
       })
   }, [])
+
   return (
     <IonContent ref={contentRef}>
       <IonGrid className='ion-no-padding full-height'>
@@ -74,6 +76,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                 <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Real ales on sale now</IonText>
               </IonItemDivider>
+              {init ? <></> : <IonButton onClick={() => setInit(true)}>Click Me</IonButton>}
               {onPermAles.concat(activeAles).map((ale) => {
                 return { ...ale, price: true }
               }).map((i) => <AleItem ale={i} />)}
@@ -90,7 +93,6 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
             </IonItemDivider>
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
-
               {cellaredAles.map((ale) => {
                 return { ...ale, price: true }
               }).map((i) => <AleItem ale={i} />)}
