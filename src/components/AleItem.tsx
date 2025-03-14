@@ -24,7 +24,7 @@ const AleItem: React.FC<ContainerProps> = ({ ale }) => {
     color = "ale-dark"
   }
   return (
-    <IonItem className='ale-list-item item md item-lines-default in-list' role='listitem'>
+    <IonItem className='ale-list-item'>
       <div className='ion-margin-vertical'>
         <h4>
           <span>{ale.brewery} {ale.product}</span>

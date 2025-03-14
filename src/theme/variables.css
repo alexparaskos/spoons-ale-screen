@@ -3,8 +3,10 @@ http://ionicframework.com/docs/theming/ */
 :root {
     --react-pdf-text-layer: 1;
     --highlight-bg-color: rgba(180, 0, 170, 1);
-    --highlight-selected-bg-color: rgba(0, 100, 0, 1)
+    --highlight-selected-bg-color: rgba(0, 100, 0, 1);
+    zoom: 0.5 !important;
 }
+
 .full-height {
     height: 100vw;
 }
@@ -25,7 +27,7 @@ http://ionicframework.com/docs/theming/ */
 }
 
 [data-main-rotation="270"] {
-    transform:rotate(270deg) translate(-100%)
+    transform: rotate(270deg) translate(-100%)
 }
 
 .textLayer {
@@ -40,7 +42,7 @@ http://ionicframework.com/docs/theming/ */
     text-size-adjust: none;
     forced-color-adjust: none;
     transform-origin: 0 0;
-    z-index:2
+    z-index: 2
 }
 
 .textLayer :is(span, br) {
@@ -49,43 +51,43 @@ http://ionicframework.com/docs/theming/ */
     white-space: pre;
     cursor: text;
     margin: 0;
-    transform-origin:0 0
+    transform-origin: 0 0
 }
 
 .textLayer span.markedContent {
     top: 0;
-    height:0
+    height: 0
 }
 
 .textLayer .highlight {
     margin: -1px;
     padding: 1px;
     background-color: var(--highlight-bg-color);
-    border-radius:4px
+    border-radius: 4px
 }
 
 .textLayer .highlight.appended {
-    position:initial
+    position: initial
 }
 
 .textLayer .highlight.begin {
-    border-radius:4px 0 0 4px
+    border-radius: 4px 0 0 4px
 }
 
 .textLayer .highlight.end {
-    border-radius:0 4px 4px 0
+    border-radius: 0 4px 4px 0
 }
 
 .textLayer .highlight.middle {
-    border-radius:0
+    border-radius: 0
 }
 
 .textLayer .highlight.selected {
-    background-color:var(--highlight-selected-bg-color)
+    background-color: var(--highlight-selected-bg-color)
 }
 
 .textLayer br::selection {
-    background:transparent
+    background: transparent
 }
 
 .textLayer .endOfContent {
@@ -98,11 +100,11 @@ http://ionicframework.com/docs/theming/ */
     z-index: -1;
     cursor: default;
     -webkit-user-select: none;
-    user-select:none
+    user-select: none
 }
 
 .textLayer .endOfContent.active {
-    top:0
+    top: 0
 }
 
 .swiper-pagination {
@@ -110,52 +112,57 @@ http://ionicframework.com/docs/theming/ */
     text-align: center;
     transition: .3s opacity;
     transform: translateZ(0);
-    z-index:10
+    z-index: 10
 }
 
 .swiper-pagination.swiper-pagination-hidden {
-    opacity:0
+    opacity: 0
 }
 
-.swiper-pagination-disabled > .swiper-pagination, .swiper-pagination.swiper-pagination-disabled {
-    display:none !important
+.swiper-pagination-disabled>.swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+    display: none !important
 }
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: var(--swiper-pagination-bottom, 8px);
     top: var(--swiper-pagination-top, auto);
     left: 0;
-    width:100%
+    width: 100%
 }
 
 .swiper-pagination-bullets-dynamic {
     overflow: hidden;
-    font-size:0
+    font-size: 0
 }
 
 .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
     transform: scale(.33);
-    position:relative
+    position: relative
 }
 
-.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active, .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
-    transform:scale(1)
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+    transform: scale(1)
 }
 
 .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
-    transform:scale(.66)
+    transform: scale(.66)
 }
 
 .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
-    transform:scale(.33)
+    transform: scale(.33)
 }
 
 .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
-    transform:scale(.66)
+    transform: scale(.66)
 }
 
 .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
-    transform:scale(.33)
+    transform: scale(.33)
 }
 
 .swiper-pagination-bullet {
@@ -164,7 +171,7 @@ http://ionicframework.com/docs/theming/ */
     display: inline-block;
     border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
     background: var(--swiper-pagination-bullet-inactive-color, #000);
-    opacity:var(--swiper-pagination-bullet-inactive-opacity, .2)
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, .2)
 }
 
 button.swiper-pagination-bullet {
@@ -174,70 +181,77 @@ button.swiper-pagination-bullet {
     box-shadow: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance:none
+    appearance: none
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
-    cursor:pointer
+    cursor: pointer
 }
 
 .swiper-pagination-bullet:only-child {
-    display:none !important
+    display: none !important
 }
 
 .swiper-pagination-bullet-active {
     opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background:var(--swiper-pagination-color, var(--swiper-theme-color))
+    background: var(--swiper-pagination-color, var(--swiper-theme-color))
 }
 
-.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
+.swiper-vertical>.swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
     right: var(--swiper-pagination-right, 8px);
     left: var(--swiper-pagination-left, auto);
     top: 50%;
-    transform:translate3d(0, -50%, 0)
+    transform: translate3d(0, -50%, 0)
 }
 
-.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-vertical>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
-    display:block
+    display: block
 }
 
-.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+.swiper-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     top: 50%;
     transform: translateY(-50%);
-    width:8px
+    width: 8px
 }
 
-.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet, .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+.swiper-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
     display: inline-block;
-    transition:.2s transform, .2s top
+    transition: .2s transform, .2s top
 }
 
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin:0 var(--swiper-pagination-bullet-horizontal-gap, 4px)
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px)
 }
 
-.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     left: 50%;
     transform: translate(-50%);
-    white-space:nowrap
+    white-space: nowrap
 }
 
-.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-    transition:.2s transform, .2s left
+.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition: .2s transform, .2s left
 }
 
-.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-    transition:.2s transform, .2s right
+.swiper-horizontal.swiper-rtl>.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition: .2s transform, .2s right
 }
 
 .swiper-pagination-fraction {
-    color:var(--swiper-pagination-fraction-color, inherit)
+    color: var(--swiper-pagination-fraction-color, inherit)
 }
 
 .swiper-pagination-progressbar {
     background: var(--swiper-pagination-progressbar-bg-color, rgba(0, 0, 0, .25));
-    position:absolute
+    position: absolute
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
@@ -248,36 +262,43 @@ button.swiper-pagination-bullet {
     width: 100%;
     height: 100%;
     transform: scale(0);
-    transform-origin:left top
+    transform-origin: left top
 }
 
 .swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    transform-origin:right top
+    transform-origin: right top
 }
 
-.swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite {
+.swiper-horizontal>.swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite {
     width: 100%;
     height: var(--swiper-pagination-progressbar-size, 4px);
     left: 0;
-    top:0
+    top: 0
 }
 
-.swiper-vertical > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-vertical, .swiper-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite {
+.swiper-vertical>.swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-vertical,
+.swiper-horizontal>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite {
     width: var(--swiper-pagination-progressbar-size, 4px);
     height: 100%;
     left: 0;
-    top:0
+    top: 0
 }
 
 .swiper-pagination-lock {
-    display:none
+    display: none
 }
 
 :host {
     --swiper-navigation-size: 44px
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
     position: absolute;
     top: var(--swiper-navigation-top-offset, 50%);
     width: calc(var(--swiper-navigation-size) / 44 * 27);
@@ -288,74 +309,81 @@ button.swiper-pagination-bullet {
     display: flex;
     align-items: center;
     justify-content: center;
-    color:var(--swiper-navigation-color, var(--swiper-theme-color))
+    color: var(--swiper-navigation-color, var(--swiper-theme-color))
 }
 
-.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
     opacity: .35;
     cursor: auto;
-    pointer-events:none
+    pointer-events: none
 }
 
-.swiper-button-prev.swiper-button-hidden, .swiper-button-next.swiper-button-hidden {
+.swiper-button-prev.swiper-button-hidden,
+.swiper-button-next.swiper-button-hidden {
     opacity: 0;
     cursor: auto;
-    pointer-events:none
+    pointer-events: none
 }
 
-.swiper-navigation-disabled .swiper-button-prev, .swiper-navigation-disabled .swiper-button-next {
-    display:none !important
+.swiper-navigation-disabled .swiper-button-prev,
+.swiper-navigation-disabled .swiper-button-next {
+    display: none !important
 }
 
-.swiper-button-prev svg, .swiper-button-next svg {
+.swiper-button-prev svg,
+.swiper-button-next svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transform-origin:center
+    transform-origin: center
 }
 
-.swiper-rtl .swiper-button-prev svg, .swiper-rtl .swiper-button-next svg {
-    transform:rotate(180deg)
+.swiper-rtl .swiper-button-prev svg,
+.swiper-rtl .swiper-button-next svg {
+    transform: rotate(180deg)
 }
 
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
     left: var(--swiper-navigation-sides-offset, 10px);
-    right:auto
+    right: auto
 }
 
-.swiper-button-next, .swiper-rtl .swiper-button-prev {
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
     right: var(--swiper-navigation-sides-offset, 10px);
-    left:auto
+    left: auto
 }
 
 .swiper-button-lock {
-    display:none
+    display: none
 }
 
-.swiper-free-mode > .swiper-wrapper {
+.swiper-free-mode>.swiper-wrapper {
     transition-timing-function: ease-out;
-    margin:0 auto
+    margin: 0 auto
 }
 
 .swiper-fade.swiper-free-mode ::slotted(swiper-slide) {
-    transition-timing-function:ease-out
+    transition-timing-function: ease-out
 }
 
 .swiper-fade ::slotted(swiper-slide) {
     pointer-events: none;
-    transition-property:opacity
+    transition-property: opacity
 }
 
 .swiper-fade ::slotted(swiper-slide) ::slotted(swiper-slide) {
-    pointer-events:none
+    pointer-events: none
 }
 
 .swiper-fade ::slotted(.swiper-slide-active) {
-    pointer-events:auto
+    pointer-events: auto
 }
 
 .swiper-fade ::slotted(.swiper-slide-active) ::slotted(.swiper-slide-active) {
-    pointer-events:auto
+    pointer-events: auto
 }
 
 :root {
@@ -430,24 +458,27 @@ html {
 
 body {
     background: var(--ion-background-color);
-    color:var(--ion-text-color)
+    color: var(--ion-text-color)
 }
 
 body.backdrop-no-scroll {
-    overflow:hidden
+    overflow: hidden
 }
 
-html.ios ion-modal.modal-card ion-header ion-toolbar:first-of-type, html.ios ion-modal.modal-sheet ion-header ion-toolbar:first-of-type, html.ios ion-modal ion-footer ion-toolbar:first-of-type {
-    padding-top:6px
+html.ios ion-modal.modal-card ion-header ion-toolbar:first-of-type,
+html.ios ion-modal.modal-sheet ion-header ion-toolbar:first-of-type,
+html.ios ion-modal ion-footer ion-toolbar:first-of-type {
+    padding-top: 6px
 }
 
-html.ios ion-modal.modal-card ion-header ion-toolbar:last-of-type, html.ios ion-modal.modal-sheet ion-header ion-toolbar:last-of-type {
-    padding-bottom:6px
+html.ios ion-modal.modal-card ion-header ion-toolbar:last-of-type,
+html.ios ion-modal.modal-sheet ion-header ion-toolbar:last-of-type {
+    padding-bottom: 6px
 }
 
 html.ios ion-modal ion-toolbar {
     padding-right: calc(var(--ion-safe-area-right) + 8px);
-    padding-left:calc(var(--ion-safe-area-left) + 8px)
+    padding-left: calc(var(--ion-safe-area-left) + 8px)
 }
 
 @media screen and (min-width: 768px) {
@@ -456,13 +487,13 @@ html.ios ion-modal ion-toolbar {
     }
 }
 
-ion-modal.modal-default.show-modal ~ ion-modal.modal-default {
+ion-modal.modal-default.show-modal~ion-modal.modal-default {
     --backdrop-opacity: 0;
     --box-shadow: none
 }
 
 html.ios ion-modal.modal-card .ion-page {
-    border-top-left-radius:var(--border-radius)
+    border-top-left-radius: var(--border-radius)
 }
 
 .ion-color-primary {
@@ -556,32 +587,46 @@ html.ios ion-modal.modal-card .ion-page {
     flex-direction: column;
     justify-content: space-between;
     contain: layout size style;
-    z-index:0
+    z-index: 0
 }
 
-ion-modal > .ion-page {
+ion-modal>.ion-page {
     position: relative;
     contain: layout style;
-    height:100%
+    height: 100%
 }
 
-.split-pane-visible > .ion-page.split-pane-main {
-    position:relative
+.split-pane-visible>.ion-page.split-pane-main {
+    position: relative
 }
 
-ion-route, ion-route-redirect, ion-router, ion-select-option, ion-nav-controller, ion-menu-controller, ion-action-sheet-controller, ion-alert-controller, ion-loading-controller, ion-modal-controller, ion-picker-controller, ion-popover-controller, ion-toast-controller, .ion-page-hidden {
-    display:none !important
+ion-route,
+ion-route-redirect,
+ion-router,
+ion-select-option,
+ion-nav-controller,
+ion-menu-controller,
+ion-action-sheet-controller,
+ion-alert-controller,
+ion-loading-controller,
+ion-modal-controller,
+ion-picker-controller,
+ion-popover-controller,
+ion-toast-controller,
+.ion-page-hidden {
+    display: none !important
 }
 
 .ion-page-invisible {
-    opacity:0
+    opacity: 0
 }
 
-.can-go-back > ion-header ion-back-button {
-    display:block
+.can-go-back>ion-header ion-back-button {
+    display: block
 }
 
-html.plt-ios.plt-hybrid, html.plt-ios.plt-pwa {
+html.plt-ios.plt-hybrid,
+html.plt-ios.plt-pwa {
     --ion-statusbar-padding: 20px
 }
 
@@ -600,19 +645,20 @@ html.plt-ios.plt-hybrid, html.plt-ios.plt-pwa {
     }
 }
 
-ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-color {
-    color:inherit
+ion-card.ion-color .ion-inherit-color,
+ion-card-header.ion-color .ion-inherit-color {
+    color: inherit
 }
 
 .menu-content {
-    transform:translateZ(0)
+    transform: translateZ(0)
 }
 
 .menu-content-open {
     cursor: pointer;
     touch-action: manipulation;
     pointer-events: none;
-    overflow-y:hidden
+    overflow-y: hidden
 }
 
 .menu-content-open ion-content {
@@ -620,60 +666,63 @@ ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-co
 }
 
 .menu-content-open .ion-content-scroll-host {
-    overflow:hidden
+    overflow: hidden
 }
 
 .ios .menu-content-reveal {
-    box-shadow:-8px 0 42px #00000014
+    box-shadow: -8px 0 42px #00000014
 }
 
 [dir=rtl].ios .menu-content-reveal {
-    box-shadow:8px 0 42px #00000014
+    box-shadow: 8px 0 42px #00000014
 }
 
-.md .menu-content-reveal, .md .menu-content-push {
-    box-shadow:4px 0 16px #0000002e
+.md .menu-content-reveal,
+.md .menu-content-push {
+    box-shadow: 4px 0 16px #0000002e
 }
 
-ion-accordion-group.accordion-group-expand-inset > ion-accordion:first-of-type {
+ion-accordion-group.accordion-group-expand-inset>ion-accordion:first-of-type {
     border-top-left-radius: 8px;
-    border-top-right-radius:8px
+    border-top-right-radius: 8px
 }
 
-ion-accordion-group.accordion-group-expand-inset > ion-accordion:last-of-type {
+ion-accordion-group.accordion-group-expand-inset>ion-accordion:last-of-type {
     border-bottom-left-radius: 8px;
-    border-bottom-right-radius:8px
+    border-bottom-right-radius: 8px
 }
 
-ion-accordion-group > ion-accordion:last-of-type ion-item[slot=header] {
+ion-accordion-group>ion-accordion:last-of-type ion-item[slot=header] {
     --border-width: 0px
 }
 
-ion-accordion.accordion-animated > [slot=header] .ion-accordion-toggle-icon {
-    transition:.3s transform cubic-bezier(.25, .8, .5, 1)
+ion-accordion.accordion-animated>[slot=header] .ion-accordion-toggle-icon {
+    transition: .3s transform cubic-bezier(.25, .8, .5, 1)
 }
 
 @media (prefers-reduced-motion: reduce) {
     ion-accordion .ion-accordion-toggle-icon {
-        transition:none !important
+        transition: none !important
     }
 }
 
-ion-accordion.accordion-expanding > [slot=header] .ion-accordion-toggle-icon, ion-accordion.accordion-expanded > [slot=header] .ion-accordion-toggle-icon {
-    transform:rotate(180deg)
+ion-accordion.accordion-expanding>[slot=header] .ion-accordion-toggle-icon,
+ion-accordion.accordion-expanded>[slot=header] .ion-accordion-toggle-icon {
+    transform: rotate(180deg)
 }
 
-ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-previous ion-item[slot=header] {
+ion-accordion-group.accordion-group-expand-inset.md>ion-accordion.accordion-previous ion-item[slot=header] {
     --border-width: 0px;
     --inner-border-width: 0px
 }
 
-ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-expanding:first-of-type, ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-expanded:first-of-type {
-    margin-top:0
+ion-accordion-group.accordion-group-expand-inset.md>ion-accordion.accordion-expanding:first-of-type,
+ion-accordion-group.accordion-group-expand-inset.md>ion-accordion.accordion-expanded:first-of-type {
+    margin-top: 0
 }
 
 ion-input input::-webkit-date-and-time-value {
-    text-align:start
+    text-align: start
 }
 
 .ion-datetime-button-overlay {
@@ -686,85 +735,124 @@ ion-input input::-webkit-date-and-time-value {
     min-height: 320px
 }
 
-[ion-last-focus], header[tabindex="-1"]:focus, [role=banner][tabindex="-1"]:focus, main[tabindex="-1"]:focus, [role=main][tabindex="-1"]:focus, h1[tabindex="-1"]:focus, [role=heading][aria-level="1"][tabindex="-1"]:focus {
-    outline:none
+[ion-last-focus],
+header[tabindex="-1"]:focus,
+[role=banner][tabindex="-1"]:focus,
+main[tabindex="-1"]:focus,
+[role=main][tabindex="-1"]:focus,
+h1[tabindex="-1"]:focus,
+[role=heading][aria-level="1"][tabindex="-1"]:focus {
+    outline: none
 }
 
-.popover-viewport:has( > ion-content) {
-    overflow:hidden
+.popover-viewport:has(> ion-content) {
+    overflow: hidden
 }
 
-@supports not selector (: has( > ion-content)) {
+@supports not selector (: has(> ion-content)) {
     .popover-viewport {
-        overflow:hidden
+        overflow: hidden
     }
 }
 
-audio, canvas, progress, video {
-    vertical-align:baseline
+audio,
+canvas,
+progress,
+video {
+    vertical-align: baseline
 }
 
 audio:not([controls]) {
     display: none;
-    height:0
+    height: 0
 }
 
-b, strong {
-    font-weight:700
+b,
+strong {
+    font-weight: 700
 }
 
 img {
-    max-width:100%
+    max-width: 100%
 }
 
 hr {
     height: 1px;
     border-width: 0;
-    box-sizing:content-box
+    box-sizing: content-box
 }
 
 pre {
-    overflow:auto
+    overflow: auto
 }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
     font-family: monospace, monospace;
-    font-size:1em
+    font-size: 1em
 }
 
-label, input, select, textarea {
+label,
+input,
+select,
+textarea {
     font-family: inherit;
-    line-height:normal
+    line-height: normal
 }
 
 textarea {
     overflow: auto;
     height: auto;
     font: inherit;
-    color:inherit
+    color: inherit
 }
 
 textarea::placeholder {
-    padding-left:2px
+    padding-left: 2px
 }
 
-form, input, optgroup, select {
+form,
+input,
+optgroup,
+select {
     margin: 0;
     font: inherit;
-    color:inherit
+    color: inherit
 }
 
-html input[type=button], input[type=reset], input[type=submit] {
+html input[type=button],
+input[type=reset],
+input[type=submit] {
     cursor: pointer;
-    -webkit-appearance:button
+    -webkit-appearance: button
 }
 
-a, a div, a span, a ion-icon, a ion-label, button, button div, button span, button ion-icon, button ion-label, .ion-tappable, [tappable], [tappable] div, [tappable] span, [tappable] ion-icon, [tappable] ion-label, input, textarea {
-    touch-action:manipulation
+a,
+a div,
+a span,
+a ion-icon,
+a ion-label,
+button,
+button div,
+button span,
+button ion-icon,
+button ion-label,
+.ion-tappable,
+[tappable],
+[tappable] div,
+[tappable] span,
+[tappable] ion-icon,
+[tappable] ion-label,
+input,
+textarea {
+    touch-action: manipulation
 }
 
-a ion-label, button ion-label {
-    pointer-events:none
+a ion-label,
+button ion-label {
+    pointer-events: none
 }
 
 button {
@@ -777,63 +865,69 @@ button {
     line-height: 1;
     text-transform: none;
     cursor: pointer;
-    -webkit-appearance:button
+    -webkit-appearance: button
 }
 
 [tappable] {
-    cursor:pointer
+    cursor: pointer
 }
 
-a[disabled], button[disabled], html input[disabled] {
-    cursor:default
+a[disabled],
+button[disabled],
+html input[disabled] {
+    cursor: default
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
     padding: 0;
-    border:0
+    border: 0
 }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-    height:auto
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    height: auto
 }
 
-input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
-    -webkit-appearance:none
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
 }
 
 table {
     border-collapse: collapse;
-    border-spacing:0
+    border-spacing: 0
 }
 
-td, th {
-    padding:0
+td,
+th {
+    padding: 0
 }
 
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout:none
+    -webkit-touch-callout: none
 }
 
 html {
     width: 100%;
     height: 100%;
     -webkit-text-size-adjust: 100%;
-    text-size-adjust:100%
+    text-size-adjust: 100%
 }
 
 html:not(.hydrated) body {
-    display:none
+    display: none
 }
 
 html.ion-ce body {
-    display:block
+    display: block
 }
 
 html.plt-pwa {
-    height:100vh
+    height: 100vh
 }
 
 body {
@@ -855,74 +949,80 @@ body {
     word-wrap: break-word;
     overscroll-behavior-y: none;
     -webkit-text-size-adjust: none;
-    text-size-adjust:none
+    text-size-adjust: none
 }
 
 html {
-    font-family:var(--ion-font-family)
+    font-family: var(--ion-font-family)
 }
 
 @supports (-webkit-touch-callout: none) {
     html {
-        font:var(--ion-dynamic-font, 16px var(--ion-font-family))
+        font: var(--ion-dynamic-font, 16px var(--ion-font-family))
     }
 }
 
 a {
     background-color: transparent;
-    color:var(--ion-color-primary, #0054e9)
+    color: var(--ion-color-primary, #0054e9)
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 16px;
     margin-bottom: 10px;
     font-weight: 500;
-    line-height:1.2
+    line-height: 1.2
 }
 
 h1 {
     margin-top: 20px;
-    font-size:1.625rem
+    font-size: 1.625rem
 }
 
 h2 {
     margin-top: 18px;
-    font-size:1.5rem
+    font-size: 1.5rem
 }
 
 h3 {
-    font-size:1.375rem
+    font-size: 1.375rem
 }
 
 h4 {
-    font-size:1.25rem
+    font-size: 1.25rem
 }
 
 h5 {
-    font-size:1.125rem
+    font-size: 1.125rem
 }
 
 h6 {
-    font-size:1rem
+    font-size: 1rem
 }
 
 small {
-    font-size:75%
+    font-size: 75%
 }
 
-sub, sup {
+sub,
+sup {
     position: relative;
     font-size: 75%;
     line-height: 0;
-    vertical-align:baseline
+    vertical-align: baseline
 }
 
 sup {
-    top:-.5em
+    top: -.5em
 }
 
 sub {
-    bottom:-.25em
+    bottom: -.25em
 }
 
 .ion-no-padding {
@@ -930,7 +1030,7 @@ sub {
     --padding-end: 0;
     --padding-top: 0;
     --padding-bottom: 0;
-    padding:0
+    padding: 0
 }
 
 .ion-padding {
@@ -943,36 +1043,36 @@ sub {
     -webkit-padding-end: var(--ion-padding, 16px);
     padding-inline-end: var(--ion-padding, 16px);
     padding-top: var(--ion-padding, 16px);
-    padding-bottom:var(--ion-padding, 16px)
+    padding-bottom: var(--ion-padding, 16px)
 }
 
 .ion-padding-top {
     --padding-top: var(--ion-padding, 16px);
-    padding-top:var(--ion-padding, 16px)
+    padding-top: var(--ion-padding, 16px)
 }
 
 .ion-padding-start {
     --padding-start: var(--ion-padding, 16px);
     -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start:var(--ion-padding, 16px)
+    padding-inline-start: var(--ion-padding, 16px)
 }
 
 .ion-padding-end {
     --padding-end: var(--ion-padding, 16px);
     -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end:var(--ion-padding, 16px)
+    padding-inline-end: var(--ion-padding, 16px)
 }
 
 .ion-padding-bottom {
     --padding-bottom: var(--ion-padding, 16px);
-    padding-bottom:var(--ion-padding, 16px)
+    padding-bottom: var(--ion-padding, 16px)
 }
 
 .ion-padding-vertical {
     --padding-top: var(--ion-padding, 16px);
     --padding-bottom: var(--ion-padding, 16px);
     padding-top: var(--ion-padding, 16px);
-    padding-bottom:var(--ion-padding, 16px)
+    padding-bottom: var(--ion-padding, 16px)
 }
 
 .ion-padding-horizontal {
@@ -981,7 +1081,7 @@ sub {
     -webkit-padding-start: var(--ion-padding, 16px);
     padding-inline-start: var(--ion-padding, 16px);
     -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end:var(--ion-padding, 16px)
+    padding-inline-end: var(--ion-padding, 16px)
 }
 
 .ion-no-margin {
@@ -989,7 +1089,7 @@ sub {
     --margin-end: 0;
     --margin-top: 0;
     --margin-bottom: 0;
-    margin:0
+    margin: 0
 }
 
 .ion-margin {
@@ -1002,36 +1102,36 @@ sub {
     -webkit-margin-end: var(--ion-margin, 16px);
     margin-inline-end: var(--ion-margin, 16px);
     margin-top: var(--ion-margin, 16px);
-    margin-bottom:var(--ion-margin, 16px)
+    margin-bottom: var(--ion-margin, 16px)
 }
 
 .ion-margin-top {
     --margin-top: var(--ion-margin, 16px);
-    margin-top:var(--ion-margin, 16px)
+    margin-top: var(--ion-margin, 16px)
 }
 
 .ion-margin-start {
     --margin-start: var(--ion-margin, 16px);
     -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start:var(--ion-margin, 16px)
+    margin-inline-start: var(--ion-margin, 16px)
 }
 
 .ion-margin-end {
     --margin-end: var(--ion-margin, 16px);
     -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end:var(--ion-margin, 16px)
+    margin-inline-end: var(--ion-margin, 16px)
 }
 
 .ion-margin-bottom {
     --margin-bottom: var(--ion-margin, 16px);
-    margin-bottom:var(--ion-margin, 16px)
+    margin-bottom: var(--ion-margin, 16px)
 }
 
 .ion-margin-vertical {
     --margin-top: var(--ion-margin, 16px);
     --margin-bottom: var(--ion-margin, 16px);
     margin-top: var(--ion-margin, 16px);
-    margin-bottom:var(--ion-margin, 16px)
+    margin-bottom: var(--ion-margin, 16px)
 }
 
 .ion-margin-horizontal {
@@ -1040,602 +1140,604 @@ sub {
     -webkit-margin-start: var(--ion-margin, 16px);
     margin-inline-start: var(--ion-margin, 16px);
     -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end:var(--ion-margin, 16px)
+    margin-inline-end: var(--ion-margin, 16px)
 }
 
 .ion-float-left {
-    float:left !important
+    float: left !important
 }
 
 .ion-float-right {
-    float:right !important
+    float: right !important
 }
 
 .ion-float-start {
-    float:left !important
+    float: left !important
 }
 
 :host-context([dir=rtl]) .ion-float-start {
-    float:right !important
+    float: right !important
 }
 
 [dir=rtl] .ion-float-start {
-    float:right !important
+    float: right !important
 }
 
 @supports selector (: dir(rtl)) {
     .ion-float-start:dir(rtl) {
-        float:right !important
+        float: right !important
     }
 }
 
 .ion-float-end {
-    float:right !important
+    float: right !important
 }
 
 :host-context([dir=rtl]) .ion-float-end {
-    float:left !important
+    float: left !important
 }
 
 [dir=rtl] .ion-float-end {
-    float:left !important
+    float: left !important
 }
 
 @supports selector (: dir(rtl)) {
     .ion-float-end:dir(rtl) {
-        float:left !important
+        float: left !important
     }
 }
 
 @media (min-width: 576px) {
     .ion-float-sm-left {
-        float:left !important
+        float: left !important
     }
 
     .ion-float-sm-right {
-        float:right !important
+        float: right !important
     }
 
     .ion-float-sm-start {
-        float:left !important
+        float: left !important
     }
 
     :host-context([dir=rtl]) .ion-float-sm-start {
-        float:right !important
+        float: right !important
     }
 
     [dir=rtl] .ion-float-sm-start {
-        float:right !important
+        float: right !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-sm-start:dir(rtl) {
-            float:right !important
+            float: right !important
         }
     }
 
     .ion-float-sm-end {
-        float:right !important
+        float: right !important
     }
 
     :host-context([dir=rtl]) .ion-float-sm-end {
-        float:left !important
+        float: left !important
     }
 
     [dir=rtl] .ion-float-sm-end {
-        float:left !important
+        float: left !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-sm-end:dir(rtl) {
-            float:left !important
+            float: left !important
         }
     }
 }
 
 @media (min-width: 768px) {
     .ion-float-md-left {
-        float:left !important
+        float: left !important
     }
 
     .ion-float-md-right {
-        float:right !important
+        float: right !important
     }
 
     .ion-float-md-start {
-        float:left !important
+        float: left !important
     }
 
     :host-context([dir=rtl]) .ion-float-md-start {
-        float:right !important
+        float: right !important
     }
 
     [dir=rtl] .ion-float-md-start {
-        float:right !important
+        float: right !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-md-start:dir(rtl) {
-            float:right !important
+            float: right !important
         }
     }
 
     .ion-float-md-end {
-        float:right !important
+        float: right !important
     }
 
     :host-context([dir=rtl]) .ion-float-md-end {
-        float:left !important
+        float: left !important
     }
 
     [dir=rtl] .ion-float-md-end {
-        float:left !important
+        float: left !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-md-end:dir(rtl) {
-            float:left !important
+            float: left !important
         }
     }
 }
 
 @media (min-width: 992px) {
     .ion-float-lg-left {
-        float:left !important
+        float: left !important
     }
 
     .ion-float-lg-right {
-        float:right !important
+        float: right !important
     }
 
     .ion-float-lg-start {
-        float:left !important
+        float: left !important
     }
 
     :host-context([dir=rtl]) .ion-float-lg-start {
-        float:right !important
+        float: right !important
     }
 
     [dir=rtl] .ion-float-lg-start {
-        float:right !important
+        float: right !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-lg-start:dir(rtl) {
-            float:right !important
+            float: right !important
         }
     }
 
     .ion-float-lg-end {
-        float:right !important
+        float: right !important
     }
 
     :host-context([dir=rtl]) .ion-float-lg-end {
-        float:left !important
+        float: left !important
     }
 
     [dir=rtl] .ion-float-lg-end {
-        float:left !important
+        float: left !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-lg-end:dir(rtl) {
-            float:left !important
+            float: left !important
         }
     }
 }
 
 @media (min-width: 1200px) {
     .ion-float-xl-left {
-        float:left !important
+        float: left !important
     }
 
     .ion-float-xl-right {
-        float:right !important
+        float: right !important
     }
 
     .ion-float-xl-start {
-        float:left !important
+        float: left !important
     }
 
     :host-context([dir=rtl]) .ion-float-xl-start {
-        float:right !important
+        float: right !important
     }
 
     [dir=rtl] .ion-float-xl-start {
-        float:right !important
+        float: right !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-xl-start:dir(rtl) {
-            float:right !important
+            float: right !important
         }
     }
 
     .ion-float-xl-end {
-        float:right !important
+        float: right !important
     }
 
     :host-context([dir=rtl]) .ion-float-xl-end {
-        float:left !important
+        float: left !important
     }
 
     [dir=rtl] .ion-float-xl-end {
-        float:left !important
+        float: left !important
     }
 
     @supports selector (: dir(rtl)) {
         .ion-float-xl-end:dir(rtl) {
-            float:left !important
+            float: left !important
         }
     }
 }
 
 .ion-text-center {
-    text-align:center !important
+    text-align: center !important
 }
 
 .ion-text-justify {
-    text-align:justify !important
+    text-align: justify !important
 }
 
 .ion-text-start {
-    text-align:start !important
+    text-align: start !important
 }
 
 .ion-text-end {
-    text-align:end !important
+    text-align: end !important
 }
 
 .ion-text-left {
-    text-align:left !important
+    text-align: left !important
 }
 
 .ion-text-right {
-    text-align:right !important
+    text-align: right !important
 }
 
 .ion-text-nowrap {
-    white-space:nowrap !important
+    white-space: nowrap !important
 }
 
 .ion-text-wrap {
-    white-space:normal !important
+    white-space: normal !important
 }
 
 @media (min-width: 576px) {
     .ion-text-sm-center {
-        text-align:center !important
+        text-align: center !important
     }
 
     .ion-text-sm-justify {
-        text-align:justify !important
+        text-align: justify !important
     }
 
     .ion-text-sm-start {
-        text-align:start !important
+        text-align: start !important
     }
 
     .ion-text-sm-end {
-        text-align:end !important
+        text-align: end !important
     }
 
     .ion-text-sm-left {
-        text-align:left !important
+        text-align: left !important
     }
 
     .ion-text-sm-right {
-        text-align:right !important
+        text-align: right !important
     }
 
     .ion-text-sm-nowrap {
-        white-space:nowrap !important
+        white-space: nowrap !important
     }
 
     .ion-text-sm-wrap {
-        white-space:normal !important
+        white-space: normal !important
     }
 }
 
 @media (min-width: 768px) {
     .ion-text-md-center {
-        text-align:center !important
+        text-align: center !important
     }
 
     .ion-text-md-justify {
-        text-align:justify !important
+        text-align: justify !important
     }
 
     .ion-text-md-start {
-        text-align:start !important
+        text-align: start !important
     }
 
     .ion-text-md-end {
-        text-align:end !important
+        text-align: end !important
     }
 
     .ion-text-md-left {
-        text-align:left !important
+        text-align: left !important
     }
 
     .ion-text-md-right {
-        text-align:right !important
+        text-align: right !important
     }
 
     .ion-text-md-nowrap {
-        white-space:nowrap !important
+        white-space: nowrap !important
     }
 
     .ion-text-md-wrap {
-        white-space:normal !important
+        white-space: normal !important
     }
 }
 
 @media (min-width: 992px) {
     .ion-text-lg-center {
-        text-align:center !important
+        text-align: center !important
     }
 
     .ion-text-lg-justify {
-        text-align:justify !important
+        text-align: justify !important
     }
 
     .ion-text-lg-start {
-        text-align:start !important
+        text-align: start !important
     }
 
     .ion-text-lg-end {
-        text-align:end !important
+        text-align: end !important
     }
 
     .ion-text-lg-left {
-        text-align:left !important
+        text-align: left !important
     }
 
     .ion-text-lg-right {
-        text-align:right !important
+        text-align: right !important
     }
 
     .ion-text-lg-nowrap {
-        white-space:nowrap !important
+        white-space: nowrap !important
     }
 
     .ion-text-lg-wrap {
-        white-space:normal !important
+        white-space: normal !important
     }
 }
 
 @media (min-width: 1200px) {
     .ion-text-xl-center {
-        text-align:center !important
+        text-align: center !important
     }
 
     .ion-text-xl-justify {
-        text-align:justify !important
+        text-align: justify !important
     }
 
     .ion-text-xl-start {
-        text-align:start !important
+        text-align: start !important
     }
 
     .ion-text-xl-end {
-        text-align:end !important
+        text-align: end !important
     }
 
     .ion-text-xl-left {
-        text-align:left !important
+        text-align: left !important
     }
 
     .ion-text-xl-right {
-        text-align:right !important
+        text-align: right !important
     }
 
     .ion-text-xl-nowrap {
-        white-space:nowrap !important
+        white-space: nowrap !important
     }
 
     .ion-text-xl-wrap {
-        white-space:normal !important
+        white-space: normal !important
     }
 }
 
 .ion-text-uppercase {
-    text-transform:uppercase !important
+    text-transform: uppercase !important
 }
 
 .ion-text-lowercase {
-    text-transform:lowercase !important
+    text-transform: lowercase !important
 }
 
 .ion-text-capitalize {
-    text-transform:capitalize !important
+    text-transform: capitalize !important
 }
 
 @media (min-width: 576px) {
     .ion-text-sm-uppercase {
-        text-transform:uppercase !important
+        text-transform: uppercase !important
     }
 
     .ion-text-sm-lowercase {
-        text-transform:lowercase !important
+        text-transform: lowercase !important
     }
 
     .ion-text-sm-capitalize {
-        text-transform:capitalize !important
+        text-transform: capitalize !important
     }
 }
 
 @media (min-width: 768px) {
     .ion-text-md-uppercase {
-        text-transform:uppercase !important
+        text-transform: uppercase !important
     }
 
     .ion-text-md-lowercase {
-        text-transform:lowercase !important
+        text-transform: lowercase !important
     }
 
     .ion-text-md-capitalize {
-        text-transform:capitalize !important
+        text-transform: capitalize !important
     }
 }
 
 @media (min-width: 992px) {
     .ion-text-lg-uppercase {
-        text-transform:uppercase !important
+        text-transform: uppercase !important
     }
 
     .ion-text-lg-lowercase {
-        text-transform:lowercase !important
+        text-transform: lowercase !important
     }
 
     .ion-text-lg-capitalize {
-        text-transform:capitalize !important
+        text-transform: capitalize !important
     }
 }
 
 @media (min-width: 1200px) {
     .ion-text-xl-uppercase {
-        text-transform:uppercase !important
+        text-transform: uppercase !important
     }
 
     .ion-text-xl-lowercase {
-        text-transform:lowercase !important
+        text-transform: lowercase !important
     }
 
     .ion-text-xl-capitalize {
-        text-transform:capitalize !important
+        text-transform: capitalize !important
     }
 }
 
 .ion-align-self-start {
-    align-self:flex-start !important
+    align-self: flex-start !important
 }
 
 .ion-align-self-end {
-    align-self:flex-end !important
+    align-self: flex-end !important
 }
 
 .ion-align-self-center {
-    align-self:center !important
+    align-self: center !important
 }
 
 .ion-align-self-stretch {
-    align-self:stretch !important
+    align-self: stretch !important
 }
 
 .ion-align-self-baseline {
-    align-self:baseline !important
+    align-self: baseline !important
 }
 
 .ion-align-self-auto {
-    align-self:auto !important
+    align-self: auto !important
 }
 
 .ion-wrap {
-    flex-wrap:wrap !important
+    flex-wrap: wrap !important
 }
 
 .ion-nowrap {
-    flex-wrap:nowrap !important
+    flex-wrap: nowrap !important
 }
 
 .ion-wrap-reverse {
-    flex-wrap:wrap-reverse !important
+    flex-wrap: wrap-reverse !important
 }
 
 .ion-justify-content-start {
-    justify-content:flex-start !important
+    justify-content: flex-start !important
 }
 
 .ion-justify-content-center {
-    justify-content:center !important
+    justify-content: center !important
 }
 
 .ion-justify-content-end {
-    justify-content:flex-end !important
+    justify-content: flex-end !important
 }
 
 .ion-justify-content-around {
-    justify-content:space-around !important
+    justify-content: space-around !important
 }
 
 .ion-justify-content-between {
-    justify-content:space-between !important
+    justify-content: space-between !important
 }
 
 .ion-justify-content-evenly {
-    justify-content:space-evenly !important
+    justify-content: space-evenly !important
 }
 
 .ion-align-items-start {
-    align-items:flex-start !important
+    align-items: flex-start !important
 }
 
 .ion-align-items-center {
-    align-items:center !important
+    align-items: center !important
 }
 
 .ion-align-items-end {
-    align-items:flex-end !important
+    align-items: flex-end !important
 }
 
 .ion-align-items-stretch {
-    align-items:stretch !important
+    align-items: stretch !important
 }
 
 .ion-align-items-baseline {
-    align-items:baseline !important
+    align-items: baseline !important
 }
 
-.ion-hide, .ion-hide-up, .ion-hide-down {
-    display:none !important
+.ion-hide,
+.ion-hide-up,
+.ion-hide-down {
+    display: none !important
 }
 
 @media (min-width: 576px) {
     .ion-hide-sm-up {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (max-width: 575.98px) {
     .ion-hide-sm-down {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (min-width: 768px) {
     .ion-hide-md-up {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (max-width: 767.98px) {
     .ion-hide-md-down {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (min-width: 992px) {
     .ion-hide-lg-up {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (max-width: 991.98px) {
     .ion-hide-lg-down {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (min-width: 1200px) {
     .ion-hide-xl-up {
-        display:none !important
+        display: none !important
     }
 }
 
 @media (max-width: 1199.98px) {
     .ion-hide-xl-down {
-        display:none !important
+        display: none !important
     }
 }
 
@@ -2073,35 +2175,45 @@ ion-item {
 }
 
 h1 {
-    font-size:var(--size-text-5xl)
+    font-size: var(--size-text-5xl)
 }
 
 h2 {
-    font-size:var(--size-text-4xl)
+    font-size: var(--size-text-4xl)
 }
 
 h3 {
-    font-size:var(--size-text-3xl)
+    font-size: var(--size-text-3xl)
 }
 
 h4 {
-    font-size:var(--size-text-lg)
+    font-size: var(--size-text-lg)
 }
 
 h5 {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 h6 {
-    font-size:var(--size-text-sm)
+    font-size: var(--size-text-sm)
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom:var(--size-spacing-md)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: var(--size-spacing-md)
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-    margin-top:0
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0
 }
 
 p {
@@ -2109,11 +2221,11 @@ p {
     font-size: var(--size-text-md);
     line-height: 1.4em;
     letter-spacing: normal;
-    margin-block:0 var(--size-spacing-md)
+    margin-block: 0 var(--size-spacing-md)
 }
 
 p:last-child {
-    margin-block-end:0
+    margin-block-end: 0
 }
 
 .text-heading {
@@ -2123,34 +2235,34 @@ p:last-child {
     padding: var(--size-spacing-md);
     line-height: var(--size-text-3xl);
     color: #9d9fa6;
-    border-bottom:1px solid var(--ion-color-light-grey)
+    border-bottom: 1px solid var(--ion-color-light-grey)
 }
 
 .text-link {
     cursor: pointer;
-    text-decoration:underline
+    text-decoration: underline
 }
 
 .text-highlight {
     color: var(--ion-color-red);
-    text-decoration:underline
+    text-decoration: underline
 }
 
 .text-underline {
-    text-decoration:underline
+    text-decoration: underline
 }
 
 .text-no-underline {
     text-decoration: none;
-    border-bottom:none !important
+    border-bottom: none !important
 }
 
 .text-bold {
-    font-weight:600 !important
+    font-weight: 600 !important
 }
 
 .text-semi-bold {
-    font-weight:500 !important
+    font-weight: 500 !important
 }
 
 .allergen-note {
@@ -2158,30 +2270,30 @@ p:last-child {
     font-weight: 500;
     margin-bottom: var(--size-spacing-xs);
     display: block;
-    color:var(--ion-color-red)
+    color: var(--ion-color-red)
 }
 
 html {
-    font-size:16px
+    font-size: 16px
 }
 
 body {
     font-family: avalon-jdw-book, sans-serif;
-    color:var(--ion-color-black-alt)
+    color: var(--ion-color-black-alt)
 }
 
 ion-app {
-    background-color:var(--ion-color-white)
+    background-color: var(--ion-color-white)
 }
 
 a {
     cursor: pointer;
     color: #333;
-    text-decoration:none
+    text-decoration: none
 }
 
 a:hover {
-    text-decoration:underline
+    text-decoration: underline
 }
 
 .content-vertical-align {
@@ -2190,7 +2302,7 @@ a:hover {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items:center
+    align-items: center
 }
 
 .app-identifier {
@@ -2199,63 +2311,63 @@ a:hover {
     left: calc(50% - 11px);
     font-size: var(--size-text-xs);
     color: #bab8b8;
-    z-index:9999999999
+    z-index: 9999999999
 }
 
 .d-none {
-    display:none
+    display: none
 }
 
 .d-flex {
-    display:flex
+    display: flex
 }
 
 .d-inline-flex {
-    display:inline-flex
+    display: inline-flex
 }
 
 .d-block {
-    display:block
+    display: block
 }
 
 .d-inline {
-    display:inline
+    display: inline
 }
 
 .d-inline-block {
-    display:inline-block
+    display: inline-block
 }
 
 .full-width {
-    width:100%
+    width: 100%
 }
 
 .full-height {
-    height:100%
+    height: 100%
 }
 
 .scrollable {
-    overflow:auto
+    overflow: auto
 }
 
 .v-align-middle {
-    vertical-align:middle
+    vertical-align: middle
 }
 
 hr {
     background-color: #285fc0;
     height: 4px;
-    width:100%
+    width: 100%
 }
 
 .caret-transparent {
-    caret-color:transparent
+    caret-color: transparent
 }
 
 .details-checkbox {
     display: flex;
     align-items: center;
-    margin:var(--size-spacing-xs)
+    margin: var(--size-spacing-xs)
 }
 
 .details-checkbox .checkbox {
@@ -2263,27 +2375,27 @@ hr {
     --border-radius: 0;
     --border-width: 2px;
     --border-color: #e6e6e6;
-    margin-left:-.45rem
+    margin-left: -.45rem
 }
 
 .details-checkbox ion-label {
-    flex:1
+    flex: 1
 }
 
 .payment-page ion-content::part(scroll) {
     display: flex;
-    flex-direction:column
+    flex-direction: column
 }
 
 .payment-page ion-content ion-grid {
-    flex:0
+    flex: 0
 }
 
 .payment-method {
     background-color: #f2f2f2;
     margin-top: var(--size-spacing-md);
     z-index: 1000;
-    flex:1
+    flex: 1
 }
 
 .order-confirmation-item {
@@ -2299,20 +2411,21 @@ hr {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content:space-between
+    justify-content: space-between
 }
 
-.order-confirmation-item .order-confirmation-item-wrapper h6, .order-confirmation-item .order-confirmation-item-wrapper p {
-    margin:0
+.order-confirmation-item .order-confirmation-item-wrapper h6,
+.order-confirmation-item .order-confirmation-item-wrapper p {
+    margin: 0
 }
 
 .order-confirmation-item .order-confirmation-item-wrapper .amount {
-    padding-right:var(--size-spacing-2xs)
+    padding-right: var(--size-spacing-2xs)
 }
 
 .braintree-placeholder {
     margin-bottom: 0;
-    display:none
+    display: none
 }
 
 ion-tab-bar {
@@ -2322,7 +2435,7 @@ ion-tab-bar {
     --ion-tab-bar-color-selected: var(--color-brand);
     --ion-tab-bar-color: #000;
     padding-top: var(--size-spacing-xs);
-    padding-bottom:max(var(--ion-safe-area-bottom, var(--size-spacing-xs)), var(--size-spacing-xs))
+    padding-bottom: max(var(--ion-safe-area-bottom, var(--size-spacing-xs)), var(--size-spacing-xs))
 }
 
 ion-tab-bar ion-label {
@@ -2330,562 +2443,562 @@ ion-tab-bar ion-label {
     font-size: var(--size-text-xs);
     font-weight: 500;
     margin-top: var(--size-spacing-2xs);
-    margin-bottom:0
+    margin-bottom: 0
 }
 
 ion-tab-bar ion-icon {
     font-size: var(--size-text-3xl);
-    margin:0
+    margin: 0
 }
 
 ion-tab-bar .tab-selected ion-label {
-    color:var(--color-brand)
+    color: var(--color-brand)
 }
 
 ion-tab-bar .tab-selected ion-icon ::slotted(path.has-stroke-fill) {
     fill: var(--color-brand) !important;
-    stroke:var(--color-brand) !important
+    stroke: var(--color-brand) !important
 }
 
 .text-2xs {
-    font-size:var(--size-text-2xs)
+    font-size: var(--size-text-2xs)
 }
 
 .text-xs {
-    font-size:var(--size-text-xs)
+    font-size: var(--size-text-xs)
 }
 
 .text-sm {
-    font-size:var(--size-text-sm)
+    font-size: var(--size-text-sm)
 }
 
 .text-md {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 .text-lg {
-    font-size:var(--size-text-lg)
+    font-size: var(--size-text-lg)
 }
 
 .text-xl {
-    font-size:var(--size-text-xl)
+    font-size: var(--size-text-xl)
 }
 
 .text-2xl {
-    font-size:var(--size-text-2xl)
+    font-size: var(--size-text-2xl)
 }
 
 .text-3xl {
-    font-size:var(--size-text-3xl)
+    font-size: var(--size-text-3xl)
 }
 
 .text-4xl {
-    font-size:var(--size-text-4xl)
+    font-size: var(--size-text-4xl)
 }
 
 .text-5xl {
-    font-size:var(--size-text-5xl)
+    font-size: var(--size-text-5xl)
 }
 
 .text-6xl {
-    font-size:var(--size-text-6xl)
+    font-size: var(--size-text-6xl)
 }
 
 .text-7xl {
-    font-size:var(--size-text-7xl)
+    font-size: var(--size-text-7xl)
 }
 
 .text-8xl {
-    font-size:var(--size-text-8xl)
+    font-size: var(--size-text-8xl)
 }
 
 .text-9xl {
-    font-size:var(--size-text-9xl)
+    font-size: var(--size-text-9xl)
 }
 
 .p-0 {
-    padding:var(--size-spacing-0)
+    padding: var(--size-spacing-0)
 }
 
 .ph-0 {
     padding-left: var(--size-spacing-0);
-    padding-right:var(--size-spacing-0)
+    padding-right: var(--size-spacing-0)
 }
 
 .pv-0 {
     padding-top: var(--size-spacing-0);
-    padding-bottom:var(--size-spacing-0)
+    padding-bottom: var(--size-spacing-0)
 }
 
 .pt-0 {
-    padding-top:var(--size-spacing-0)
+    padding-top: var(--size-spacing-0)
 }
 
 .pr-0 {
-    padding-right:var(--size-spacing-0)
+    padding-right: var(--size-spacing-0)
 }
 
 .pb-0 {
-    padding-bottom:var(--size-spacing-0)
+    padding-bottom: var(--size-spacing-0)
 }
 
 .pl-0 {
-    padding-left:var(--size-spacing-0)
+    padding-left: var(--size-spacing-0)
 }
 
 .m-0 {
-    margin:var(--size-spacing-0)
+    margin: var(--size-spacing-0)
 }
 
 .mh-0 {
     margin-left: var(--size-spacing-0);
-    margin-right:var(--size-spacing-0)
+    margin-right: var(--size-spacing-0)
 }
 
 .mv-0 {
     margin-top: var(--size-spacing-0);
-    margin-bottom:var(--size-spacing-0)
+    margin-bottom: var(--size-spacing-0)
 }
 
 .mt-0 {
-    margin-top:var(--size-spacing-0)
+    margin-top: var(--size-spacing-0)
 }
 
 .mr-0 {
-    margin-right:var(--size-spacing-0)
+    margin-right: var(--size-spacing-0)
 }
 
 .mb-0 {
-    margin-bottom:var(--size-spacing-0)
+    margin-bottom: var(--size-spacing-0)
 }
 
 .ml-0 {
-    margin-left:var(--size-spacing-0)
+    margin-left: var(--size-spacing-0)
 }
 
 .p-2xs {
-    padding:var(--size-spacing-2xs)
+    padding: var(--size-spacing-2xs)
 }
 
 .ph-2xs {
     padding-left: var(--size-spacing-2xs);
-    padding-right:var(--size-spacing-2xs)
+    padding-right: var(--size-spacing-2xs)
 }
 
 .pv-2xs {
     padding-top: var(--size-spacing-2xs);
-    padding-bottom:var(--size-spacing-2xs)
+    padding-bottom: var(--size-spacing-2xs)
 }
 
 .pt-2xs {
-    padding-top:var(--size-spacing-2xs)
+    padding-top: var(--size-spacing-2xs)
 }
 
 .pr-2xs {
-    padding-right:var(--size-spacing-2xs)
+    padding-right: var(--size-spacing-2xs)
 }
 
 .pb-2xs {
-    padding-bottom:var(--size-spacing-2xs)
+    padding-bottom: var(--size-spacing-2xs)
 }
 
 .pl-2xs {
-    padding-left:var(--size-spacing-2xs)
+    padding-left: var(--size-spacing-2xs)
 }
 
 .m-2xs {
-    margin:var(--size-spacing-2xs)
+    margin: var(--size-spacing-2xs)
 }
 
 .mh-2xs {
     margin-left: var(--size-spacing-2xs);
-    margin-right:var(--size-spacing-2xs)
+    margin-right: var(--size-spacing-2xs)
 }
 
 .mv-2xs {
     margin-top: var(--size-spacing-2xs);
-    margin-bottom:var(--size-spacing-2xs)
+    margin-bottom: var(--size-spacing-2xs)
 }
 
 .mt-2xs {
-    margin-top:var(--size-spacing-2xs)
+    margin-top: var(--size-spacing-2xs)
 }
 
 .mr-2xs {
-    margin-right:var(--size-spacing-2xs)
+    margin-right: var(--size-spacing-2xs)
 }
 
 .mb-2xs {
-    margin-bottom:var(--size-spacing-2xs)
+    margin-bottom: var(--size-spacing-2xs)
 }
 
 .ml-2xs {
-    margin-left:var(--size-spacing-2xs)
+    margin-left: var(--size-spacing-2xs)
 }
 
 .p-xs {
-    padding:var(--size-spacing-xs)
+    padding: var(--size-spacing-xs)
 }
 
 .ph-xs {
     padding-left: var(--size-spacing-xs);
-    padding-right:var(--size-spacing-xs)
+    padding-right: var(--size-spacing-xs)
 }
 
 .pv-xs {
     padding-top: var(--size-spacing-xs);
-    padding-bottom:var(--size-spacing-xs)
+    padding-bottom: var(--size-spacing-xs)
 }
 
 .pt-xs {
-    padding-top:var(--size-spacing-xs)
+    padding-top: var(--size-spacing-xs)
 }
 
 .pr-xs {
-    padding-right:var(--size-spacing-xs)
+    padding-right: var(--size-spacing-xs)
 }
 
 .pb-xs {
-    padding-bottom:var(--size-spacing-xs)
+    padding-bottom: var(--size-spacing-xs)
 }
 
 .pl-xs {
-    padding-left:var(--size-spacing-xs)
+    padding-left: var(--size-spacing-xs)
 }
 
 .m-xs {
-    margin:var(--size-spacing-xs)
+    margin: var(--size-spacing-xs)
 }
 
 .mh-xs {
     margin-left: var(--size-spacing-xs);
-    margin-right:var(--size-spacing-xs)
+    margin-right: var(--size-spacing-xs)
 }
 
 .mv-xs {
     margin-top: var(--size-spacing-xs);
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .mt-xs {
-    margin-top:var(--size-spacing-xs)
+    margin-top: var(--size-spacing-xs)
 }
 
 .mr-xs {
-    margin-right:var(--size-spacing-xs)
+    margin-right: var(--size-spacing-xs)
 }
 
 .mb-xs {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .ml-xs {
-    margin-left:var(--size-spacing-xs)
+    margin-left: var(--size-spacing-xs)
 }
 
 .p-sm {
-    padding:var(--size-spacing-sm)
+    padding: var(--size-spacing-sm)
 }
 
 .ph-sm {
     padding-left: var(--size-spacing-sm);
-    padding-right:var(--size-spacing-sm)
+    padding-right: var(--size-spacing-sm)
 }
 
 .pv-sm {
     padding-top: var(--size-spacing-sm);
-    padding-bottom:var(--size-spacing-sm)
+    padding-bottom: var(--size-spacing-sm)
 }
 
 .pt-sm {
-    padding-top:var(--size-spacing-sm)
+    padding-top: var(--size-spacing-sm)
 }
 
 .pr-sm {
-    padding-right:var(--size-spacing-sm)
+    padding-right: var(--size-spacing-sm)
 }
 
 .pb-sm {
-    padding-bottom:var(--size-spacing-sm)
+    padding-bottom: var(--size-spacing-sm)
 }
 
 .pl-sm {
-    padding-left:var(--size-spacing-sm)
+    padding-left: var(--size-spacing-sm)
 }
 
 .m-sm {
-    margin:var(--size-spacing-sm)
+    margin: var(--size-spacing-sm)
 }
 
 .mh-sm {
     margin-left: var(--size-spacing-sm);
-    margin-right:var(--size-spacing-sm)
+    margin-right: var(--size-spacing-sm)
 }
 
 .mv-sm {
     margin-top: var(--size-spacing-sm);
-    margin-bottom:var(--size-spacing-sm)
+    margin-bottom: var(--size-spacing-sm)
 }
 
 .mt-sm {
-    margin-top:var(--size-spacing-sm)
+    margin-top: var(--size-spacing-sm)
 }
 
 .mr-sm {
-    margin-right:var(--size-spacing-sm)
+    margin-right: var(--size-spacing-sm)
 }
 
 .mb-sm {
-    margin-bottom:var(--size-spacing-sm)
+    margin-bottom: var(--size-spacing-sm)
 }
 
 .ml-sm {
-    margin-left:var(--size-spacing-sm)
+    margin-left: var(--size-spacing-sm)
 }
 
 .p-md {
-    padding:var(--size-spacing-md)
+    padding: var(--size-spacing-md)
 }
 
 .ph-md {
     padding-left: var(--size-spacing-md);
-    padding-right:var(--size-spacing-md)
+    padding-right: var(--size-spacing-md)
 }
 
 .pv-md {
     padding-top: var(--size-spacing-md);
-    padding-bottom:var(--size-spacing-md)
+    padding-bottom: var(--size-spacing-md)
 }
 
 .pt-md {
-    padding-top:var(--size-spacing-md)
+    padding-top: var(--size-spacing-md)
 }
 
 .pr-md {
-    padding-right:var(--size-spacing-md)
+    padding-right: var(--size-spacing-md)
 }
 
 .pb-md {
-    padding-bottom:var(--size-spacing-md)
+    padding-bottom: var(--size-spacing-md)
 }
 
 .pl-md {
-    padding-left:var(--size-spacing-md)
+    padding-left: var(--size-spacing-md)
 }
 
 .m-md {
-    margin:var(--size-spacing-md)
+    margin: var(--size-spacing-md)
 }
 
 .mh-md {
     margin-left: var(--size-spacing-md);
-    margin-right:var(--size-spacing-md)
+    margin-right: var(--size-spacing-md)
 }
 
 .mv-md {
     margin-top: var(--size-spacing-md);
-    margin-bottom:var(--size-spacing-md)
+    margin-bottom: var(--size-spacing-md)
 }
 
 .mt-md {
-    margin-top:var(--size-spacing-md)
+    margin-top: var(--size-spacing-md)
 }
 
 .mr-md {
-    margin-right:var(--size-spacing-md)
+    margin-right: var(--size-spacing-md)
 }
 
 .mb-md {
-    margin-bottom:var(--size-spacing-md)
+    margin-bottom: var(--size-spacing-md)
 }
 
 .ml-md {
-    margin-left:var(--size-spacing-md)
+    margin-left: var(--size-spacing-md)
 }
 
 .p-lg {
-    padding:var(--size-spacing-lg)
+    padding: var(--size-spacing-lg)
 }
 
 .ph-lg {
     padding-left: var(--size-spacing-lg);
-    padding-right:var(--size-spacing-lg)
+    padding-right: var(--size-spacing-lg)
 }
 
 .pv-lg {
     padding-top: var(--size-spacing-lg);
-    padding-bottom:var(--size-spacing-lg)
+    padding-bottom: var(--size-spacing-lg)
 }
 
 .pt-lg {
-    padding-top:var(--size-spacing-lg)
+    padding-top: var(--size-spacing-lg)
 }
 
 .pr-lg {
-    padding-right:var(--size-spacing-lg)
+    padding-right: var(--size-spacing-lg)
 }
 
 .pb-lg {
-    padding-bottom:var(--size-spacing-lg)
+    padding-bottom: var(--size-spacing-lg)
 }
 
 .pl-lg {
-    padding-left:var(--size-spacing-lg)
+    padding-left: var(--size-spacing-lg)
 }
 
 .m-lg {
-    margin:var(--size-spacing-lg)
+    margin: var(--size-spacing-lg)
 }
 
 .mh-lg {
     margin-left: var(--size-spacing-lg);
-    margin-right:var(--size-spacing-lg)
+    margin-right: var(--size-spacing-lg)
 }
 
 .mv-lg {
     margin-top: var(--size-spacing-lg);
-    margin-bottom:var(--size-spacing-lg)
+    margin-bottom: var(--size-spacing-lg)
 }
 
 .mt-lg {
-    margin-top:var(--size-spacing-lg)
+    margin-top: var(--size-spacing-lg)
 }
 
 .mr-lg {
-    margin-right:var(--size-spacing-lg)
+    margin-right: var(--size-spacing-lg)
 }
 
 .mb-lg {
-    margin-bottom:var(--size-spacing-lg)
+    margin-bottom: var(--size-spacing-lg)
 }
 
 .ml-lg {
-    margin-left:var(--size-spacing-lg)
+    margin-left: var(--size-spacing-lg)
 }
 
 .p-xl {
-    padding:var(--size-spacing-xl)
+    padding: var(--size-spacing-xl)
 }
 
 .ph-xl {
     padding-left: var(--size-spacing-xl);
-    padding-right:var(--size-spacing-xl)
+    padding-right: var(--size-spacing-xl)
 }
 
 .pv-xl {
     padding-top: var(--size-spacing-xl);
-    padding-bottom:var(--size-spacing-xl)
+    padding-bottom: var(--size-spacing-xl)
 }
 
 .pt-xl {
-    padding-top:var(--size-spacing-xl)
+    padding-top: var(--size-spacing-xl)
 }
 
 .pr-xl {
-    padding-right:var(--size-spacing-xl)
+    padding-right: var(--size-spacing-xl)
 }
 
 .pb-xl {
-    padding-bottom:var(--size-spacing-xl)
+    padding-bottom: var(--size-spacing-xl)
 }
 
 .pl-xl {
-    padding-left:var(--size-spacing-xl)
+    padding-left: var(--size-spacing-xl)
 }
 
 .m-xl {
-    margin:var(--size-spacing-xl)
+    margin: var(--size-spacing-xl)
 }
 
 .mh-xl {
     margin-left: var(--size-spacing-xl);
-    margin-right:var(--size-spacing-xl)
+    margin-right: var(--size-spacing-xl)
 }
 
 .mv-xl {
     margin-top: var(--size-spacing-xl);
-    margin-bottom:var(--size-spacing-xl)
+    margin-bottom: var(--size-spacing-xl)
 }
 
 .mt-xl {
-    margin-top:var(--size-spacing-xl)
+    margin-top: var(--size-spacing-xl)
 }
 
 .mr-xl {
-    margin-right:var(--size-spacing-xl)
+    margin-right: var(--size-spacing-xl)
 }
 
 .mb-xl {
-    margin-bottom:var(--size-spacing-xl)
+    margin-bottom: var(--size-spacing-xl)
 }
 
 .ml-xl {
-    margin-left:var(--size-spacing-xl)
+    margin-left: var(--size-spacing-xl)
 }
 
 .p-2xl {
-    padding:var(--size-spacing-2xl)
+    padding: var(--size-spacing-2xl)
 }
 
 .ph-2xl {
     padding-left: var(--size-spacing-2xl);
-    padding-right:var(--size-spacing-2xl)
+    padding-right: var(--size-spacing-2xl)
 }
 
 .pv-2xl {
     padding-top: var(--size-spacing-2xl);
-    padding-bottom:var(--size-spacing-2xl)
+    padding-bottom: var(--size-spacing-2xl)
 }
 
 .pt-2xl {
-    padding-top:var(--size-spacing-2xl)
+    padding-top: var(--size-spacing-2xl)
 }
 
 .pr-2xl {
-    padding-right:var(--size-spacing-2xl)
+    padding-right: var(--size-spacing-2xl)
 }
 
 .pb-2xl {
-    padding-bottom:var(--size-spacing-2xl)
+    padding-bottom: var(--size-spacing-2xl)
 }
 
 .pl-2xl {
-    padding-left:var(--size-spacing-2xl)
+    padding-left: var(--size-spacing-2xl)
 }
 
 .m-2xl {
-    margin:var(--size-spacing-2xl)
+    margin: var(--size-spacing-2xl)
 }
 
 .mh-2xl {
     margin-left: var(--size-spacing-2xl);
-    margin-right:var(--size-spacing-2xl)
+    margin-right: var(--size-spacing-2xl)
 }
 
 .mv-2xl {
     margin-top: var(--size-spacing-2xl);
-    margin-bottom:var(--size-spacing-2xl)
+    margin-bottom: var(--size-spacing-2xl)
 }
 
 .mt-2xl {
-    margin-top:var(--size-spacing-2xl)
+    margin-top: var(--size-spacing-2xl)
 }
 
 .mr-2xl {
-    margin-right:var(--size-spacing-2xl)
+    margin-right: var(--size-spacing-2xl)
 }
 
 .mb-2xl {
-    margin-bottom:var(--size-spacing-2xl)
+    margin-bottom: var(--size-spacing-2xl)
 }
 
 .ml-2xl {
-    margin-left:var(--size-spacing-2xl)
+    margin-left: var(--size-spacing-2xl)
 }
 
 .title-bar {
     background-color: var(--ion-color-tertiary);
-    padding:var(--size-spacing-sm) var(--size-spacing-lg)
+    padding: var(--size-spacing-sm) var(--size-spacing-lg)
 }
 
 .title-bar h2 {
@@ -2893,127 +3006,135 @@ ion-tab-bar .tab-selected ion-icon ::slotted(path.has-stroke-fill) {
     font-size: var(--size-text-md);
     line-height: 100%;
     color: var(--color-text-grey);
-    margin:0
+    margin: 0
 }
 
 .title-bar.large h2 {
-    font-size:var(--size-text-lg)
+    font-size: var(--size-text-lg)
 }
 
-.ion-padding, .ion-padding-vertical {
+.ion-padding,
+.ion-padding-vertical {
     --padding-top: var(--ion-padding-vertical);
     --padding-bottom: var(--ion-padding-vertical);
     padding-top: var(--padding-top) !important;
-    padding-bottom:var(--padding-bottom) !important
+    padding-bottom: var(--padding-bottom) !important
 }
 
 .ion-padding-top {
     --padding-top: var(--ion-padding-vertical);
-    padding-top:var(--padding-top) !important
+    padding-top: var(--padding-top) !important
 }
 
 .ion-padding-bottom {
     --padding-bottom: var(--ion-padding-vertical);
-    padding-bottom:var(--padding-bottom) !important
+    padding-bottom: var(--padding-bottom) !important
 }
 
-.ion-margin, .ion-margin-vertical {
+.ion-margin,
+.ion-margin-vertical {
     --margin-top: var(--ion-margin-vertical);
     --margin-bottom: var(--ion-margin-vertical);
     margin-top: var(--margin-top) !important;
-    margin-bottom:var(--margin-bottom) !important
+    margin-bottom: var(--margin-bottom) !important
 }
 
 .ion-margin-top {
     --margin-top: var(--ion-margin-vertical);
-    margin-top:var(--margin-top) !important
+    margin-top: var(--margin-top) !important
 }
 
 .ion-margin-bottom {
     --margin-bottom: var(--ion-margin-vertical);
-    margin-bottom:var(--margin-bottom) !important
+    margin-bottom: var(--margin-bottom) !important
 }
 
 .ion-flex-column {
-    flex-direction:column
+    flex-direction: column
 }
 
 .ion-flex-column ion-col {
     width: auto !important;
-    max-width:100% !important
+    max-width: 100% !important
 }
 
 .ion-flex {
-    flex:1 1 100%
+    flex: 1 1 100%
 }
 
 .ion-flex-auto {
-    flex:0 0 auto
+    flex: 0 0 auto
 }
 
 .ion-flex-grow {
-    flex-grow:1
+    flex-grow: 1
 }
 
 .ion-flex-shrink {
-    flex-shrink:1
+    flex-shrink: 1
 }
 
 .ion-flex-min-fix {
     min-width: 0;
-    min-height:0
+    min-height: 0
 }
 
 ion-tabs {
-    padding-top:var(--ion-safe-area-top, 0)
+    padding-top: var(--ion-safe-area-top, 0)
 }
 
 .hide-app-tabs ion-tabs {
-    padding-bottom:var(--ion-safe-area-bottom)
+    padding-bottom: var(--ion-safe-area-bottom)
 }
 
 .hide-app-tabs ion-tabs ion-tab-bar {
-    display:none
+    display: none
 }
 
 ion-alert .alert-wrapper {
-    border-radius:0 !important
+    border-radius: 0 !important
 }
 
-ion-alert .alert-head.sc-ion-alert-md, ion-alert .alert-head.sc-ion-alert-ios {
+ion-alert .alert-head.sc-ion-alert-md,
+ion-alert .alert-head.sc-ion-alert-ios {
     padding-top: var(--size-spacing-md);
     padding-bottom: var(--size-spacing-md);
     padding-inline-start: var(--ion-padding);
-    padding-inline-end:var(--ion-padding)
+    padding-inline-end: var(--ion-padding)
 }
 
-ion-alert .alert-head.sc-ion-alert-md .alert-title, ion-alert .alert-head.sc-ion-alert-ios .alert-title {
-    font-size:var(--size-text-lg)
+ion-alert .alert-head.sc-ion-alert-md .alert-title,
+ion-alert .alert-head.sc-ion-alert-ios .alert-title {
+    font-size: var(--size-text-lg)
 }
 
-ion-alert .alert-head.sc-ion-alert-md .alert-title.sc-ion-alert-md, ion-alert .alert-head.sc-ion-alert-md .alert-title.sc-ion-alert-ios, ion-alert .alert-head.sc-ion-alert-ios .alert-title.sc-ion-alert-md, ion-alert .alert-head.sc-ion-alert-ios .alert-title.sc-ion-alert-ios {
-    margin:0
+ion-alert .alert-head.sc-ion-alert-md .alert-title.sc-ion-alert-md,
+ion-alert .alert-head.sc-ion-alert-md .alert-title.sc-ion-alert-ios,
+ion-alert .alert-head.sc-ion-alert-ios .alert-title.sc-ion-alert-md,
+ion-alert .alert-head.sc-ion-alert-ios .alert-title.sc-ion-alert-ios {
+    margin: 0
 }
 
-ion-alert .alert-message.sc-ion-alert-md, ion-alert .alert-message.sc-ion-alert-ios {
+ion-alert .alert-message.sc-ion-alert-md,
+ion-alert .alert-message.sc-ion-alert-ios {
     color: revert;
     padding-bottom: var(--size-spacing-md);
     padding-inline-start: var(--ion-padding);
-    padding-inline-end:var(--ion-padding)
+    padding-inline-end: var(--ion-padding)
 }
 
 ion-alert .alert-button-group {
-    padding:0 !important
+    padding: 0 !important
 }
 
 ion-alert .alert-button {
     border-radius: 0 !important;
-    font-size:var(--size-text-md) !important
+    font-size: var(--size-text-md) !important
 }
 
 ion-alert .alert-button.ion-color-brand {
     background-color: var(--ion-color-brand);
-    color:var(--ion-color-brand-contrast)
+    color: var(--ion-color-brand-contrast)
 }
 
 ion-alert .alert-button.button-block {
@@ -3021,15 +3142,15 @@ ion-alert .alert-button.button-block {
     text-align: center;
     margin-inline-start: var(--ion-margin);
     margin-inline-end: var(--ion-margin);
-    margin-bottom:var(--size-spacing-md)
+    margin-bottom: var(--size-spacing-md)
 }
 
 ion-alert .alert-button.button-block .alert-button-inner {
-    justify-content:center
+    justify-content: center
 }
 
 ion-alert.ion-text-center .alert-head {
-    text-align:center
+    text-align: center
 }
 
 ion-accordion .item {
@@ -3037,7 +3158,7 @@ ion-accordion .item {
 }
 
 ion-accordion .item .input-wrapper {
-    text-overflow:unset !important
+    text-overflow: unset !important
 }
 
 ion-accordion .item ion-label {
@@ -3046,7 +3167,7 @@ ion-accordion .item ion-label {
     --font-size: var(--size-text-md);
     font-weight: 500;
     font-size: var(--size-text-md) !important;
-    white-space:break-spaces !important
+    white-space: break-spaces !important
 }
 
 ion-accordion .item[slot=header] {
@@ -3054,18 +3175,18 @@ ion-accordion .item[slot=header] {
 }
 
 ion-accordion .item ion-icon {
-    font-size:1em
+    font-size: 1em
 }
 
 ion-accordion.filled ion-item.item::part(native) {
     background: var(--color-brand-light-grey);
-    padding-left:var(--size-spacing-lg)
+    padding-left: var(--size-spacing-lg)
 }
 
 ion-accordion.filled ion-item.item ion-label.sc-ion-label-ios-h {
     --color: var(--color-text-grey);
     font-size: var(--size-text-lg) !important;
-    font-weight:600
+    font-weight: 600
 }
 
 ion-button {
@@ -3078,7 +3199,7 @@ ion-button {
     margin-top: 0;
     margin-bottom: var(--size-spacing-md);
     margin-inline: 0;
-    touch-action:manipulation
+    touch-action: manipulation
 }
 
 ion-button:not(.button-round) {
@@ -3090,7 +3211,7 @@ ion-button.button-round {
 }
 
 ion-button.ion-justify-content-between :not([slot]) {
-    width:100%
+    width: 100%
 }
 
 ion-button.button-clear {
@@ -3111,19 +3232,19 @@ ion-button.button-text {
     font-weight: 400;
     text-transform: none;
     color: inherit;
-    vertical-align:sub
+    vertical-align: sub
 }
 
 ion-button.button-text [slot=icon-only] {
-    font-size:1em
+    font-size: 1em
 }
 
 ion-button.button-outline::part(native) {
-    border-width:1px
+    border-width: 1px
 }
 
 ion-button:last-child {
-    margin-bottom:0
+    margin-bottom: 0
 }
 
 ion-button:not(.button-clear, .button-outline) {
@@ -3136,25 +3257,26 @@ ion-button.button-disabled {
 }
 
 ion-button.button-invalid {
-    opacity:.5
+    opacity: .5
 }
 
 ion-button ion-icon[slot=end] {
-    font-size:1em
+    font-size: 1em
 }
 
 ion-card.image-cover::part(native) {
-    height:100%
+    height: 100%
 }
 
 ion-card.image-cover ion-img {
     height: 100%;
     object-fit: cover;
-    object-position:center
+    object-position: center
 }
 
-ion-card ion-card-content, ion-card ion-card-content p {
-    font-size:var(--size-text-md) !important
+ion-card ion-card-content,
+ion-card ion-card-content p {
+    font-size: var(--size-text-md) !important
 }
 
 ion-checkbox {
@@ -3164,7 +3286,7 @@ ion-checkbox {
 }
 
 ion-checkbox::part(label) {
-    white-space:normal
+    white-space: normal
 }
 
 ion-checkbox.md {
@@ -3172,7 +3294,7 @@ ion-checkbox.md {
 }
 
 ion-checkbox.md::part(container) {
-    padding:3px
+    padding: 3px
 }
 
 ion-checkbox.ios {
@@ -3180,45 +3302,45 @@ ion-checkbox.ios {
 }
 
 ion-checkbox.checkbox-label-placement-start::part(label) {
-    margin-inline-end:var(--ion-label-margin, var(--ion-margin))
+    margin-inline-end: var(--ion-label-margin, var(--ion-margin))
 }
 
 ion-checkbox.checkbox-label-placement-end::part(label) {
-    margin-inline-start:var(--ion-label-margin, var(--ion-margin))
+    margin-inline-start: var(--ion-label-margin, var(--ion-margin))
 }
 
 ion-item ion-checkbox::part(label) {
     margin-top: var(--ion-label-margin-top, var(--ion-label-margin-vertical, var(--ion-margin-vertical)));
-    margin-bottom:var(--ion-label-margin-bottom, var(--ion-label-margin-vertical, var(--ion-margin-vertical)))
+    margin-bottom: var(--ion-label-margin-bottom, var(--ion-label-margin-vertical, var(--ion-margin-vertical)))
 }
 
 ion-header ion-toolbar:first-of-type {
-    padding-top:0
+    padding-top: 0
 }
 
 ion-header ion-buttons .button ion-icon[slot=icon-only] {
-    font-size:var(--size-text-xl)
+    font-size: var(--size-text-xl)
 }
 
 ion-header ion-buttons[slot=start] {
-    margin-left:var(--size-spacing-xs)
+    margin-left: var(--size-spacing-xs)
 }
 
 ion-header ion-buttons[slot=start] .button:first-of-type {
     --padding-start: 0 !important;
-    min-width:32px
+    min-width: 32px
 }
 
 ion-header ion-buttons[slot=end] {
-    margin-right:var(--size-spacing-sm)
+    margin-right: var(--size-spacing-sm)
 }
 
 ion-footer {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 ion-icon {
-    will-change:transform
+    will-change: transform
 }
 
 ion-input.input-fill-outline {
@@ -3227,20 +3349,20 @@ ion-input.input-fill-outline {
     --border-width: 1px;
     --highlight-color-focused: inherit;
     --highlight-color-valid: inherit;
-    min-height:42px !important
+    min-height: 42px !important
 }
 
 ion-input.input-fill-outline.input-label-placement-stacked {
-    padding-top:1.5em !important
+    padding-top: 1.5em !important
 }
 
 ion-input.input-fill-outline.input-label-placement-stacked .input-outline-notch {
-    display:none
+    display: none
 }
 
 ion-input.input-fill-outline.input-label-placement-stacked .label-text-wrapper {
     transform: translateY(-120%) !important;
-    margin-left:calc(var(--padding-start) * -1) !important
+    margin-left: calc(var(--padding-start) * -1) !important
 }
 
 ion-item {
@@ -3263,11 +3385,11 @@ ion-item.item-fill-solid::part(native) {
 
 ion-item.ion-flex-column::part(native) {
     flex-direction: column;
-    align-items:stretch
+    align-items: stretch
 }
 
-ion-item > * [slot=start] {
-    margin-right:var(--ion-margin-vertical)
+ion-item>* [slot=start] {
+    margin-right: var(--ion-margin-vertical)
 }
 
 ion-item-divider {
@@ -3275,16 +3397,18 @@ ion-item-divider {
     --background: var(--ion-color-tertiary);
     --padding-start: var(--ion-padding);
     --inner-padding-end: var(--ion-padding);
-    min-height:38px
+    min-height: 38px
 }
 
-ion-item > ion-icon[slot], ion-item-divider > ion-icon[slot] {
-    font-size:var(--size-text-md)
+ion-item>ion-icon[slot],
+ion-item-divider>ion-icon[slot] {
+    font-size: var(--size-text-md)
 }
 
-ion-list.md, ion-list.ios {
+ion-list.md,
+ion-list.ios {
     padding-top: 0;
-    padding-bottom:0
+    padding-bottom: 0
 }
 
 ion-list.ion-no-padding ion-item {
@@ -3298,13 +3422,13 @@ ion-modal {
 
 ion-modal.modal-auto-height {
     --height: auto;
-    align-items:flex-end
+    align-items: flex-end
 }
 
-ion-modal.modal-auto-height > .ion-page {
+ion-modal.modal-auto-height>.ion-page {
     max-height: calc(100vh - var(--ion-safe-area-top) - var(--ion-safe-area-bottom));
     max-height: calc(100svh - var(--ion-safe-area-top) - var(--ion-safe-area-bottom));
-    padding-bottom:var(--ion-safe-area-bottom)
+    padding-bottom: var(--ion-safe-area-bottom)
 }
 
 ion-modal.modal-auto-height::part(content) {
@@ -3320,24 +3444,25 @@ ion-modal.modal-auto-size::part(content) {
     padding: var(--ion-padding, 0);
     max-width: 400px;
     max-height: calc(100% - max(var(--ion-safe-area-top, 0), var(--ion-margin, 0)) - max(var(--ion-safe-area-bottom, 0), var(--ion-margin, 0)));
-    overflow-y:auto
+    overflow-y: auto
 }
 
-ion-modal:not(.modal-auto-size, .modal-auto-height).show-modal ~ ion-modal.modal-default {
+ion-modal:not(.modal-auto-size, .modal-auto-height).show-modal~ion-modal.modal-default {
     --backdrop-opacity: var(--ion-backdrop-opacity)
 }
 
-ion-modal:not(.modal-auto-size, .modal-auto-height) > .ion-page {
+ion-modal:not(.modal-auto-size, .modal-auto-height)>.ion-page {
     padding-top: var(--ion-safe-area-top, 0);
-    padding-bottom:var(--ion-safe-area-bottom, 0)
+    padding-bottom: var(--ion-safe-area-bottom, 0)
 }
 
-ion-modal.modal-show-backdrop, ion-modal.modal-default.show-modal ~ ion-modal.modal-default.modal-show-backdrop {
+ion-modal.modal-show-backdrop,
+ion-modal.modal-default.show-modal~ion-modal.modal-default.modal-show-backdrop {
     --backdrop-opacity: var(--ion-backdrop-opacity)
 }
 
 ion-note {
-    display:block
+    display: block
 }
 
 ion-radio {
@@ -3352,7 +3477,7 @@ ion-radio::part(container) {
     border-style: var(--border-style);
     border-width: var(--border-width);
     border-radius: 50%;
-    border-color:var(--color)
+    border-color: var(--color)
 }
 
 ion-radio::part(mark) {
@@ -3361,15 +3486,15 @@ ion-radio::part(mark) {
     border-radius: var(--inner-border-radius);
     background: var(--color-checked);
     transform: scale3d(0, 0, 0);
-    transition:transform .28s cubic-bezier(.4, 0, .2, 1) 0s, -webkit-transform .28s cubic-bezier(.4, 0, .2, 1) 0s
+    transition: transform .28s cubic-bezier(.4, 0, .2, 1) 0s, -webkit-transform .28s cubic-bezier(.4, 0, .2, 1) 0s
 }
 
 ion-radio.radio-checked::part(container) {
-    border-color:var(--color-checked)
+    border-color: var(--color-checked)
 }
 
 ion-radio.radio-checked::part(mark) {
-    transform:scaleZ(1)
+    transform: scaleZ(1)
 }
 
 ion-range {
@@ -3381,7 +3506,7 @@ ion-range {
     --bar-background: rgba(var(--ion-color-primary-rgb), .25);
     --bar-background-active: var(--ion-color-primary);
     padding-inline-start: calc(var(--knob-size) * .5);
-    padding-inline-end:calc(var(--knob-size) * .5)
+    padding-inline-end: calc(var(--knob-size) * .5)
 }
 
 ion-range::part(label) {
@@ -3389,15 +3514,15 @@ ion-range::part(label) {
     transform: none;
     width: calc(100% + var(--knob-size));
     max-width: calc(100% + var(--knob-size));
-    margin-left:calc(var(--knob-size) * .5 * -1)
+    margin-left: calc(var(--knob-size) * .5 * -1)
 }
 
-ion-range > [slot=label] {
-    max-width:100%
+ion-range>[slot=label] {
+    max-width: 100%
 }
 
 ion-range::part(knob) {
-    transform:none
+    transform: none
 }
 
 ion-searchbar {
@@ -3406,21 +3531,22 @@ ion-searchbar {
     --icon-color: var(--color-text-grey)
 }
 
-ion-searchbar.ios, ion-searchbar.md {
+ion-searchbar.ios,
+ion-searchbar.md {
     height: 37px;
     padding-top: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
-    padding-inline-end:0
+    padding-inline-end: 0
 }
 
 ion-toolbar ion-searchbar {
-    min-height:37px !important
+    min-height: 37px !important
 }
 
 ion-searchbar .searchbar-input-container {
     --box-shadow: none;
-    border:.75px solid var(--ion-color-step-200)
+    border: .75px solid var(--ion-color-step-200)
 }
 
 ion-searchbar .searchbar-input {
@@ -3429,17 +3555,17 @@ ion-searchbar .searchbar-input {
     font-size: var(--size-text-md) !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
-    padding-left:38px !important
+    padding-left: 38px !important
 }
 
 ion-searchbar .searchbar-search-icon {
     left: var(--size-spacing-xs) !important;
     color: var(--ion-color-grey) !important;
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 ion-searchbar .searchbar-search-icon.md {
-    top:7px !important
+    top: 7px !important
 }
 
 ion-segment {
@@ -3447,11 +3573,11 @@ ion-segment {
     --min-height: auto;
     border-radius: 0;
     -ms-overflow-style: none;
-    scrollbar-width:none
+    scrollbar-width: none
 }
 
 ion-segment::-webkit-scrollbar {
-    display:none
+    display: none
 }
 
 ion-segment ion-segment-button {
@@ -3463,21 +3589,21 @@ ion-segment ion-segment-button {
     flex: 1;
     min-height: var(--min-height);
     min-width: auto;
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 ion-segment ion-segment-button ion-label {
     text-transform: uppercase;
-    margin:0
+    margin: 0
 }
 
 ion-segment ion-segment-button::part(native) {
-    min-width:auto
+    min-width: auto
 }
 
 ion-segment ion-segment-button::part(indicator) {
     padding-inline: 0;
-    top:auto
+    top: auto
 }
 
 ion-segment ion-segment-button.segment-button-checked {
@@ -3497,7 +3623,7 @@ ion-segment.filled ion-segment-button {
     transform: none;
     border-width: var(--border-width);
     border-style: var(--border-style);
-    border-color:var(--border-color)
+    border-color: var(--border-color)
 }
 
 ion-segment.filled ion-segment-button.segment-button-checked {
@@ -3512,50 +3638,50 @@ ion-toolbar {
 }
 
 ion-toast::part(button) {
-    font-size:var(--size-text-2xs)
+    font-size: var(--size-text-2xs)
 }
 
 .ale-list-item h4 {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
-.ale-list-item h4 > span {
+.ale-list-item h4>span {
     margin-right: var(--size-spacing-xs);
-    vertical-align:middle
+    vertical-align: middle
 }
 
 .ale-list-item .notificationIcon {
     font-size: .9rem;
     border-radius: 50%;
     padding: var(--size-spacing-xs);
-    background:#f2f2f2
+    background: #f2f2f2
 }
 
 .ale-color {
     display: inline-block;
     width: 18px;
     height: 18px;
-    border-radius:50%
+    border-radius: 50%
 }
 
 .ale-color.type-pale {
-    background-color:#ece2ac
+    background-color: #ece2ac
 }
 
 .ale-color.type-golden {
-    background-color:#dab746
+    background-color: #dab746
 }
 
 .ale-color.type-amber {
-    background-color:#e05e28
+    background-color: #e05e28
 }
 
 .ale-color.type-brown {
-    background-color:#63130e
+    background-color: #63130e
 }
 
 .ale-color.type-dark {
-    background-color:#080100
+    background-color: #080100
 }
 
 .sub-heading h2 {
@@ -3563,34 +3689,34 @@ ion-toast::part(button) {
     font-size: var(--size-text-md);
     font-weight: 600;
     position: relative;
-    color:var(--color-text-grey)
+    color: var(--color-text-grey)
 }
 
 .sub-heading hr {
     height: 1px;
-    background-color:#000
+    background-color: #000
 }
 
 .read-more .read-more-text {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .basket-item h4 {
-    line-height:1.4em
+    line-height: 1.4em
 }
 
-.basket-item h4 > span {
-    vertical-align:middle
+.basket-item h4>span {
+    vertical-align: middle
 }
 
 .footer-basket-total {
     background-color: var(--color-brand);
     color: #fff;
-    text-transform:uppercase
+    text-transform: uppercase
 }
 
 .footer-basket-total .item-count-wrapper {
-    position:relative
+    position: relative
 }
 
 .footer-basket-total .item-count-wrapper .item-count {
@@ -3600,69 +3726,69 @@ ion-toast::part(button) {
     padding: 4px 10px;
     font-size: var(--size-text-md);
     background-color: var(--color-brand-green);
-    border-radius:60px
+    border-radius: 60px
 }
 
 .footer-basket-total ion-icon {
-    font-size:var(--size-text-6xl)
+    font-size: var(--size-text-6xl)
 }
 
 #braintree-dropin [data-braintree-id=choose-a-way-to-pay] {
-    display:none
+    display: none
 }
 
 #braintree-dropin .braintree-loaded .braintree-upper-container:before {
-    background-color:transparent
+    background-color: transparent
 }
 
 #braintree-dropin .braintree-options-list {
     display: flex;
-    flex-flow:column nowrap
+    flex-flow: column nowrap
 }
 
 #braintree-dropin .braintree-options-list .braintree-option {
     margin-top: var(--size-spacing-md);
     border: none !important;
     border-radius: 0;
-    height:46px
+    height: 46px
 }
 
 #braintree-dropin .braintree-options-list .braintree-option:nth-child(3) {
-    margin-top:0
+    margin-top: 0
 }
 
 #braintree-dropin .braintree-options-list .braintree-option .braintree-option__logo {
     display: none;
     width: 100%;
-    text-align:center
+    text-align: center
 }
 
 #braintree-dropin .braintree-options-list .braintree-option .braintree-option__logo svg {
-    vertical-align:middle
+    vertical-align: middle
 }
 
 #braintree-dropin .braintree-options-list .braintree-option .braintree-option__label {
-    display:none
+    display: none
 }
 
 #braintree-dropin .braintree-options-list .braintree-option__googlePay {
     order: 0;
     padding: 0;
     background: url(/assets/icon/googlepay.svg) #000 no-repeat center center;
-    background-size:57px auto
+    background-size: 57px auto
 }
 
 #braintree-dropin .braintree-options-list .braintree-option__applePay {
     order: 0;
     padding: 0;
     background: url(/assets/icon/applepay.svg) #000 no-repeat center center;
-    background-size:55px auto
+    background-size: 55px auto
 }
 
 #braintree-dropin .braintree-options-list .braintree-option__card {
     order: 1;
     background-color: var(--color-brand);
-    text-transform:uppercase
+    text-transform: uppercase
 }
 
 #braintree-dropin .braintree-options-list .braintree-option__card:before {
@@ -3672,18 +3798,18 @@ ion-toast::part(button) {
     text-align: center;
     color: #fff;
     font-weight: 600;
-    font-size:var(--size-text-sm)
+    font-size: var(--size-text-sm)
 }
 
 #braintree-dropin .braintree-options-list .braintree-option__paypal {
     order: 2;
     background: url(/assets/icon/paypal.svg) #1c387f no-repeat center center;
-    background-size:88px auto
+    background-size: 88px auto
 }
 
 .capacitor-google-map-wrapper {
     position: relative;
-    display:inline-block
+    display: inline-block
 }
 
 capacitor-google-map {
@@ -3691,41 +3817,42 @@ capacitor-google-map {
     top: 0;
     left: 0;
     width: 100%;
-    height:calc(100% + 6px)
+    height: calc(100% + 6px)
 }
 
 .page-contains-map {
-    background:transparent
+    background: transparent
 }
 
 .page-contains-map ion-app {
-    background:transparent
+    background: transparent
 }
 
-.page-contains-map ion-app:before, .page-contains-map ion-app:after {
+.page-contains-map ion-app:before,
+.page-contains-map ion-app:after {
     content: "";
     width: 100%;
-    background:var(--ion-color-white)
+    background: var(--ion-color-white)
 }
 
 .page-contains-map ion-app:before {
-    height:var(--ion-safe-area-top)
+    height: var(--ion-safe-area-top)
 }
 
 .page-contains-map ion-app:after {
-    height:var(--ion-safe-area-bottom)
+    height: var(--ion-safe-area-bottom)
 }
 
 .page-contains-map ion-content::part(background) {
-    background:transparent
+    background: transparent
 }
 
 .page-contains-map ion-footer {
-    background:var(--ion-color-white)
+    background: var(--ion-color-white)
 }
 
 .page-contains-map .map-fix-bg {
-    background:var(--ion-color-white)
+    background: var(--ion-color-white)
 }
 
 .page-contains-map .map-loading {
@@ -3736,37 +3863,37 @@ capacitor-google-map {
     left: 0;
     opacity: var(--ion-backdrop-opacity, .3);
     z-index: 1000;
-    background-color:var(--ion-backdrop-color, #000)
+    background-color: var(--ion-backdrop-color, #000)
 }
 
 .venue-temporary-closed ion-icon {
-    width:8em
+    width: 8em
 }
 
 .app-header {
-    box-shadow:none
+    box-shadow: none
 }
 
 .app-header:not(.ion-no-border) {
-    border-bottom:1px solid var(--ion-color-light-grey)
+    border-bottom: 1px solid var(--ion-color-light-grey)
 }
 
 .app-header:not(.ion-no-border) ion-toolbar:first-child {
-    border-bottom:1px solid var(--ion-color-light-grey)
+    border-bottom: 1px solid var(--ion-color-light-grey)
 }
 
 .app-header:after {
-    content:none !important
+    content: none !important
 }
 
 .app-header .back-button {
     --padding-start: 0;
     --icon-font-size: var(--size-text-lg);
-    color:var(--color-text-black)
+    color: var(--color-text-black)
 }
 
 .app-header .back-button ion-icon {
-    font-size:var(--icon-font-size)
+    font-size: var(--icon-font-size)
 }
 
 .app-header .back-button.ios {
@@ -3775,11 +3902,11 @@ capacitor-google-map {
 
 .app-header ion-title {
     font-size: 1.1rem;
-    padding-inline:0
+    padding-inline: 0
 }
 
 .app-header ion-title.ios {
-    padding-inline:50px
+    padding-inline: 50px
 }
 
 .app-loading {
@@ -3791,48 +3918,49 @@ capacitor-google-map {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width:100vw
+    width: 100vw
 }
 
 .app-loading ion-backdrop {
     background: var(--ion-color-black);
-    opacity:var(--ion-backdrop-opacity, .5)
+    opacity: var(--ion-backdrop-opacity, .5)
 }
 
 .app-loading lottie-player {
     z-index: 100;
     width: 100px;
-    height:100px
+    height: 100px
 }
 
 .app-loading .message {
     z-index: 100;
     color: var(--ion-color-white);
-    text-align:center
+    text-align: center
 }
 
 .app-notice {
     background-color: var(--color-notice);
-    color:var(--ion-color-white)
+    color: var(--ion-color-white)
 }
 
 .app-notice-content {
     font-size: var(--size-text-sm);
-    color:var(--ion-color-white)
+    color: var(--ion-color-white)
 }
 
-.app-notice-content p, .app-notice-content ion-icon {
-    font-size:1em
+.app-notice-content p,
+.app-notice-content ion-icon {
+    font-size: 1em
 }
 
 .app-notice-close {
-    font-size:var(--size-text-sm)
+    font-size: var(--size-text-sm)
 }
 
 .app-notice.app-notice-float {
     position: fixed;
     width: 100%;
-    z-index:1001
+    z-index: 1001
 }
 
 .app-notice.app-notice-type-menu {
@@ -3841,281 +3969,291 @@ capacitor-google-map {
     border-radius: 6px;
     border-left: var(--size-spacing-sm);
     border-color: var(--color-notice-menu-text);
-    border-left-style:solid
+    border-left-style: solid
 }
 
 .app-notice.app-notice-type-menu .app-notice-content {
-    color:var(--color-notice-menu-text)
+    color: var(--color-notice-menu-text)
 }
 
 .app-notice.app-notice-type-warning {
-    background-color:var(--color-notice-warning)
+    background-color: var(--color-notice-warning)
 }
 
 .app-notice.app-notice-type-warning .app-notice-content {
     color: var(--ion-color-black);
-    text-align:center
+    text-align: center
 }
 
-h1 > .app-skeleton {
-    height:28px
+h1>.app-skeleton {
+    height: 28px
 }
 
-h2 > .app-skeleton {
-    height:26px
+h2>.app-skeleton {
+    height: 26px
 }
 
-h3 > .app-skeleton {
-    height:24px
+h3>.app-skeleton {
+    height: 24px
 }
 
-h4 > .app-skeleton {
-    height:18px
+h4>.app-skeleton {
+    height: 18px
 }
 
-h5 > .app-skeleton {
-    height:16px
+h5>.app-skeleton {
+    height: 16px
 }
 
-h6 > .app-skeleton {
-    height:12px
+h6>.app-skeleton {
+    height: 12px
 }
 
-h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-skeleton, h4:first-child .app-skeleton, h5:first-child .app-skeleton, h6:first-child .app-skeleton {
-    margin-top:0
+h1:first-child .app-skeleton,
+h2:first-child .app-skeleton,
+h3:first-child .app-skeleton,
+h4:first-child .app-skeleton,
+h5:first-child .app-skeleton,
+h6:first-child .app-skeleton {
+    margin-top: 0
 }
 
 .related-items swiper-slide {
     width: 300px;
     height: auto;
-    padding-left:var(--ion-padding)
+    padding-left: var(--ion-padding)
 }
 
 .related-items swiper-slide:last-of-type {
-    padding-right:var(--ion-padding)
+    padding-right: var(--ion-padding)
 }
 
 .related-items .menu-list-item {
-    border:1px solid var(--color-border-grey)
+    border: 1px solid var(--color-border-grey)
 }
 
 .related-items .menu-list-item .menu-item-price {
-    line-height:1.4
+    line-height: 1.4
 }
 
 .allergen-banner ion-button {
     --padding-start: var(--size-spacing-md);
     --padding-end: var(--size-spacing-md);
     margin-bottom: var(--size-spacing-xs);
-    text-transform:none
+    text-transform: none
 }
 
 .menu-item-group .menu-item-text {
     --min-height: auto;
-    margin-top:var(--size-spacing-md)
+    margin-top: var(--size-spacing-md)
 }
 
-.menu-item-group > ion-item-divider {
+.menu-item-group>ion-item-divider {
     --background: transparent;
-    border-color:transparent
+    border-color: transparent
 }
 
-.menu-item-group > ion-item-divider hr {
+.menu-item-group>ion-item-divider hr {
     background: currentColor;
-    height:2px
+    height: 2px
 }
 
-.menu-item-group > ion-item-divider ion-text {
-    font-weight:400
+.menu-item-group>ion-item-divider ion-text {
+    font-weight: 400
 }
 
-.menu-item-group > ion-item-divider h4 {
-    margin:0
+.menu-item-group>ion-item-divider h4 {
+    margin: 0
 }
 
-.menu-item-group > ion-item-divider + ion-list .menu-item-text:first-child {
-    margin-top:0
+.menu-item-group>ion-item-divider+ion-list .menu-item-text:first-child {
+    margin-top: 0
 }
 
 .menu-item-icons-wrapper h4 {
-    display:inline
+    display: inline
 }
 
-.menu-item-icons-wrapper > span {
-    vertical-align:sub
+.menu-item-icons-wrapper>span {
+    vertical-align: sub
 }
 
 .menu-item-icons {
     display: inline-flex;
-    align-items:center
+    align-items: center
 }
 
-.menu-item-icon .menu-item-icon_icon, .menu-item-icon .menu-item-icon_img {
-    margin-right:var(--size-spacing-2xs)
+.menu-item-icon .menu-item-icon_icon,
+.menu-item-icon .menu-item-icon_img {
+    margin-right: var(--size-spacing-2xs)
 }
 
 .menu-item-icon .menu-item-icon_icon {
     font-size: var(--size-text-lg);
-    height:var(--size-text-lg)
+    height: var(--size-text-lg)
 }
 
-.menu-item-icon .menu-item-icon_icon-ti-under-500, .menu-item-icon .menu-item-icon_icon-under-500, .menu-item-icon .menu-item-icon_icon-pi-new {
-    font-size:var(--size-text-9xl)
+.menu-item-icon .menu-item-icon_icon-ti-under-500,
+.menu-item-icon .menu-item-icon_icon-under-500,
+.menu-item-icon .menu-item-icon_icon-pi-new {
+    font-size: var(--size-text-9xl)
 }
 
 .menu-item-icon .menu-item-icon_icon-special {
-    font-size:4.75rem
+    font-size: 4.75rem
 }
 
 .menu-item-icon .menu-item-icon_icon-hl {
-    margin-right:-7px
+    margin-right: -7px
 }
 
 .menu-item-icon .menu-item-icon_icon-hl:last-of-type {
-    margin-right:3px
+    margin-right: 3px
 }
 
 .menu-item-icon .menu-item-icon_img {
     display: inline-block;
-    height:var(--size-text-lg)
+    height: var(--size-text-lg)
 }
 
-.menu-item-icon .menu-item-icon_img::part(image), .menu-item-icon .menu-item-icon_img img {
-    width:auto
+.menu-item-icon .menu-item-icon_img::part(image),
+.menu-item-icon .menu-item-icon_img img {
+    width: auto
 }
 
 .menu-item-option {
     transition: border-right-width .3s;
-    border-right:0 solid var(--ion-color-brand)
+    border-right: 0 solid var(--ion-color-brand)
 }
 
 .menu-item-option.menu-item-option-has-quantity {
-    border-right-width:var(--size-spacing-xs)
+    border-right-width: var(--size-spacing-xs)
 }
 
 .menu-item-option .menu-item-option-multiplier {
     margin-left: var(--size-spacing-sm);
-    margin-right:calc(var(--size-spacing-sm) * -1)
+    margin-right: calc(var(--size-spacing-sm) * -1)
 }
 
 .menu-item-option .menu-item-quantity .button {
-    padding-top:var(--size-spacing-2xs)
+    padding-top: var(--size-spacing-2xs)
 }
 
-.menu-item-option .menu-item-quantity .button + .button {
-    margin-left:var(--size-spacing-xs)
+.menu-item-option .menu-item-quantity .button+.button {
+    margin-left: var(--size-spacing-xs)
 }
 
 .menu-item-option:not(.menu-item-option-quantity) .menu-item-out-of-stock-label {
-    vertical-align:middle
+    vertical-align: middle
 }
 
-.menu-item-option ion-radio::part(label), .menu-item-option ion-checkbox::part(label) {
+.menu-item-option ion-radio::part(label),
+.menu-item-option ion-checkbox::part(label) {
     width: 100%;
     margin-top: 0;
-    margin-bottom:0
+    margin-bottom: 0
 }
 
 .menu-item-out-of-stock-label {
     display: inline-block;
     color: #fff;
     background-color: gray;
-    padding:0 var(--size-spacing-sm)
+    padding: 0 var(--size-spacing-sm)
 }
 
 .menu-item-quantity .button:first-child {
-    padding-right:var(--size-spacing-xs)
+    padding-right: var(--size-spacing-xs)
 }
 
 .menu-item-quantity .button:last-child {
-    padding-left:var(--size-spacing-xs)
+    padding-left: var(--size-spacing-xs)
 }
 
 .menu-item-quantity h4 {
     margin-left: var(--size-spacing-2xs);
-    margin-right:var(--size-spacing-2xs)
+    margin-right: var(--size-spacing-2xs)
 }
 
 .menu-header {
-    background:var(--ion-color-white)
+    background: var(--ion-color-white)
 }
 
 .menu-header .ale-finder-icon {
-    font-size:var(--size-text-5xl)
+    font-size: var(--size-text-5xl)
 }
 
 .menu-header .menu-category-select {
     max-height: 60px;
-    transition:max-height .2s ease-in
+    transition: max-height .2s ease-in
 }
 
 .menu-header .menu-category-select.hidden {
     max-height: 0;
-    overflow:hidden
+    overflow: hidden
 }
 
 .menu-header .venue-selected-details {
     max-height: 80px;
-    transition:max-height .2s ease-in
+    transition: max-height .2s ease-in
 }
 
 .menu-header .venue-selected-details.hidden {
     max-height: 0;
-    overflow:hidden
+    overflow: hidden
 }
 
 .menu-list-item.menu-item-out-of-stock {
-    background-color:var(--ion-color-white)
+    background-color: var(--ion-color-white)
 }
 
 .menu-list-item.menu-item-out-of-stock::part(native) {
-    opacity:.6 !important
+    opacity: .6 !important
 }
 
 .menu-list-item.menu-item-has-quantity {
-    border-right:var(--size-spacing-xs) solid var(--ion-color-brand)
+    border-right: var(--size-spacing-xs) solid var(--ion-color-brand)
 }
 
 .menu-list-item .menu-list-item-details {
     display: flex;
     flex-direction: column;
-    row-gap:var(--size-spacing-2xs)
+    row-gap: var(--size-spacing-2xs)
 }
 
 .menu-list-item .menu-list-item-details .menu-list-item-title {
     margin: 0;
-    line-height:var(--size-text-xl)
+    line-height: var(--size-text-xl)
 }
 
 .menu-list-item .menu-item-favourite ion-icon {
     font-size: var(--size-text-lg);
-    height:1.2em
+    height: 1.2em
 }
 
-.menu-list-item .menu-item-price > div:not(:last-child) {
-    margin-bottom:var(--size-spacing-sm)
+.menu-list-item .menu-item-price>div:not(:last-child) {
+    margin-bottom: var(--size-spacing-sm)
 }
 
 .menu-list-item .menu-list-item-end {
     flex-basis: min-content;
-    margin-left:var(--size-spacing-sm)
+    margin-left: var(--size-spacing-sm)
 }
 
 .menu-category-select ion-button {
     --background: var(--ion-color-dark-grey);
     --border-radius: 6px;
     text-transform: none;
-    min-height:40px
+    min-height: 40px
 }
 
 .menu-category-select ion-button ion-icon {
     transition: transform .15s ease;
     position: absolute;
-    right:0
+    right: 0
 }
 
 .menu-category-select ion-button.popover-expanded ion-icon {
-    transform:scaleY(-1)
+    transform: scaleY(-1)
 }
 
 .menu-category-select-popover {
@@ -4125,11 +4263,11 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .menu-category-select-popover ion-item {
-    text-align:center
+    text-align: center
 }
 
 .menu-category-select-popover ion-item ion-radio {
-    margin-inline-start:0
+    margin-inline-start: 0
 }
 
 .venue-filter ion-toolbar {
@@ -4138,7 +4276,7 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 
 .venue-filter ion-searchbar {
     margin-top: var(--size-spacing-xs);
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .venue-list .venue-list-item {
@@ -4147,13 +4285,13 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .venue-list ion-item-divider {
-    border-bottom:none
+    border-bottom: none
 }
 
 .venue-list ion-item-divider h4 {
     color: var(--ion-color-step-800);
     margin-top: var(--size-spacing-xs) !important;
-    margin-bottom:var(--size-spacing-xs) !important
+    margin-bottom: var(--size-spacing-xs) !important
 }
 
 .venue-list ion-item {
@@ -4165,105 +4303,107 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .venue-list ion-item h4 {
-    color:var(--ion-color-black)
+    color: var(--ion-color-black)
 }
 
 .venue-list .distance-warning {
-    color:var(--color-brand-red)
+    color: var(--color-brand-red)
 }
 
 .venue-name-line {
-    font-weight:600
+    font-weight: 600
 }
 
 .venue-name-line ion-icon {
-    font-size:var(--size-text-sm)
+    font-size: var(--size-text-sm)
 }
 
 .venue-selected-details h4 {
-    vertical-align:middle
+    vertical-align: middle
 }
 
 .venue-selected-details .info-link {
     font-size: var(--size-text-md);
-    margin-top:3px
+    margin-top: 3px
 }
 
 .venue-selected-details .change-venue {
-    margin-top:var(--size-spacing-2xs)
+    margin-top: var(--size-spacing-2xs)
 }
 
 .venue-selection {
-    height:100%
+    height: 100%
 }
 
 .venue-selection hr {
     height: 1px;
     background-color: var(--color-brand-black);
-    margin-bottom:var(--size-spacing-lg)
+    margin-bottom: var(--size-spacing-lg)
 }
 
 .venue-type-select {
     background: transparent;
-    width:100%
+    width: 100%
 }
 
 .venue-type-select.fixed {
     position: absolute;
     top: 0;
-    z-index:1000
+    z-index: 1000
 }
 
 .venue-type-select ion-segment.filled ion-segment-button {
     border: 1px solid rgba(26, 26, 26, .6);
-    color:#1a1a1a99
+    color: #1a1a1a99
 }
 
 .venue-type-select ion-segment.filled ion-segment-button.segment-button-checked {
     border-color: var(--ion-color-brand);
-    color:var(--ion-color-white)
+    color: var(--ion-color-white)
 }
 
 #capacitor-braintree-dropin .braintree-toggle {
-    display:none
+    display: none
 }
 
-.paypal-checkout, .paypal-checkout-sandbox {
+.paypal-checkout,
+.paypal-checkout-sandbox {
     margin-top: var(--ion-safe-area-top);
     margin-bottom: var(--ion-safe-area-bottom, 0);
-    height:calc(100vh - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0)) !important
+    height: calc(100vh - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0)) !important
 }
 
 .payment-button-applePay ion-icon {
-    font-size:56px
+    font-size: 56px
 }
 
 .payment-button-googlePay ion-icon {
-    font-size:56px
+    font-size: 56px
 }
 
 .payment-button-paypal ion-icon {
-    font-size:92px
+    font-size: 92px
 }
 
-.payment-button-card, .payment-button-payit {
-    text-transform:none
+.payment-button-card,
+.payment-button-payit {
+    text-transform: none
 }
 
 .payment-button-payit ion-icon {
-    font-size:100px
+    font-size: 100px
 }
 
 .payment-payit .payit-bank ion-img::part(image) {
-    width:auto
+    width: auto
 }
 
 .page-permissions h1 {
-    font-weight:600
+    font-weight: 600
 }
 
 .page-permissions hr {
-    margin:var(--size-spacing-lg) 0
+    margin: var(--size-spacing-lg) 0
 }
 
 .page-permissions ion-text {
@@ -4271,7 +4411,7 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     font-weight: 500;
     line-height: var(--size-text-xl);
     margin-top: 0;
-    margin-bottom:var(--size-spacing-lg)
+    margin-bottom: var(--size-spacing-lg)
 }
 
 .page-permissions ion-checkbox {
@@ -4283,11 +4423,12 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     --inner-padding-end: 0
 }
 
-.page-permissions ion-router-link, .page-permissions ion-nav-link {
+.page-permissions ion-router-link,
+.page-permissions ion-nav-link {
     font-size: var(--size-text-lg);
     font-weight: 500;
     line-height: var(--size-text-8xl);
-    text-underline-offset:10px
+    text-underline-offset: 10px
 }
 
 .page-permissions ion-button.button-disabled {
@@ -4297,233 +4438,242 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 
 .page-permissions-policies h1 {
     font-size: var(--size-text-2xl);
-    line-height:var(--size-text-2xl)
+    line-height: var(--size-text-2xl)
 }
 
 .page-permissions-policies ion-text {
-    line-height:var(--size-text-md)
+    line-height: var(--size-text-md)
 }
 
 .page-permissions-policies .opening {
     font-size: var(--size-text-md);
-    font-weight:600
+    font-weight: 600
 }
 
 .page-permissions-policies .opening ion-text {
-    font-weight:600
+    font-weight: 600
 }
 
-.page-permissions-location .permissions-image, .page-permissions-notifications .permissions-image {
-    height:45%
+.page-permissions-location .permissions-image,
+.page-permissions-notifications .permissions-image {
+    height: 45%
 }
 
-.router-outlet-permissions > .ion-page {
+.router-outlet-permissions>.ion-page {
     padding-top: var(--ion-safe-area-top, 0);
-    padding-bottom:var(--ion-safe-area-bottom, 0)
+    padding-bottom: var(--ion-safe-area-bottom, 0)
 }
 
 .page-pubs:not(.location-enabled) ion-content h2 {
     font-weight: 400;
-    margin-top:20%
+    margin-top: 20%
 }
 
 .page-pubs:not(.location-enabled) ion-content hr {
     height: 2px;
     background-color: var(--color-text-grey);
     margin-top: var(--size-spacing-xl);
-    margin-bottom:var(--size-spacing-xl)
+    margin-bottom: var(--size-spacing-xl)
 }
 
 .page-pubs:not(.location-enabled) ion-content ion-button {
     margin-top: var(--size-spacing-xl);
-    margin-bottom:var(--size-spacing-xl)
+    margin-bottom: var(--size-spacing-xl)
 }
 
 .page-venue-detail .venue-detail .distance-display {
     font-size: var(--size-text-sm);
-    color:var(--color-text-grey)
+    color: var(--color-text-grey)
 }
 
 .page-venue-detail .view-more-wrapper {
-    margin-top:var(--size-spacing-xs)
+    margin-top: var(--size-spacing-xs)
 }
 
 .page-venue-detail .view-more-wrapper ion-button {
-    font-size:var(--size-text-md) !important
+    font-size: var(--size-text-md) !important
 }
 
 .page-venue-detail .detail-cta ion-button {
     flex: 1;
     font-size: var(--size-text-sm);
-    margin-bottom:var(--size-spacing-md)
+    margin-bottom: var(--size-spacing-md)
 }
 
 .page-venue-detail .detail-cta ion-button:not(:first-of-type) {
-    margin-left:var(--size-spacing-2xs)
+    margin-left: var(--size-spacing-2xs)
 }
 
 .page-venue-detail .detail-cta ion-button:not(:last-of-type) {
-    margin-right:var(--size-spacing-2xs)
+    margin-right: var(--size-spacing-2xs)
 }
 
 .page-venue-detail .detail-cta ion-icon {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 .page-venue-detail .rooms-rate {
     font-size: var(--size-text-lg);
     font-weight: 500;
-    color:var(--color-brand)
+    color: var(--color-brand)
 }
 
 .page-venue-detail .pub-open ion-item .ion-accordion-toggle-icon {
-    color:var(--color-text-black)
+    color: var(--color-text-black)
 }
 
 .page-venue-detail .pub-open .opening-line {
     font-size: var(--size-text-sm);
-    line-height:var(--size-text-lg)
+    line-height: var(--size-text-lg)
 }
 
 .page-venue-detail .sub-heading {
-    margin-top:var(--size-spacing-xl)
+    margin-top: var(--size-spacing-xl)
 }
 
-.page-venue-detail .facilities > ion-grid {
+.page-venue-detail .facilities>ion-grid {
     --ion-grid-padding: 0
 }
 
-.page-venue-detail .facilities > ion-grid ion-col {
-    padding-inline-start:0
+.page-venue-detail .facilities>ion-grid ion-col {
+    padding-inline-start: 0
 }
 
 .page-venue-detail .facilities-icon {
     width: 40px;
     height: 40px;
-    margin-inline-end:var(--size-spacing-sm) !important
+    margin-inline-end: var(--size-spacing-sm) !important
 }
 
 .page-table-selection .page-title {
     margin-top: var(--size-spacing-lg);
-    margin-bottom:var(--size-spacing-lg)
+    margin-bottom: var(--size-spacing-lg)
 }
 
 .page-table-selection .venue-selected-details {
-    background-color:#f2f2f2
+    background-color: #f2f2f2
 }
 
 .page-table-selection ion-input {
-    margin-bottom:48px !important
+    margin-bottom: 48px !important
 }
 
 .page-basket.basket-items-invalid .price-display {
-    opacity:.4
+    opacity: .4
 }
 
 .page-basket .basket-total {
     font-size: var(--size-text-xl);
-    font-weight:600
+    font-weight: 600
 }
 
 .page-basket .venue-selected-details {
-    margin:var(--size-spacing-sm) var(--size-spacing-lg)
+    margin: var(--size-spacing-sm) var(--size-spacing-lg)
 }
 
 .page-basket .venue-selected-details h6 {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 .page-basket ion-item-option::part(native) {
-    width:50vw
+    width: 50vw
 }
 
 .page-favourites ion-item-option::part(native) {
-    width:50vw
+    width: 50vw
 }
 
 .page-menus ion-card {
     --border-width: 0;
     border-radius: 0;
-    box-shadow:none
+    box-shadow: none
 }
 
 .page-menus .menu-list-layout-rows ion-card-title {
     font-size: var(--size-text-lg);
     font-weight: 600;
-    line-height:var(--size-text-lg)
+    line-height: var(--size-text-lg)
 }
 
 .page-menus .menu-list-layout-rows ion-card-header {
-    padding:0
+    padding: 0
 }
 
 .page-menus .menu-list-layout-rows ion-card-header ion-icon {
-    font-size:var(--size-text-md)
+    font-size: var(--size-text-md)
 }
 
 .page-menus .menu-list-layout-grid ion-card ion-card-header {
     width: 100%;
-    background:linear-gradient(0deg, #000000e6, #00000080 40%, #0003)
+    background: linear-gradient(0deg, #000000e6, #00000080 40%, #0003)
 }
 
 .page-menus .menu-list-layout-grid ion-card.has-image.image-cover {
-    height:calc(50vw - var(--ion-padding) / 2)
+    height: calc(50vw - var(--ion-padding) / 2)
 }
 
 .page-menus .menu-list-layout-grid ion-card.has-image ion-card-title {
-    padding-top:var(--size-spacing-lg)
+    padding-top: var(--size-spacing-lg)
 }
 
 .page-menus .menu-list-layout-grid ion-card.has-image ion-card-header {
     position: absolute;
     bottom: 0;
-    background:linear-gradient(0deg, #000000e6, #00000080 40%, #0000)
+    background: linear-gradient(0deg, #000000e6, #00000080 40%, #0000)
 }
 
-.page-menu-item .buttons-purchase .button, .page-menu-item .buttons-purchase .modal-payment-method {
+.page-menu-item .buttons-purchase .button,
+.page-menu-item .buttons-purchase .modal-payment-method {
     --margin-top: 0;
     margin-top: 0;
-    flex:1 1 100%
+    flex: 1 1 100%
 }
 
-.page-menu-item .buttons-purchase .button:not(:first-child), .page-menu-item .buttons-purchase .modal-payment-method:not(:first-child) {
-    margin-left:var(--size-spacing-xs)
+.page-menu-item .buttons-purchase .button:not(:first-child),
+.page-menu-item .buttons-purchase .modal-payment-method:not(:first-child) {
+    margin-left: var(--size-spacing-xs)
 }
 
-.page-menu-item .buttons-purchase .button:not(:last-child), .page-menu-item .buttons-purchase .modal-payment-method:not(:last-child) {
-    margin-right:var(--size-spacing-xs)
+.page-menu-item .buttons-purchase .button:not(:last-child),
+.page-menu-item .buttons-purchase .modal-payment-method:not(:last-child) {
+    margin-right: var(--size-spacing-xs)
 }
 
 .page-menu-item .menu-item-price {
-    gap:4px
+    gap: 4px
 }
 
 .page-menu-item .menu-item-price ion-text {
-    margin-right:var(--size-spacing-xs)
+    margin-right: var(--size-spacing-xs)
 }
 
 .page-menu-item .menu-item-price h4 {
     display: inline-block;
-    font-weight:600
+    font-weight: 600
 }
 
-.page-menu-item .menu-item-key-info, .modal-menu-item .menu-item-key-info, .modal-include-drink .menu-item-key-info {
+.page-menu-item .menu-item-key-info,
+.modal-menu-item .menu-item-key-info,
+.modal-include-drink .menu-item-key-info {
     border-radius: 6px;
     background-color: var(--ion-color-light-grey);
     padding-top: var(--size-spacing-sm);
-    padding-bottom:var(--size-spacing-sm)
+    padding-bottom: var(--size-spacing-sm)
 }
 
-.page-menu-item .menu-item-key-info .menu-item-icons, .modal-menu-item .menu-item-key-info .menu-item-icons, .modal-include-drink .menu-item-key-info .menu-item-icons {
-    display:flex
+.page-menu-item .menu-item-key-info .menu-item-icons,
+.modal-menu-item .menu-item-key-info .menu-item-icons,
+.modal-include-drink .menu-item-key-info .menu-item-icons {
+    display: flex
 }
 
 .apple-pay-icon {
-    font-size:48px
+    font-size: 48px
 }
 
-.page-ale-filter ion-content, .page-ale-venue ion-content {
-    background:var(--ion-background-color)
+.page-ale-filter ion-content,
+.page-ale-venue ion-content {
+    background: var(--ion-background-color)
 }
 
 .ale-list ion-item-divider {
@@ -4532,28 +4682,28 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .page-faqs ion-accordion [slot=content] {
-    color:var(--color-text-grey)
+    color: var(--color-text-grey)
 }
 
 .page-faqs ion-accordion [slot=content] p {
     font-size: var(--size-text-sm);
-    font-weight:500
+    font-weight: 500
 }
 
 .page-more {
-    background-color:var(--color-brand-white)
+    background-color: var(--color-brand-white)
 }
 
 .page-more .more-menu-section {
-    border-bottom:2px solid #656565
+    border-bottom: 2px solid #656565
 }
 
 .page-more .more-menu-section:first-of-type {
-    font-weight:600
+    font-weight: 600
 }
 
 .page-more .more-menu-section:last-child {
-    border-bottom:none
+    border-bottom: none
 }
 
 .page-more .more-menu-item {
@@ -4561,19 +4711,19 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     border-top: 1px solid var(--color-border-grey);
     font-size: var(--size-text-md);
     display: flex;
-    justify-content:space-between
+    justify-content: space-between
 }
 
 .page-more .more-menu-item ion-router-link {
-    color:#000
+    color: #000
 }
 
 .page-more .more-menu-item:first-child {
-    border-top:none
+    border-top: none
 }
 
 .page-more .basket-button {
-    width:auto !important
+    width: auto !important
 }
 
 .page-more .basket-button ion-badge {
@@ -4582,7 +4732,7 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     align-items: center;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius:50%
+    border-radius: 50%
 }
 
 .page-news .news-item-list ion-item {
@@ -4592,11 +4742,11 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 
 .page-news .news-item-list ion-item ion-img {
     width: 48px;
-    margin-right:var(--size-spacing-lg)
+    margin-right: var(--size-spacing-lg)
 }
 
 .page-news .news-item-list ion-item::part(native) {
-    min-height:80px
+    min-height: 80px
 }
 
 .page-notification-history .notification-new {
@@ -4604,31 +4754,32 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     background-color: var(--ion-color-primary);
     border-radius: 50%;
     width: 8px;
-    height:8px
+    height: 8px
 }
 
 .page-notification-history .notifications-empty {
     height: calc(100vh - 126px);
     display: flex;
     align-items: center;
-    justify-content:center
+    justify-content: center
 }
 
 .page-notification-history .notifications-empty p {
-    margin-top:var(--size-spacing-xs)
+    margin-top: var(--size-spacing-xs)
 }
 
 .page-notification-history .notifications-empty ion-icon {
     width: 100px;
-    height:100px
+    height: 100px
 }
 
-.page-order-detail .venue-name, .page-order-detail .venue-address {
-    margin-bottom:var(--size-spacing-xs)
+.page-order-detail .venue-name,
+.page-order-detail .venue-address {
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-order-detail .basket-item .basket-item-details {
-    margin-bottom:0
+    margin-bottom: 0
 }
 
 .page-order-detail ion-footer ion-grid {
@@ -4640,38 +4791,39 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .page-order-detail ion-footer ion-row {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-order-detail ion-footer .button:not(:last-child) {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-order-history .orders-meta {
     margin-top: var(--size-spacing-xs);
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-order-history .history-icon {
     width: 85px;
-    height:85px
+    height: 85px
 }
 
-.page-order-history h4, .page-order-history .venue-address {
-    margin-bottom:var(--size-spacing-xs)
+.page-order-history h4,
+.page-order-history .venue-address {
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-order-history ion-header ion-segment-button:before {
-    border:0
+    border: 0
 }
 
 .page-order-history .app-notice ion-icon {
-    margin-top:var(--size-spacing-2xs)
+    margin-top: var(--size-spacing-2xs)
 }
 
 .page-order-receipt ion-item-divider {
     padding-top: var(--size-spacing-xs);
-    padding-bottom:var(--size-spacing-xs)
+    padding-bottom: var(--size-spacing-xs)
 }
 
 .page-order-receipt .payment-details ion-item {
@@ -4679,17 +4831,17 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .page-order-receipt ion-footer ion-button:not(:last-child) {
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .page-venue-visited .copy-checkmark {
     background-color: var(--ion-color-white);
     border-radius: 50%;
-    vertical-align:middle
+    vertical-align: middle
 }
 
 .page-settings .sub-heading:not(:first-of-type) {
-    margin-top:35px
+    margin-top: 35px
 }
 
 .page-settings ion-list ion-item {
@@ -4704,45 +4856,47 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 .page-settings ion-list ion-item h5 {
     font-size: var(--size-text-md);
     margin-bottom: var(--size-spacing-2xs);
-    font-weight:500
+    font-weight: 500
 }
 
 .page-symbol-explanation .symbol-icon {
-    min-width:40px
+    min-width: 40px
 }
 
 .page-symbol-explanation .spice-levels {
     margin-left: auto;
-    margin-right:auto
+    margin-right: auto
 }
 
 .page-symbol-explanation .spice-levels tr {
-    border-bottom:var(--size-spacing-xs) solid transparent
+    border-bottom: var(--size-spacing-xs) solid transparent
 }
 
-.page-symbol-explanation .spice-levels td:first-of-type, .page-symbol-explanation .spice-levels td:last-of-type {
-    vertical-align:top
+.page-symbol-explanation .spice-levels td:first-of-type,
+.page-symbol-explanation .spice-levels td:last-of-type {
+    vertical-align: top
 }
 
 .page-symbol-explanation .thermometer-icon {
     width: 60px;
-    height:145px
+    height: 145px
 }
 
 .page-symbol-explanation .spice-icon {
-    font-size:var(--size-text-xl)
+    font-size: var(--size-text-xl)
 }
 
-.page-home ion-grid, .page-home ion-col {
-    padding:0
+.page-home ion-grid,
+.page-home ion-col {
+    padding: 0
 }
 
 .page-home ion-img {
-    width:100px
+    width: 100px
 }
 
 .page-home p {
-    margin-bottom:48px
+    margin-bottom: 48px
 }
 
 .page-tour ion-toolbar {
@@ -4750,58 +4904,59 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
 }
 
 .page-tour .image-area {
-    background-color:var(--color-brand)
+    background-color: var(--color-brand)
 }
 
 .page-tour .button-container {
     display: flex;
-    gap:10px
+    gap: 10px
 }
 
 .page-tour .button-container ion-button {
     display: inline-block;
     margin-bottom: 0;
-    flex:1
+    flex: 1
 }
 
 .page-tour .swiper {
     position: relative;
-    height:100%
+    height: 100%
 }
 
 .page-tour .swiper .swiper-slider {
-    background-color:#fff
+    background-color: #fff
 }
 
 .page-tour .slide-content {
     height: 100%;
-    background-color:var(--ion-color-white)
+    background-color: var(--ion-color-white)
 }
 
 .page-tour ion-footer {
-    border:none
+    border: none
 }
 
 .page-tour ion-footer:before {
-    content:none
+    content: none
 }
 
 .page-privacy-policy .table-wrap {
     overflow-x: auto;
-    margin-bottom:var(--size-spacing-md)
+    margin-bottom: var(--size-spacing-md)
 }
 
 .page-privacy-policy li {
-    margin-bottom:.5em
+    margin-bottom: .5em
 }
 
 .page-privacy-policy a {
     text-decoration: underline;
-    color:var(--ion-color-brand)
+    color: var(--ion-color-brand)
 }
 
-.page-privacy-policy p > strong, .page-privacy-policy li > strong {
-    font-weight:500
+.page-privacy-policy p>strong,
+.page-privacy-policy li>strong {
+    font-weight: 500
 }
 
 .page-privacy-policy summary {
@@ -4813,19 +4968,19 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     font-weight: 500;
     color: var(--ion-color-black);
     padding: 0 var(--size-spacing-md);
-    height:50px
+    height: 50px
 }
 
 .page-privacy-policy summary::-webkit-details-marker {
-    display:none
+    display: none
 }
 
 .page-privacy-policy summary::marker {
-    content:none
+    content: none
 }
 
 .page-privacy-policy summary:first-child {
-    border-top:1px solid var(--color-border-grey)
+    border-top: 1px solid var(--color-border-grey)
 }
 
 .page-privacy-policy summary:after {
@@ -4833,126 +4988,126 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     height: 26px;
     width: 26px;
     font-size: var(--size-text-2xl);
-    transform:translateY(0)
+    transform: translateY(0)
 }
 
 .page-privacy-policy .accordion-container {
     margin: var(--size-spacing-md) 0;
-    padding:0 var(--size-spacing-md)
+    padding: 0 var(--size-spacing-md)
 }
 
 .page-privacy-policy .accordion-container strong {
     font-size: var(--size-text-sm);
     display: block;
-    margin-bottom:var(--size-spacing-2xs)
+    margin-bottom: var(--size-spacing-2xs)
 }
 
 .page-privacy-policy details[open] summary:after {
     content: url("data:image/svg+xml,%3Csvg fill='currentColor' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.582 12.141a.695.695 0 0 1-.978 0 .68.68 0 0 1 0-.969l3.908-3.83a.697.697 0 0 1 .979 0l3.908 3.83a.68.68 0 0 1 0 .969.697.697 0 0 1-.979 0L10 9l-3.418 3.141z'%3E%3C/path%3E%3C/svg%3E");
-    transform:translateY(0)
+    transform: translateY(0)
 }
 
 .page-privacy-policy table {
     border-collapse: collapse;
-    border:none
+    border: none
 }
 
 .page-privacy-policy table tbody td {
     padding: var(--size-spacing-md) var(--size-spacing-xs);
-    border:1pt solid windowtext
+    border: 1pt solid windowtext
 }
 
 .page-privacy-policy table tbody tr:first-of-type {
-    background-color:#fbd4b4
+    background-color: #fbd4b4
 }
 
 .page-privacy-policy table tbody tr:first-of-type td {
-    padding:var(--size-spacing-2xs) var(--size-spacing-xs)
+    padding: var(--size-spacing-2xs) var(--size-spacing-xs)
 }
 
 .page-privacy-policy table tbody tr:nth-child(odd):not(:first-child) {
-    background-color:var(--ion-color-white)
+    background-color: var(--ion-color-white)
 }
 
 .page-privacy-policy table tbody tr:nth-child(2n):not(:first-child) {
-    background-color:#fbd4b4
+    background-color: #fbd4b4
 }
 
 .modal-header ion-buttons {
-    margin-left:6px !important
+    margin-left: 6px !important
 }
 
 .modal-header .back-button {
     --padding-start: 0;
     --icon-font-size: var(--size-text-lg);
-    color:var(--color-text-black)
+    color: var(--color-text-black)
 }
 
 .modal-header .back-button ion-icon {
-    font-size:var(--icon-font-size) !important
+    font-size: var(--icon-font-size) !important
 }
 
 .modal-allergen-alert::part(content) {
     background-color: #f1e755;
-    border:4px solid #000
+    border: 4px solid #000
 }
 
 .modal-allergen-alert h3 {
-    line-height:var(--size-text-3xl)
+    line-height: var(--size-text-3xl)
 }
 
 .modal-basket-clear ion-icon {
-    font-size:72px
+    font-size: 72px
 }
 
 .modal-basket-remove-item ion-icon {
-    font-size:72px
+    font-size: 72px
 }
 
 .modal-confirm-age h3 {
-    font-weight:600
+    font-weight: 600
 }
 
 .modal-confirm-age h3 ion-icon {
-    margin-left:var(--size-spacing-xs)
+    margin-left: var(--size-spacing-xs)
 }
 
 .modal-inactive-confirm-venue::part(content) {
-    padding:0 !important
+    padding: 0 !important
 }
 
 .modal-inactive-confirm-venue .inactive-header ion-icon {
-    font-size:64px
+    font-size: 64px
 }
 
 .modal-menu-filters ion-item ion-icon {
-    font-size:var(--size-text-6xl)
+    font-size: var(--size-text-6xl)
 }
 
 .modal-payment-method ion-title {
     padding-left: var(--size-spacing-sm);
-    text-align:left
+    text-align: left
 }
 
 .modal-payment-method .header-ios ion-toolbar:first-of-type {
-    padding-top:0
+    padding-top: 0
 }
 
 .modal-pub-confirm .warning-icon {
     width: 67px;
     height: 67px;
-    margin:auto
+    margin: auto
 }
 
 .modal-product-popup p {
     font-size: var(--size-text-sm);
     line-height: 1.25em;
-    margin-bottom:var(--size-spacing-xs)
+    margin-bottom: var(--size-spacing-xs)
 }
 
 .modal-wait-time ion-icon {
     margin: var(--size-spacing-lg) auto;
-    font-size:60px
+    font-size: 60px
 }
 
 .error-modal {
@@ -4963,18 +5118,18 @@ h1:first-child .app-skeleton, h2:first-child .app-skeleton, h3:first-child .app-
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items:center
+    align-items: center
 }
 
 .error-modal .wrapper .error {
     background-color: #fff;
     text-align: center;
     margin: var(--size-spacing-md);
-    padding:var(--size-spacing-md)
+    padding: var(--size-spacing-md)
 }
 
 .error-modal .wrapper .error p {
-    text-align:center
+    text-align: center
 }
 
 .alert-browser-permissions-disabled {
