@@ -9,6 +9,28 @@ import AutoScroll from './AutoScroll';
 import CiderItem from './CiderItem';
 interface ContainerProps {
 }
+ 
+function useInterval(callback: unknown, delay:number) {
+  const savedCallback = useRef();
+ 
+  // Remember the latest callback.
+  useEffect(() => {
+    //@ts-ignore
+    savedCallback.current = callback;
+  }, [callback]);
+ 
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      //@ts-ignore
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
 
 const HomePub: React.FC<ContainerProps> = ({ }) => {
   let [ales, setAles] = useState(defaultAles)
@@ -16,53 +38,22 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   const activeAles = ales.filter((ale) => !ale.is_cellared)
   let cellaredAles = ales.filter((ale) => ale.is_cellared)
   const onPermAles = permAles.filter((ale) => ale.product == "IPA" || ale.product == "Abbot Ale")
-  let top = true
-  const contentRef = useRef(null);
-
-  const scrollBottom = () => {
-    setTimeout(() => {
-      if (contentRef.current) {
-        // @ts-ignore
-        contentRef.current?.scrollToBottom(5000)
-        top = false
-        scrollTop()
-      }
-    }, 15000)
-  }
-  const scrollTop = () => {
-    setTimeout(() => {
-      if (contentRef.current) {
-        // @ts-ignore
-        contentRef.current?.scrollToTop(5000)
-        top = true
-        scrollBottom()
-      }
-    }, 15000)
-  }
-
-  const scrollToggle = () => {
-    if (top) {
-      scrollBottom()
-    } else {
-      scrollTop()
-    }
-  }
-
-  if (cellaredAles.length > 6) {
-    cellaredAles = cellaredAles.splice(0, 12)
+  const contentRef = useRef<HTMLIonContentElement>(null);
+  let [position, setPosition] = useState(0)
+  
+  const transition = () => {
+    console.log('hello')
     if (contentRef.current) {
-      scrollToggle()
+      if (position == 0) {
+        contentRef.current?.scrollToBottom(5000)
+        setPosition(1)
+      } else {
+        contentRef.current?.scrollToTop(5000)
+        setPosition(0)
+      }
     }
   }
 
-  // if (activeAles.length + onPermAles.length > 6) {
-  //   console.log('test')
-  //   // @ts-ignore
-  //   contentRef.current?.scrollToPoint(0,506,300)
-  // }
-  // const craft = iOrder.display.displayGroups.filter((i)=>i.groupId == 278943)[0].items.filter((i)=>i.itemType == "product");
-  // const craft = iOrder.aztec.products.filter((i)=>i.subcategoryId == 11);
-  // console.log(craft)
   const downloadAles = () => {
     console.log('Updating Ales')
     return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json")
@@ -74,8 +65,9 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   }
   useEffect(() => {
     downloadAles()
-    setInterval(downloadAles,300000)
   }, [])
+  useInterval(downloadAles,300000)
+  useInterval(transition,15000)
 
   return (
     <IonContent ref={contentRef}>
