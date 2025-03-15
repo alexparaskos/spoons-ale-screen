@@ -23,7 +23,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
     setTimeout(() => {
       if (contentRef.current) {
         // @ts-ignore
-        contentRef.current?.scrollToBottom(500)
+        contentRef.current?.scrollToBottom(5000)
         top = false
         scrollTop()
       }
@@ -33,7 +33,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
     setTimeout(() => {
       if (contentRef.current) {
         // @ts-ignore
-        contentRef.current?.scrollToTop(500)
+        contentRef.current?.scrollToTop(5000)
         top = true
         scrollBottom()
       }
@@ -54,17 +54,27 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
       scrollToggle()
     }
   }
+
+  // if (activeAles.length + onPermAles.length > 6) {
+  //   console.log('test')
+  //   // @ts-ignore
+  //   contentRef.current?.scrollToPoint(0,506,300)
+  // }
   // const craft = iOrder.display.displayGroups.filter((i)=>i.groupId == 278943)[0].items.filter((i)=>i.itemType == "product");
   // const craft = iOrder.aztec.products.filter((i)=>i.subcategoryId == 11);
   // console.log(craft)
-
-  useEffect(() => {
-    fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json")
+  const downloadAles = () => {
+    console.log('Updating Ales')
+    return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json")
       .then(response => response.json())
       .then((data) => {
         console.log(data);
         setAles(data);
       })
+  }
+  useEffect(() => {
+    downloadAles()
+    setInterval(downloadAles,300000)
   }, [])
 
   return (
