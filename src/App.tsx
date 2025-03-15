@@ -51,8 +51,10 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
+
         <IonRouterOutlet>
-          <Route exact path="/">
+        <Tab1 />
+          {/* <Route exact path="/">
             <Tab1 />
           </Route>
           <Route exact path="/tab2">
@@ -63,7 +65,7 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/">
             <Redirect to="/" />
-          </Route>
+          </Route> */}
         </IonRouterOutlet>
         {/* <IonTabBar slot="bottom" */}
           {/* <IonTabButton tab="tab1" href="/tab1">
