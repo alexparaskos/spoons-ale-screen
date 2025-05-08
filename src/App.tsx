@@ -48,7 +48,7 @@ import AreaScreen from './screens/AreaScreen';
 import HomeScreen from './screens/HomeScreen';
 import SetupScreen from './screens/SetupScreen';
 import NoPubNo from './screens/NoPubNo';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createContext } from 'react';
 setupIonicReact();
 
@@ -59,9 +59,37 @@ let defConfig = {
   areaPubs: [],
   setup: true,
 }
+
+function useInterval(callback: unknown, delay: number) {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    //@ts-ignore
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      //@ts-ignore
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
 export const ConfigContext = createContext({ config: defConfig, setConfig: (p0: { homePub: string; }) => { } });
 const App: React.FC<RouteComponentProps> = () => {
   const [config, setConfig] = useState(defConfig)
+  useEffect(()=>{
+    if (!config.setup) {
+      console.log('start timer')
+    }
+  },[config.setup])
   return (
     <ConfigContext.Provider value={{
       config,//@ts-ignore

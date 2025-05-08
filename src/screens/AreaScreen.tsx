@@ -5,18 +5,18 @@ import HotelTest from '../components/HotelTest';
 const Tab2: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader mode='ios'>
         <IonToolbar>
-          <IonTitle>Hotel Test</IonTitle>
+          <IonTitle>In the Area</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Area Page</IonTitle>
+            <IonTitle size="large">In the Area</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <HotelTest name={''}/>
+        
       </IonContent>
     </IonPage>
   );
