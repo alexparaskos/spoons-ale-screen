@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -11,9 +11,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import Tab1 from './screens/HomeScreen';
+import Tab2 from './screens/AreaScreen';
+import Tab3 from './screens/NoPubNo';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,31 +44,45 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import AreaScreen from './screens/AreaScreen';
+import HomeScreen from './screens/HomeScreen';
+import SetupScreen from './screens/SetupScreen';
+import NoPubNo from './screens/NoPubNo';
+import { useState } from 'react';
+import { createContext } from 'react';
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-
-        <IonRouterOutlet>
-        <Tab1 />
-          {/* <Route exact path="/">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/" />
-          </Route> */}
-        </IonRouterOutlet>
-        {/* <IonTabBar slot="bottom" */}
-          {/* <IonTabButton tab="tab1" href="/tab1">
+let defConfig = {
+  homePub: "",
+  homePubDetails: {},
+  permAles: [],
+  areaPubs: [],
+  setup: true,
+}
+export const ConfigContext = createContext({ config: defConfig, setConfig: (p0: { homePub: string; }) => { } });
+const App: React.FC<RouteComponentProps> = () => {
+  const [config, setConfig] = useState(defConfig)
+  return (
+    <ConfigContext.Provider value={{
+      config,//@ts-ignore
+      setConfig
+    }}>
+      <IonApp>
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route path="/">
+                {config.setup ?
+                  <SetupScreen /> : <HomeScreen />
+                }
+              </Route>
+              {/* <Route path="/" component={HomeScreen} /> */}
+              {/* <Route exact path="/" component={NoPubNo} /> */}
+              {/* <Route path="/" component={Setup} /> */}
+              <Route path="/area" component={AreaScreen} />
+            </IonRouterOutlet>
+            {/* <IonTabBar slot="bottom" */}
+            {/* <IonTabButton tab="tab1" href="/tab1">
             <IonIcon aria-hidden="true" icon={triangle} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
@@ -81,9 +95,12 @@ const App: React.FC = () => (
             <IonLabel>Tab 3</IonLabel>
           </IonTabButton>
         </IonTabBar> */}
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+          </IonTabs>
+        </IonReactRouter>
+
+      </IonApp>
+    </ConfigContext.Provider>
+  )
+}
 
 export default App;

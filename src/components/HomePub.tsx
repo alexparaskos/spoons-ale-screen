@@ -1,24 +1,25 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList, IonRow, IonText } from '@ionic/react';
 import './HomePub.css';
-import { createRef, useEffect, useRef, useState } from 'react';
+import { createRef, useContext, useEffect, useRef, useState } from 'react';
 import defaultAles from "../defaultAles.json";
 import permAles from "../permAles.json";
 import ciders from "../ciders.json";
 import AleItem from './AleItem';
 import AutoScroll from './AutoScroll';
 import CiderItem from './CiderItem';
+import { ConfigContext } from '../App';
 interface ContainerProps {
 }
- 
-function useInterval(callback: unknown, delay:number) {
+
+function useInterval(callback: unknown, delay: number) {
   const savedCallback = useRef();
- 
+
   // Remember the latest callback.
   useEffect(() => {
     //@ts-ignore
     savedCallback.current = callback;
   }, [callback]);
- 
+
   // Set up the interval.
   useEffect(() => {
     function tick() {
@@ -33,16 +34,21 @@ function useInterval(callback: unknown, delay:number) {
 }
 
 const HomePub: React.FC<ContainerProps> = ({ }) => {
+  const {
+    config,
+    setConfig
+  } = useContext(ConfigContext);
   let [ales, setAles] = useState(defaultAles)
   let [init, setInit] = useState(false)
   const activeAles = ales.filter((ale) => !ale.is_cellared)
   let cellaredAles = ales.filter((ale) => ale.is_cellared)
-  const onPermAles = permAles.filter((ale) => ale.product == "IPA" || ale.product == "Abbot Ale")
+  // const onPermAles = permAles.filter((ale) => ale.product == "IPA" || ale.product == "Abbot Ale")
+  const onPermAles = permAles.filter((ale) => config.permAles.includes(ale.product))
+
   const contentRef = useRef<HTMLIonContentElement>(null);
   let [position, setPosition] = useState(0)
-  
+
   const transition = () => {
-    console.log('hello')
     if (contentRef.current) {
       if (position == 0) {
         contentRef.current?.scrollToBottom(5000)
@@ -56,18 +62,17 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
 
   const downloadAles = () => {
     console.log('Updating Ales')
-    return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json")
+    return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + config.homePub + "/ales.json")
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
         setAles(data);
       })
   }
   useEffect(() => {
     downloadAles()
   }, [])
-  useInterval(downloadAles,300000)
-  useInterval(transition,15000)
+  useInterval(downloadAles, 300000)
+  useInterval(transition, 15000)
 
   return (
     <IonContent ref={contentRef}>
@@ -78,10 +83,9 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                 <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Real ales on sale now</IonText>
               </IonItemDivider>
-              {init ? <></> : <IonButton onClick={() => setInit(true)}>Click Me</IonButton>}
               {onPermAles.concat(activeAles).map((ale) => {
                 return { ...ale, price: true }
-              }).map((i) => <AleItem ale={i} />)}
+              }).map((i, j) => <AleItem ale={i} key={j} />)}
               <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                 <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Our guest ciders</IonText>
               </IonItemDivider>

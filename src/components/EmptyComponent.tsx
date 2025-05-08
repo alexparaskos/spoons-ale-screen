@@ -7,6 +7,7 @@ interface ContainerProps {
 const EmptyComponent: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div>
+      
     </div>
   );
 };
