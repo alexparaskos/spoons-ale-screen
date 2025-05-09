@@ -1,10 +1,9 @@
-import {  IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList, IonRow, IonText } from '@ionic/react';
+import { IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList, IonRow, IonText } from '@ionic/react';
 import './AreaAles.css';
-import {useContext, useEffect, useRef, useState } from 'react';
-import defaultAles from "../defaultAles.json";
-import permAles from "../permAles.json";
+import { useContext, useEffect, useRef, useState } from 'react';
 import AleItem from './AleItem';
-import { ConfigContext } from '../App';
+import defaultAles from "../defaultAles.json";
+import { AleDetails, ConfigContext } from '../App';
 interface ContainerProps {
 }
 
@@ -48,39 +47,59 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
       }
     }
   }
-  // const downloadAles = () => {
-  //   console.log('Updating Ales')
-  //   return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + config.homePub + "/ales.json")
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       setAles(data);
-  //     })
-  // // }
-  // useEffect(() => {
-  //   downloadAles()
-  // }, [])
-  // useInterval(downloadAles, 300000)
-  useInterval(transition, 15000)
-
+  console.log(config.areaPubs)
+  let emptyAles: { [key: string]: AleDetails } = {}
+  const [ales, setAles] = useState(emptyAles);
+  const downloadAles = () => {
+    Promise.all(Object.values(config.areaPubs).map((pub) => {
+      return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + pub.identifier + "/ales.json")
+        .then(response => response.json())
+        .then((data) => {
+          return { [pub.identifier]: data.filter((ale) => !ale.is_cellared) }
+        })
+    }))
+      .then((data) => {
+        var areaPubs = data.reduce((obj, item) => ({ ...obj, [Object.keys(item)[0]]: Object.values(item)[0] }), {});
+        setAles(areaPubs)
+      })
+  }
+  console.log(ales)
+  useEffect(() => {
+    downloadAles()
+  }, [config.areaPubs])
+  // console.log(config.areaPubs)
+  useInterval(downloadAles, 300000)
+  useInterval(transition, 10000)
   return (
     <IonContent ref={contentRef}>
       <IonGrid className='ion-no-padding full-height'>
         <IonRow>
           <IonCol>
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
-              <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-                <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Real ales on sale now</IonText>
-              </IonItemDivider>
+              {Object.keys(ales).map((pub, i) => {
+                return i % 2 ? <>
+                  <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+                    <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>{config.areaPubs[pub].name}, {config.areaPubs[pub].address_line_2 ? config.areaPubs[pub].address_line_2 : config.areaPubs[pub].town} - {config.areaPubs[pub].distance!.toPrecision(2)} mi</IonText>
+                  </IonItemDivider>
+                  {ales[pub].map((ale) => {
+                    return { ...ale, price: true }
+                  }).map((i, j) => <AleItem ale={i} key={j} />)}
+                </> : <></>
+              })}
             </IonList>
           </IonCol>
           <IonCol>
-            <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-              <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
-            </IonItemDivider>
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
-              {cellaredAles.map((ale) => {
-                return { ...ale, price: true }
-              }).map((i) => <AleItem ale={i} />)}
+              {Object.keys(ales).map((pub, i) => {
+                return !(i % 2) ? <>
+                  <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+                    <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>{config.areaPubs[pub].name}, {config.areaPubs[pub].address_line_2 ? config.areaPubs[pub].address_line_2 : config.areaPubs[pub].town} - {config.areaPubs[pub].distance!.toPrecision(2)} mi</IonText>
+                  </IonItemDivider>
+                  {ales[pub].map((ale) => {
+                    return { ...ale, price: true }
+                  }).map((i, j) => <AleItem ale={i} key={j} />)}
+                </> : <></>
+              })}
             </IonList>
           </IonCol>
         </IonRow>
@@ -90,4 +109,4 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
   );
 };
 
-export default HomePub;
+export default AreaAles;

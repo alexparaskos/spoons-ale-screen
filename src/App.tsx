@@ -1,19 +1,11 @@
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
   IonTabs,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './screens/HomeScreen';
-import Tab2 from './screens/AreaScreen';
-import Tab3 from './screens/NoPubNo';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,19 +36,123 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import AreaScreen from './screens/AreaScreen';
-import HomeScreen from './screens/HomeScreen';
 import SetupScreen from './screens/SetupScreen';
-import NoPubNo from './screens/NoPubNo';
+import MainScreen from './screens/MainScreen';
 import { useEffect, useRef, useState } from 'react';
 import { createContext } from 'react';
 setupIonicReact();
-
-let defConfig = {
+export interface PubDetails {
+  id: number;
+  identifier: number;
+  sitecore_id: string;
+  name: string;
+  address_line_1: string;
+  address_line_2: string;
+  town: string;
+  county: string;
+  post_code: string;
+  country_code: string;
+  country: string;
+  telephone: string;
+  latitude: string;
+  longitude: string;
+  email: null;
+  type: string;
+  is_closed: number;
+  related_site: null;
+  payment: {
+      gateway: string;
+      bnpp: {
+          merchant_id: string;
+          apple_pay_merchant_id: string;
+      };
+  };
+  payment_methods_disabled: never[];
+  temporary_closed: {
+      closureTo: string;
+      closureFrom: string;
+      closureNotice: string;
+      pubIsTemporaryClosed: boolean;
+  };
+  distance?: number;
+}
+export interface AleDetails {
+  id: number;
+  identifier: string;
+  brewery: string;
+  product: string;
+  name: string;
+  brewer_product: string;
+  colour_code: string;
+  abv: string;
+  allergens: {
+    eggs: string;
+    fish: string;
+    milk: string;
+    nuts: string;
+    lupin: string;
+    celery: string;
+    mustard: string;
+    peanuts: string;
+    molluscs: string;
+    soyabeans: string;
+    sesameSeed: string;
+    crustaceans: string;
+    sulphur_dioxide: string;
+    cereals_containing_gluten: string;
+    units: string;
+    price_band: string;
+    product_description: string;
+    location: string;
+    est_date: string;
+    is_favourite: number;
+    is_cellared: number;
+    active_sales_areas: {
+        id: number;
+    }[];
+};
+}
+type AreaPubs = {
+  [key:string] : PubDetails
+}
+let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean } = {
   homePub: "",
-  homePubDetails: {},
+  homePubDetails: {
+    id: 0,
+    identifier: 0,
+    sitecore_id: '',
+    name: '',
+    address_line_1: '',
+    address_line_2: '',
+    town: '',
+    county: '',
+    post_code: '',
+    country_code: '',
+    country: '',
+    telephone: '',
+    latitude: '',
+    longitude: '',
+    email: null,
+    type: '',
+    is_closed: 0,
+    related_site: null,
+    payment: {
+      gateway: '',
+      bnpp: {
+        merchant_id: '',
+        apple_pay_merchant_id: ''
+      }
+    },
+    payment_methods_disabled: [],
+    temporary_closed: {
+      closureTo: '',
+      closureFrom: '',
+      closureNotice: '',
+      pubIsTemporaryClosed: false
+    }
+  },
   permAles: [],
-  areaPubs: [],
+  areaPubs: {},
   setup: true,
 }
 
@@ -85,11 +181,6 @@ function useInterval(callback: unknown, delay: number) {
 export const ConfigContext = createContext({ config: defConfig, setConfig: (p0: { homePub: string; }) => { } });
 const App: React.FC<RouteComponentProps> = () => {
   const [config, setConfig] = useState(defConfig)
-  useEffect(()=>{
-    if (!config.setup) {
-      console.log('start timer')
-    }
-  },[config.setup])
   return (
     <ConfigContext.Provider value={{
       config,//@ts-ignore
@@ -101,28 +192,10 @@ const App: React.FC<RouteComponentProps> = () => {
             <IonRouterOutlet>
               <Route path="/">
                 {config.setup ?
-                  <SetupScreen /> : <HomeScreen />
+                  <SetupScreen /> : <MainScreen />
                 }
               </Route>
-              {/* <Route path="/" component={HomeScreen} /> */}
-              {/* <Route exact path="/" component={NoPubNo} /> */}
-              {/* <Route path="/" component={Setup} /> */}
-              <Route path="/area" component={AreaScreen} />
             </IonRouterOutlet>
-            {/* <IonTabBar slot="bottom" */}
-            {/* <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar> */}
           </IonTabs>
         </IonReactRouter>
 

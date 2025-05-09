@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './AreaScreen.css';
-import HotelTest from '../components/HotelTest';
+import AreaAles from '../components/AreaAles';
 
 const Tab2: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">In the Area</IonTitle>
           </IonToolbar>
         </IonHeader>
-        
+        <AreaAles/>
       </IonContent>
     </IonPage>
   );

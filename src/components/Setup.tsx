@@ -1,7 +1,7 @@
 import { IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonListHeader, IonButton } from '@ionic/react';
 import './Setup.css';
 import { useContext } from 'react';
-import { ConfigContext } from '../App';
+import { ConfigContext, PubDetails } from '../App';
 
 import global from "../global.json";
 import { configure } from '@testing-library/react';
@@ -25,12 +25,14 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
     config,
     setConfig
   } = useContext(ConfigContext);
-  let venues = global.venues.filter((v)=>v.latitude)
-  if (config.homePubDetails) {
+  //@ts-ignore
+  let venues: PubDetails[] = global.venues.filter((v) => v.latitude)
+  if (config.homePubDetails?.name) {
     venues = venues.map((v) => {
+      //@ts-ignore
       return ({ ...v, distance: distance(v.latitude, v.longitude, config.homePubDetails.latitude, config.homePubDetails.longitude) })
     })
-    venues = venues.sort((a, b) => a.distance - b.distance)
+    venues = venues.sort((a, b) => a.distance! - b.distance!)
     venues = venues.slice(1, 20)
 
   }
@@ -38,15 +40,19 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
     <div>
       <IonList>
         <IonItem>
-          <IonInput value={config.homePub} onIonChange={(e) => setConfig({ ...config, homePub: e.detail!.value, homePubDetails: global.venues.find((p) => p.identifier == e.detail!.value) })} label="Pub Number" placeholder='7206'></IonInput>
+          <IonInput value={config.homePub} onIonInput={//@ts-ignore
+            (e) => setConfig({ ...config, homePub: e.detail!.value, homePubDetails: global.venues.find((p) => p.identifier == e.detail!.value) })} label="Pub Number" placeholder='7206'></IonInput>
         </IonItem>
-
-        <IonItem>
-          <IonInput label="Pub Name" value={config.homePubDetails?.name} readonly></IonInput>
-        </IonItem>
-        {config.homePub ? <>
+        {config.homePubDetails?.name ? <>
           <IonItem>
-            <IonSelect label="Permanent Ales" value={config.permAles} multiple={true} onIonChange={(e) => { setConfig({ ...config, permAles: e.detail.value }) }}>
+            <IonInput label="Pub Name" value={config.homePubDetails?.name} readonly></IonInput>
+          </IonItem>
+
+          <IonItem>
+            <IonSelect label="Permanent Ales" value={config.permAles} multiple={true} onIonChange={(e) => {
+              setConfig(//@ts-ignore
+                { ...config, permAles: e.detail.value })
+            }}>
               <IonSelectOption value="IPA">Greene King IPA</IonSelectOption>
               <IonSelectOption value="Abbot Ale">Abbot Ale</IonSelectOption>
               <IonSelectOption value="Ruddles Best">Ruddles Best</IonSelectOption>
@@ -56,15 +62,28 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
           </IonItem>
           <IonItem>
 
-            <IonSelect label="Area Pubs" value={config.permAles} multiple={true} onIonChange={(e) => { console.log(e.detail.value) }}>
+            <IonSelect label="Area Pubs" value={Object.keys(config.areaPubs)} multiple={true} onIonChange={(e) => {
+              let area = venues.filter((v) => e.detail.value.includes(v.identifier))
+              let areaPubs = {}
+              area.forEach((pub) => {
+                //@ts-ignore
+                areaPubs[pub.identifier] = pub
+              })
+              setConfig(
+                {
+                  //@ts-ignore
+                  ...config, areaPubs: areaPubs
+                })
+            }}>
               {venues.map((v) => {
                 return <IonSelectOption key={v.identifier} value={v.identifier}>{v.name}</IonSelectOption>
               })}
             </IonSelect>
 
-          </IonItem></> : <></>}
+          </IonItem>      <IonButton onClick={//@ts-ignore
+            () => setConfig({ ...config, setup: false })} expand="block">Done</IonButton></> : <></>}
       </IonList>
-      <IonButton disabled={!config.homePub} onClick={() => setConfig({ ...config, setup: false })} expand="block">Done</IonButton>
+
     </div>
   );
 };

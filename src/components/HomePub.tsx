@@ -72,7 +72,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
     downloadAles()
   }, [])
   useInterval(downloadAles, 300000)
-  useInterval(transition, 15000)
+  useInterval(transition, 10000)
 
   return (
     <IonContent ref={contentRef}>
@@ -86,12 +86,12 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               {onPermAles.concat(activeAles).map((ale) => {
                 return { ...ale, price: true }
               }).map((i, j) => <AleItem ale={i} key={j} />)}
-              <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+              {/* <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                 <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Our guest ciders</IonText>
               </IonItemDivider>
               {ciders.map((cider) => {
                 return { ...cider, price: true }
-              }).map((i) => <CiderItem cider={i} />)}
+              }).map((i,j) => <CiderItem cider={i} key={j} />)} */}
             </IonList>
           </IonCol>
           <IonCol>
@@ -101,7 +101,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
               {cellaredAles.map((ale) => {
                 return { ...ale, price: true }
-              }).map((i) => <AleItem ale={i} />)}
+              }).map((i, j) => <AleItem ale={i} key={j} />)}
             </IonList>
           </IonCol>
         </IonRow>
