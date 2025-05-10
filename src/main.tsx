@@ -4,9 +4,11 @@ import App from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
-
-root.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>
+//@ts-ignore
+root.render((props) => {
+  return (
+    <React.StrictMode>
+      <App {...props} />
+    </React.StrictMode>)
+}
 );
