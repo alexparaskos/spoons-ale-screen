@@ -9,7 +9,7 @@ const HomeScreen: React.FC = () => {
       config,
       setConfig
     } = useContext(ConfigContext);
-    console.log(config.homePubDetails)
+    // console.log(config.homePubDetails)
   return (
     <IonPage>
       <IonHeader mode='ios'>

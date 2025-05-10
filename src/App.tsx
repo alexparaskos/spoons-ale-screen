@@ -181,24 +181,36 @@ function useInterval(callback: unknown, delay: number) {
 export const ConfigContext = createContext({ config: defConfig, setConfig: (p0: { homePub: string; }) => { } });
 const App: React.FC<RouteComponentProps> = () => {
   const [config, setConfig] = useState(defConfig)
+  // return (
+  //   <ConfigContext.Provider value={{
+  //     config,//@ts-ignore
+  //     setConfig
+  //   }}>
+  //     <IonApp>
+  //       <IonReactRouter>
+  //         <IonTabs>
+  //           <IonRouterOutlet>
+  //             <Route path="/">
+  //               {config.setup ?
+  //                 <SetupScreen /> : <MainScreen />
+  //               }
+  //             </Route>
+  //           </IonRouterOutlet>
+  //         </IonTabs>
+  //       </IonReactRouter>
+
+  //     </IonApp>
+  //   </ConfigContext.Provider>
+  // )
   return (
     <ConfigContext.Provider value={{
       config,//@ts-ignore
       setConfig
     }}>
       <IonApp>
-        <IonReactRouter>
-          <IonTabs>
-            <IonRouterOutlet>
-              <Route path="/">
-                {config.setup ?
+      {config.setup ?
                   <SetupScreen /> : <MainScreen />
                 }
-              </Route>
-            </IonRouterOutlet>
-          </IonTabs>
-        </IonReactRouter>
-
       </IonApp>
     </ConfigContext.Provider>
   )
