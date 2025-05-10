@@ -48,13 +48,13 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
     }
   }
   console.log(config.areaPubs)
-  let emptyAles: { [key: string]: AleDetails } = {}
+  let emptyAles: { [key: string]: AleDetails[] } = {}
   const [ales, setAles] = useState(emptyAles);
   const downloadAles = () => {
     Promise.all(Object.values(config.areaPubs).map((pub) => {
       return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + pub.identifier + "/ales.json")
         .then(response => response.json())
-        .then((data) => {
+        .then((data) => {//@ts-ignore
           return { [pub.identifier]: data.filter((ale) => !ale.is_cellared) }
         })
     }))
@@ -77,12 +77,12 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
           <IonCol>
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
               {Object.keys(ales).map((pub, i) => {
-                return i % 2 ? <>
+                return !(i % 2) ? <>
                   <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                     <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>{config.areaPubs[pub].name}, {config.areaPubs[pub].address_line_2 ? config.areaPubs[pub].address_line_2 : config.areaPubs[pub].town} - {config.areaPubs[pub].distance!.toPrecision(2)} mi</IonText>
                   </IonItemDivider>
                   {ales[pub].map((ale) => {
-                    return { ...ale, price: true }
+                    return { ...ale, price: true }//@ts-ignore
                   }).map((i, j) => <AleItem ale={i} key={j} />)}
                 </> : <></>
               })}
@@ -91,12 +91,12 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
           <IonCol>
             <IonList lines="inset" class="list-md-lines-full list-lines-full">
               {Object.keys(ales).map((pub, i) => {
-                return !(i % 2) ? <>
+                return (i % 2) ? <>
                   <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
                     <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>{config.areaPubs[pub].name}, {config.areaPubs[pub].address_line_2 ? config.areaPubs[pub].address_line_2 : config.areaPubs[pub].town} - {config.areaPubs[pub].distance!.toPrecision(2)} mi</IonText>
                   </IonItemDivider>
                   {ales[pub].map((ale) => {
-                    return { ...ale, price: true }
+                    return { ...ale, price: true }//@ts-ignores
                   }).map((i, j) => <AleItem ale={i} key={j} />)}
                 </> : <></>
               })}

@@ -66,6 +66,13 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
       .then(response => response.json())
       .then((data) => {
         setAles(data);
+      }).catch(() => {
+        console.log('failed to fetch, attempting to login into spoons wifi')
+        fetch("neverssl.com",{method:"GET",redirect:"follow"})
+          .then((response) => console.log)
+          // .then((data) => {
+          //   console.log(data)
+          // })
       })
   }
   useEffect(() => {
