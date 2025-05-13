@@ -40,10 +40,11 @@ import SetupScreen from './screens/SetupScreen';
 import MainScreen from './screens/MainScreen';
 import { useEffect, useRef, useState } from 'react';
 import { createContext } from 'react';
+import { configDefaults } from 'vitest/dist/config';
 setupIonicReact();
 export interface PubDetails {
   id: number;
-  identifier: number;
+  identifier: string;
   sitecore_id: string;
   name: string;
   address_line_1: string;
@@ -119,7 +120,7 @@ let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[]
   homePub: "",
   homePubDetails: {
     id: 0,
-    identifier: 0,
+    identifier: '',
     sitecore_id: '',
     name: '',
     address_line_1: '',
@@ -177,7 +178,11 @@ function useInterval(callback: unknown, delay: number) {
     }
   }, [delay]);
 }
-
+if (localStorage.getItem("config")) {
+  defConfig = {...defConfig, ...JSON.parse(localStorage.getItem("config")!)}
+  // console.log(JSON.parse(localStorage.getItem("config")!)
+  console.log(defConfig)
+}
 export const ConfigContext = createContext({ config: defConfig, setConfig: (p0: { homePub: string; }) => { } });
 const App: React.FC<RouteComponentProps> = () => {
   const [config, setConfig] = useState(defConfig)

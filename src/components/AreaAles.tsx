@@ -47,7 +47,7 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
       }
     }
   }
-  console.log(config.areaPubs)
+  // console.log(config.areaPubs)
   let emptyAles: { [key: string]: AleDetails[] } = {}
   const [ales, setAles] = useState(emptyAles);
   const downloadAles = () => {
@@ -63,7 +63,7 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
         setAles(areaPubs)
       })
   }
-  console.log(ales)
+  // console.log(ales)
   useEffect(() => {
     downloadAles()
   }, [config.areaPubs])

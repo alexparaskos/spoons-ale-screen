@@ -30,7 +30,7 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
   if (config.homePubDetails?.name) {
     venues = venues.map((v) => {
       //@ts-ignore
-      return ({ ...v, distance: distance(v.latitude, v.longitude, config.homePubDetails.latitude, config.homePubDetails.longitude) })
+      return ({ ...v, identifier:v.identifier.toString(),distance: distance(v.latitude, v.longitude, config.homePubDetails.latitude, config.homePubDetails.longitude) })
     })
     venues = venues.sort((a, b) => a.distance! - b.distance!)
     venues = venues.slice(1, 20)
@@ -41,7 +41,7 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
       <IonList>
         <IonItem>
           <IonInput value={config.homePub} onIonInput={//@ts-ignore
-            (e) => setConfig({ ...config, homePub: e.detail!.value, homePubDetails: global.venues.find((p) => p.identifier == e.detail!.value) })} label="Pub Number" placeholder='7206'></IonInput>
+            (e) => setConfig({ ...config, homePub: e.detail!.value, homePubDetails: global.venues.find((p) => p.identifier == e.detail!.value) })} label="Pub Number" placeholder='e.g. 7206'></IonInput>
         </IonItem>
         {config.homePubDetails?.name ? <>
           <IonItem>
@@ -61,7 +61,6 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
             </IonSelect>
           </IonItem>
           <IonItem>
-
             <IonSelect label="Area Pubs" value={Object.keys(config.areaPubs)} multiple={true} onIonChange={(e) => {
               let area = venues.filter((v) => e.detail.value.includes(v.identifier))
               let areaPubs = {}
@@ -80,8 +79,10 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
               })}
             </IonSelect>
 
-          </IonItem>      <IonButton onClick={//@ts-ignore
-            () => setConfig({ ...config, setup: false })} expand="block">Done</IonButton></> : <></>}
+          </IonItem>      <IonButton onClick={
+            () => { 
+              localStorage.setItem("config",JSON.stringify(config));//@ts-ignore
+              setConfig({ ...config, setup: false }) }} expand="block">Done</IonButton></> : <></>}
       </IonList>
 
     </div>
