@@ -58,7 +58,7 @@ const MainScreen: React.FC = () => {
       className="mySwiper"
     >
       <SwiperSlide><HomeScreen /></SwiperSlide>
-      <SwiperSlide><AreaScreen /></SwiperSlide>
+      {/* <SwiperSlide><AreaScreen /></SwiperSlide> */}
       <div className="autoplay-progress" slot="container-end">
         <svg viewBox="0 0 48 48" ref={progressCircle}>
           <circle cx="24" cy="24" r="20"></circle>
