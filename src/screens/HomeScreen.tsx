@@ -1,8 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonFooter, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './HomeScreen.css';
 import HomePub from '../components/HomePub';
 import { useContext } from 'react';
 import { ConfigContext } from '../App';
+import Footer from '../components/Footer';
 
 const HomeScreen: React.FC = () => {
     const {
@@ -25,6 +26,7 @@ const HomeScreen: React.FC = () => {
         </IonHeader>
         <HomePub />
       </IonContent>
+      <Footer/>
     </IonPage>
   );
 };
