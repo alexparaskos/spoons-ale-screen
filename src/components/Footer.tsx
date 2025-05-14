@@ -69,7 +69,7 @@ const HorizontalStickyFooter: React.FC = () => {
 
     const step = () => {
       if (!scrollEl) return;
-      scrollLeft += 0.5;
+      scrollLeft += 0.8;
       if (scrollLeft >= scrollEl.scrollWidth / 2) {
         scrollLeft = 0;
       }
@@ -88,13 +88,36 @@ const HorizontalStickyFooter: React.FC = () => {
         <div className="scroll-container" ref={scrollRef}>
           {Object.values(config.areaPubs).map((pub, index) => (
             <div className="scroll-section" key={index}>
-              <div className="section-header">{pub.name} {pub.distance}</div>
+              <div className=" ale-list-item section-header ion-padding-horizontal">
+                <div className='ion-margin-vertical bg-light-grey'>
+                  <h5>
+                    <span>{pub.name}</span>
+                  </h5>
+                  <span> {pub.address_line_2 ? pub.address_line_2 : pub.town} - {pub.distance!.toPrecision(2)} mi</span>
+                </div>
+              </div>
               <div className="section-items">
-                {ales[pub.identifier].map((ale, i) => (
-                  <span className="scroll-item" key={i}>
-                    {ale.name}
-                  </span>
-                ))}
+                {ales[pub.identifier].map((ale, i) => {
+                  let color = "ale-pale"
+                  if (ale.colour_code == "2") {
+                    color = "ale-golden"
+                  } else if (ale.colour_code == "3" || ale.colour_code == "4") {
+                    color = "ale-amber"
+                  } else if (ale.colour_code == "5") {
+                    color = "ale-dark"
+                  } return (
+                    <div className='ale-list-item'>
+                      <div className='ion-margin-vertical'>
+                        <h5>
+                          <span>{ale.brewery} {ale.product}</span>
+                          <span className='menu-item-icons'>
+                            <span className="menu-item-icon d-flex ion-align-items-center"><IonIcon icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z'/></svg>" color={color} className={"menu-item-icon_icon menu-item-icon_icon-" + color + "md ion-color ion-color-" + color} role="img"></IonIcon></span>
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           ))}
