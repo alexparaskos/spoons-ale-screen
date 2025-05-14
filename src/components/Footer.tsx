@@ -1,23 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IonFooter, IonIcon, IonItem, IonText, IonToolbar } from '@ionic/react';
+import { IonFooter, IonIcon, IonItem, IonList, IonText, IonToolbar } from '@ionic/react';
 import './Footer.css';
 
 const sections = [
-  { title: 'Legal', items: ['Privacy Policy', 'Terms of Service'] },
+  { title: 'Legal', items: ['Privacy Policy', 'Terms of Service','Privacy Policy', 'Terms of Service'] },
   { title: 'Support', items: ['Contact', 'Help Center'] },
   { title: 'Company', items: ['About', 'Careers'] }, 
-   { title: 'Leg232al', items: ['Privacy Policy', 'Terms of Service'] },
-  { title: 'Sup23port', items: ['Contact', 'Help Center'] },
-  { title: 'Comp232any', items: ['About', 'Careers'] },
 ];
 
-const HorizontalStickyFooter = () => {
-  const scrollRef = useRef(null);
-
+const HorizontalStickyFooter: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   // Simple auto-scroll effect
   useEffect(() => {
     const scrollEl = scrollRef.current;
-    let reqId;
+    if (!scrollEl) return;
+    let reqId: number;
     let scrollLeft = 0;
 
     const step = () => {
@@ -33,8 +30,6 @@ const HorizontalStickyFooter = () => {
     step();
     return () => cancelAnimationFrame(reqId);
   }, []);
-
-  const repeatedSections = [...sections, ...sections]; // For infinite loop
 
   return (
     <IonFooter>

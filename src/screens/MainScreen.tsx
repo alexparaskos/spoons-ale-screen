@@ -42,31 +42,33 @@ const MainScreen: React.FC = () => {
     fetchAndConnect('https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json')
   },[])
   return (
-    <Swiper
-      spaceBetween={30}
-      // centeredSlides={true}
-      autoplay={{
-        delay: 25000,
-        disableOnInteraction: false,
-      }}
-      // pagination={{
-      // clickable: true,
-      // }}
-      // navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
-      onAutoplayTimeLeft={onAutoplayTimeLeft}
-      className="mySwiper"
-    >
-      <SwiperSlide><HomeScreen /></SwiperSlide>
-      {/* <SwiperSlide><AreaScreen /></SwiperSlide> */}
-      <div className="autoplay-progress" slot="container-end">
-        <svg viewBox="0 0 48 48" ref={progressCircle}>
-          <circle cx="24" cy="24" r="20"></circle>
-        </svg>
-        <span ref={progressContent}></span>
-      </div>
-    </Swiper>
-  );
+  //   <Swiper
+  //     spaceBetween={30}
+  //     // centeredSlides={true}
+  //     autoplay={{
+  //       delay: 25000,
+  //       disableOnInteraction: false,
+  //     }}
+  //     // pagination={{
+  //     // clickable: true,
+  //     // }}
+  //     // navigation={true}
+  //     modules={[Autoplay, Pagination, Navigation]}
+  //     onAutoplayTimeLeft={onAutoplayTimeLeft}
+  //     className="mySwiper"
+  //   >
+  //     <SwiperSlide><HomeScreen /></SwiperSlide>
+  //     {/* <SwiperSlide><AreaScreen /></SwiperSlide> */}
+  //     {/* <div className="autoplay-progress" slot="container-end">
+  //       <svg viewBox="0 0 48 48" ref={progressCircle}>
+  //         <circle cx="24" cy="24" r="20"></circle>
+  //       </svg>
+  //       <span ref={progressContent}></span> */}
+  //     {/* </div> */}
+  //   </Swiper>
+  // );
+  <HomeScreen />
+  )
 };
 
 export default MainScreen;
