@@ -2,9 +2,7 @@ import { IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, Io
 import './Setup.css';
 import { useContext } from 'react';
 import { ConfigContext, PubDetails } from '../App';
-
 import global from "../global.json";
-import { configure } from '@testing-library/react';
 
 interface ContainerProps {
 
