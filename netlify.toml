@@ -1,0 +1,6 @@
+## This rule redirects to an external API, signing requests with a secret
+[[redirects]]
+  from = "/network-test"
+  to = "http://detectportal.firefox.com/success.txt"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
