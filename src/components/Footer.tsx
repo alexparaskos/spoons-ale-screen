@@ -46,7 +46,7 @@ const HorizontalStickyFooter: React.FC = () => {
       return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + pub.identifier + "/ales.json")
         .then(response => response.json())
         .then((data) => {//@ts-ignore
-          return { [pub.identifier]: data.filter((ale) => !ale.is_cellared) }
+          return { [pub.identifier]: data.filter((ale) => !ale.is_cellared && ale.name != "GRE IPA" )}
         })
     }))
       .then((data) => {
@@ -80,7 +80,7 @@ const HorizontalStickyFooter: React.FC = () => {
     step();
     return () => cancelAnimationFrame(reqId);
   }, [ales]);
-
+  console.log(ales)
   if (Object.keys(ales).length == 0) return <></>
   return (
     <IonFooter>
