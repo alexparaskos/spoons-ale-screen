@@ -59,13 +59,13 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   }
 
   const downloadAles = () => {
-    console.log('Updating Ales')
+    // console.log('Updating Ales')
     return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + config.homePub + "/ales.json")
       .then(response => response.json())
       .then((data) => {
         setAles(data);
       }).catch(() => {
-        console.log('failed to fetch, attempting to login into spoons wifi')
+        // console.log('failed to fetch, attempting to login into spoons wifi')
         fetch("neverssl.com", { method: "GET", redirect: "follow" })
           .then((response) => console.log)
         // .then((data) => {

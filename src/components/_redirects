@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/offline-test"
+  to = "http://detectportal.firefox.com/success.txt"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
