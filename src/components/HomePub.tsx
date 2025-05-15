@@ -39,10 +39,8 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
     setConfig
   } = useContext(ConfigContext);
   let [ales, setAles] = useState(defaultAles)
-  let [init, setInit] = useState(false)
   const activeAles = ales.filter((ale) => !ale.is_cellared)
   let cellaredAles = ales.filter((ale) => ale.is_cellared)
-  // const onPermAles = permAles.filter((ale) => ale.product == "IPA" || ale.product == "Abbot Ale")
   const onPermAles = permAles.filter((ale) => config.permAles.includes(ale.product))
 
   const contentRef = useRef<HTMLIonContentElement>(null);
@@ -68,11 +66,11 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         setAles(data);
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
-        fetch("neverssl.com",{method:"GET",redirect:"follow"})
+        fetch("neverssl.com", { method: "GET", redirect: "follow" })
           .then((response) => console.log)
-          // .then((data) => {
-          //   console.log(data)
-          // })
+        // .then((data) => {
+        //   console.log(data)
+        // })
       })
   }
   useEffect(() => {
@@ -84,36 +82,40 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   return (
     <IonContent ref={contentRef}>
       <IonGrid className='ion-no-padding full-height'>
-        <IonRow>
-          <IonCol>
-            <IonList lines="inset" class="list-md-lines-full list-lines-full">
-              <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-                <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Real ales on sale now</IonText>
-              </IonItemDivider>
-              {onPermAles.concat(activeAles).map((ale) => {
-                return { ...ale, price: true }
-              }).map((i, j) => <AleItem ale={i} key={j} />)}
-              {/* <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-                <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Our guest ciders</IonText>
-              </IonItemDivider>
-              {ciders.map((cider) => {
-                return { ...cider, price: true }
-              }).map((i,j) => <CiderItem cider={i} key={j} />)} */}
-            </IonList>
-          </IonCol>
-          <IonCol>
+        <IonList lines="inset" class="list-md-lines-full list-lines-full">
+          <IonRow>
             <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-              <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
+              <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Real ales on sale now</IonText>
             </IonItemDivider>
-            <IonList lines="inset" class="list-md-lines-full list-lines-full">
-              {cellaredAles.map((ale) => {
-                return { ...ale, price: true }
-              }).map((i, j) => <AleItem ale={i} key={j} />)}
-            </IonList>
+            <IonCol size='6'>
+              {onPermAles.concat(activeAles).map((i, j) => {
+                return !(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+              })}
+            </IonCol>
+            <IonCol size='6'>
+              {onPermAles.concat(activeAles).map((i, j) => {
+                return !!(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+              })}
+            </IonCol>
+          </IonRow>
+        </IonList>
+        <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+          <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
+        </IonItemDivider>
+        <IonRow>
+          <IonCol size='6'>
+            {cellaredAles.concat(cellaredAles).map((i, j) => {
+              return !(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+            })}
+          </IonCol>
+          <IonCol size='6'>
+            {cellaredAles.concat(cellaredAles).map((i, j) => {
+              return !!(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+            })}
           </IonCol>
         </IonRow>
       </IonGrid>
-    </IonContent>
+    </IonContent >
 
   );
 };

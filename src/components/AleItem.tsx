@@ -3,7 +3,6 @@ import './AleItem.css';
 
 interface ContainerProps {
   ale: {
-    price: boolean;
     brewery: string;
     product: string;
     colour_code: string;
@@ -33,7 +32,7 @@ const AleItem: React.FC<ContainerProps> = ({ ale }) => {
           </span>
         </h5>
         <IonText color="grey" className='text-sm ion-color text-semi-bold ion-color-grey md'>
-          {ale.abv}% ABV {ale.units} units. {ale.product_description}
+          {ale.abv}% ABV - {ale.product_description}
         </IonText>
       </div>
     </IonItem>

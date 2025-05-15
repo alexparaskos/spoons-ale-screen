@@ -80,7 +80,7 @@ const HorizontalStickyFooter: React.FC = () => {
     step();
     return () => cancelAnimationFrame(reqId);
   }, [ales]);
-  console.log(ales)
+
   if (Object.keys(ales).length == 0) return <></>
   return (
     <IonFooter>
