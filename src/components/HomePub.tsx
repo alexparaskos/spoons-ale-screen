@@ -98,22 +98,23 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               })}
             </IonCol>
           </IonRow>
+
+          <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+            <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
+          </IonItemDivider>
+          <IonRow>
+            <IonCol size='6'>
+              {cellaredAles.concat(cellaredAles).map((i, j) => {
+                return !(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+              })}
+            </IonCol>
+            <IonCol size='6'>
+              {cellaredAles.concat(cellaredAles).map((i, j) => {
+                return !!(j % 2) ? <AleItem ale={i} key={j} /> : <></>
+              })}
+            </IonCol>
+          </IonRow>
         </IonList>
-        <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
-          <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
-        </IonItemDivider>
-        <IonRow>
-          <IonCol size='6'>
-            {cellaredAles.concat(cellaredAles).map((i, j) => {
-              return !(j % 2) ? <AleItem ale={i} key={j} /> : <></>
-            })}
-          </IonCol>
-          <IonCol size='6'>
-            {cellaredAles.concat(cellaredAles).map((i, j) => {
-              return !!(j % 2) ? <AleItem ale={i} key={j} /> : <></>
-            })}
-          </IonCol>
-        </IonRow>
       </IonGrid>
     </IonContent >
 
