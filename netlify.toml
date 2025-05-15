@@ -10,3 +10,9 @@
   to = "http://localhost:8001"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/fake-route-200"
+  to = "http://localhost:8001"
+  status = 200
+  force = true
