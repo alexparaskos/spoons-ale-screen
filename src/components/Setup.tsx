@@ -3,7 +3,7 @@ import './Setup.css';
 import { useContext } from 'react';
 import { ConfigContext, PubDetails } from '../App';
 import global from "../global.json";
-
+import ciders from "../ciders.json";
 interface ContainerProps {
 
 }
@@ -28,7 +28,7 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
   if (config.homePubDetails?.name) {
     venues = venues.map((v) => {
       //@ts-ignore
-      return ({ ...v, identifier:v.identifier.toString(),distance: distance(v.latitude, v.longitude, config.homePubDetails.latitude, config.homePubDetails.longitude) })
+      return ({ ...v, identifier: v.identifier.toString(), distance: distance(v.latitude, v.longitude, config.homePubDetails.latitude, config.homePubDetails.longitude) })
     })
     venues = venues.sort((a, b) => a.distance! - b.distance!)
     venues = venues.slice(1, 20)
@@ -76,11 +76,26 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
                 return <IonSelectOption key={v.identifier} value={v.identifier}>{v.name}</IonSelectOption>
               })}
             </IonSelect>
-
-          </IonItem>      <IonButton onClick={
-            () => { 
-              localStorage.setItem("config",JSON.stringify(config));//@ts-ignore
-              setConfig({ ...config, setup: false }) }} expand="block">Done</IonButton></> : <></>}
+          </IonItem>
+          {/* <IonItem>
+            <IonSelect label="Guest Ciders" value={Object.keys(config.guestCiders)} multiple={true} onIonChange={(e) => {
+              console.log(e.detail.value)
+              // setConfig(
+              //   {
+              //     //@ts-ignore
+              //     ...config, areaPubs: areaPubs
+              //   })
+            }}>
+              {ciders.map((v) => {
+                return <IonSelectOption key={v.eposName} value={v.eposName}>{v.displayRecords[0].name}</IonSelectOption>
+              })}
+            </IonSelect>
+          </IonItem> */}
+          <IonButton onClick={
+            () => {
+              localStorage.setItem("config", JSON.stringify(config));//@ts-ignore
+              setConfig({ ...config, setup: false })
+            }} expand="block">Done</IonButton></> : <></>}
       </IonList>
 
     </div>

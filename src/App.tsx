@@ -62,18 +62,18 @@ export interface PubDetails {
   is_closed: number;
   related_site: null;
   payment: {
-      gateway: string;
-      bnpp: {
-          merchant_id: string;
-          apple_pay_merchant_id: string;
-      };
+    gateway: string;
+    bnpp: {
+      merchant_id: string;
+      apple_pay_merchant_id: string;
+    };
   };
   payment_methods_disabled: never[];
   temporary_closed: {
-      closureTo: string;
-      closureFrom: string;
-      closureNotice: string;
-      pubIsTemporaryClosed: boolean;
+    closureTo: string;
+    closureFrom: string;
+    closureNotice: string;
+    pubIsTemporaryClosed: boolean;
   };
   distance?: number;
 }
@@ -109,14 +109,34 @@ export interface AleDetails {
     is_favourite: number;
     is_cellared: number;
     active_sales_areas: {
-        id: number;
+      id: number;
     }[];
-};
+  };
 }
 type AreaPubs = {
-  [key:string] : PubDetails
+  [key: string]: PubDetails
 }
-let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean } = {
+type Cider = {
+  id: number,
+  eposName: string,
+  displayRecords: [
+    {
+      id: number,
+      name: string
+      description: string,
+      effectiveDate: string,
+      expiryDate: string,
+      image: string,
+      alt_text: null,
+      keywords: number[]
+      calories: number,
+      mayStock: number,
+      showPrices: number
+    }
+  ]
+
+}
+let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] } = {
   homePub: "",
   homePubDetails: {
     id: 0,
@@ -152,6 +172,7 @@ let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[]
       pubIsTemporaryClosed: false
     }
   },
+  guestCiders: [],
   permAles: [],
   areaPubs: {},
   setup: true,
@@ -179,7 +200,7 @@ function useInterval(callback: unknown, delay: number) {
   }, [delay]);
 }
 if (localStorage.getItem("config")) {
-  defConfig = {...defConfig, ...JSON.parse(localStorage.getItem("config")!)}
+  defConfig = { ...defConfig, ...JSON.parse(localStorage.getItem("config")!) }
   // console.log(JSON.parse(localStorage.getItem("config")!)
   console.log(defConfig)
 }
@@ -213,9 +234,9 @@ const App: React.FC<RouteComponentProps> = () => {
       setConfig
     }}>
       <IonApp>
-      {config.setup ?
-                  <SetupScreen /> : <MainScreen />
-                }
+        {config.setup ?
+          <SetupScreen /> : <MainScreen />
+        }
       </IonApp>
     </ConfigContext.Provider>
   )

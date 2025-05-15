@@ -69,9 +69,9 @@ const HorizontalStickyFooter: React.FC = () => {
 
     const step = () => {
       if (!scrollEl) return;
-      scrollLeft += 0.8;
+      scrollLeft += 1.3;
       if (scrollLeft >= scrollEl.scrollWidth / 2) {
-        scrollLeft = 0;
+        scrollLeft -= scrollEl.scrollWidth/2;
       }
       scrollEl.scrollLeft = scrollLeft;
       reqId = requestAnimationFrame(step);
@@ -86,7 +86,7 @@ const HorizontalStickyFooter: React.FC = () => {
     <IonFooter>
       <IonToolbar className="footer-toolbar">
         <div className="scroll-container" ref={scrollRef}>
-          {Object.values(config.areaPubs).map((pub, index) => (
+          {[...Object.values(config.areaPubs),...Object.values(config.areaPubs)].map((pub, index) => (
             <div className="scroll-section" key={index}>
               <div className=" ale-list-item section-header ion-padding-horizontal">
                 <div className='ion-margin-vertical bg-light-grey'>
@@ -106,7 +106,7 @@ const HorizontalStickyFooter: React.FC = () => {
                   } else if (ale.colour_code == "5") {
                     color = "ale-dark"
                   } return (
-                    <div className='ale-list-item'>
+                    <div className='ale-list-item' key={i}>
                       <div className='ion-margin-vertical'>
                         <h5>
                           <span>{ale.brewery} {ale.product}</span>
