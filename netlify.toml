@@ -9,6 +9,4 @@
   from = "/fake-router"
   to = "http://localhost:8001"
   status = 301
-  force = false
-  query = {path = ":path"}
-  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
+  force = true
