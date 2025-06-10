@@ -269,7 +269,14 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               formData.append('answer', '1')
 
               fetch(routerUrl)
-              fetch(routerUrl, { method: 'POST', body: formData }).then((response) => response.text()).then((data) => { console.log(data)})
+              fetch(routerUrl, { method: 'POST', body: formData })
+                .then((response) => response.text())
+                .then((data) => {
+                  console.log(data)
+                  if (data.includes('success')) {
+                    alert('Success!')
+                  }
+                })
             }
           })
         // .then((data) => {
