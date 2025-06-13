@@ -251,12 +251,12 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         setAles(data);
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
-        fetch("neverssl.com", { method: "GET", redirect: "follow" })
+        fetch("/", { method: "GET"})
           .then((response) => response.text())
           .then((data) => {
             data = testRouterPage
             console.log(data);
-            if (data.includes("<title> Firewall Disclaimer </title>")) {
+            // if (data.includes("<title> Firewall Disclaimer </title>")) {
               console.log('redirected to router')
               const reDir = 'http://detectportal.firefox.com/success.txt'
               const secret = data.match(`magic" value="([^"]*)`)![1]
@@ -279,7 +279,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                     // alert('Success!')
                   }
                 })
-            }
+            // }
           })
         // .then((data) => {
         //   console.log(data)
