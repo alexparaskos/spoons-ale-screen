@@ -275,7 +275,8 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                 .then((data) => {
                   console.log(data)
                   if (data.includes('success')) {
-                    alert('Success!')
+                    console.log('success bypass')
+                    // alert('Success!')
                   }
                 })
             }
