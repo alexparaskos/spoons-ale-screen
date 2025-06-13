@@ -243,10 +243,11 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
  
 </html>`
   const downloadAles = () => {
-    // console.log('Updating Ales')
+    console.log('Updating Ales')
     return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + config.homePub + "/ales.json")
       .then(response => response.json())
       .then((data) => {
+        console.log('Update successful')
         setAles(data);
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
@@ -289,7 +290,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   useEffect(() => {
     downloadAles()
   }, [])
-  useInterval(downloadAles, 300000)
+  useInterval(downloadAles, 300000/5)
   useInterval(transition, 10000)
 
   return (
