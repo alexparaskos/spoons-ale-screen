@@ -255,7 +255,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         fetch("/", { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
-            data = testRouterPage
+            data = data
             console.log(data);
             // if (data.includes("<title> Firewall Disclaimer </title>")) {
             console.log('redirected to router')
