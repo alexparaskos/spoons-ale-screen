@@ -251,25 +251,26 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         setAles(data);
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
-        fetch("/", { method: "GET"})
+        console.log('fetch host')
+        fetch("/", { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
             data = testRouterPage
             console.log(data);
             // if (data.includes("<title> Firewall Disclaimer </title>")) {
-              console.log('redirected to router')
-              const reDir = 'http://detectportal.firefox.com/success.txt'
-              const secret = data.match(`magic" value="([^"]*)`)![1]
-              console.log('secret: ' + secret)
-              console.log('POSTING to router')
+            console.log('redirected to router')
+            const reDir = 'http://detectportal.firefox.com/success.txt'
+            const secret = data.match(`magic" value="([^"]*)`)![1]
+            console.log('secret: ' + secret)
 
-              const routerUrl = 'http://192.168.128.1:1000/fgtauth?' + secret
-              const formData = new FormData()
-              formData.append('4Tredir', reDir)
-              formData.append('magic', secret)
-              formData.append('answer', '1')
-
-              fetch(routerUrl)
+            const routerUrl = 'http://192.168.128.1:1000/fgtauth?' + secret
+            const formData = new FormData()
+            formData.append('4Tredir', reDir)
+            formData.append('magic', secret)
+            formData.append('answer', '1')
+            console.log('fetching ' + routerUrl)
+            fetch(routerUrl).then(() => {
+              console.log('POSTING to: ' + routerUrl)
               fetch(routerUrl, { method: 'POST', body: formData })
                 .then((response) => response.text())
                 .then((data) => {
@@ -279,8 +280,9 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                     // alert('Success!')
                   }
                 })
+            })
             // }
-          })
+          }).catch((err) => console.log('Fetch to / failed'))
         // .then((data) => {
         //   console.log(data)
         // })
@@ -291,7 +293,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   useEffect(() => {
     downloadAles()
   }, [])
-  useInterval(downloadAles, 300000/5)
+  useInterval(downloadAles, 300000 / 5)
   useInterval(transition, 10000)
 
   return (
