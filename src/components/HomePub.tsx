@@ -251,27 +251,32 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         setAles(data);
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
-        console.log('fetch host')
+        console.log('fetching /')
         fetch("/", { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
-            data = data
             console.log(data);
-            // if (data.includes("<title> Firewall Disclaimer </title>")) {
-            console.log('redirected to router')
+            if (data.includes("<title> Firewall Disclaimer </title>")) {
+              console.log('redirected to router')
+            }
             const reDir = 'http://detectportal.firefox.com/success.txt'
             const secret = data.match(`magic" value="([^"]*)`)![1]
             console.log('secret: ' + secret)
-
             const routerUrl = 'http://192.168.128.1:1000/fgtauth?' + secret
-            const formData = new FormData()
-            formData.append('4Tredir', reDir)
-            formData.append('magic', secret)
-            formData.append('answer', '1')
+            let body = encodeURI('4Tredir=' + reDir)
+            body = body + '&' + 'magic' + encodeURI(secret)
+            body = body + '&' + 'answer=1'
             console.log('fetching ' + routerUrl)
+            console.log('body": ' + body)
             fetch(routerUrl).then(() => {
               console.log('POSTING to: ' + routerUrl)
-              fetch(routerUrl, { method: 'POST', body: formData })
+              fetch(routerUrl, {
+                method: 'POST',
+                body: body,
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+              })
                 .then((response) => response.text())
                 .then((data) => {
                   console.log(data)
@@ -280,7 +285,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                     // alert('Success!')
                   }
                 })
-            })
+            }).catch(() => console.log('failed GET to: ' + routerUrl))
             // }
           }).catch((err) => console.log('Fetch to / failed'))
         // .then((data) => {
