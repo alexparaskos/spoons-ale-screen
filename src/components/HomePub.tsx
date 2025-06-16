@@ -256,11 +256,11 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
           .then((response) => response.text())
           .then((data) => {
             console.log(data);
-            if (data.includes("<title> Firewall Disclaimer </title>")) {
+            if (data.includes("window.location")) {
               console.log('redirected to router')
             }
             const reDir = 'http://detectportal.firefox.com/success.txt'
-            const secret = data.match(`magic" value="([^"]*)`)![1]
+            const secret = data.match(`fgtauth?([^"]*)`)![1]
             console.log('secret: ' + secret)
             const routerUrl = 'http://192.168.128.1:1000/fgtauth?' + secret
             let body = encodeURI('4Tredir=' + reDir)
@@ -287,7 +287,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                 })
             }).catch(() => console.log('failed GET to: ' + routerUrl))
             // }
-          }).catch((err) => console.log('Fetch to / failed'))
+          }).catch((err) => {console.log('Fetch to / failed')})
         // .then((data) => {
         //   console.log(data)
         // })
