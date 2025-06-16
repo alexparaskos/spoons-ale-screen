@@ -252,7 +252,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
         console.log('fetching /')
-        fetch("/", { method: "GET" })
+        fetch("http://spoons.alexparaskos.com", { method: "GET",cache:"no-store" })
           .then((response) => response.text())
           .then((data) => {
             console.log(data);
