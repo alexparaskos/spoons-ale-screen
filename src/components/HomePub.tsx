@@ -255,6 +255,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
         fetch("http://spoons.alexparaskos.com", { method: "GET",cache:"no-store" })
           .then((response) => response.text())
           .then((data) => {
+            console.log('1')
             console.log(data);
             if (data.includes("window.location")) {
               console.log('redirected to router')
