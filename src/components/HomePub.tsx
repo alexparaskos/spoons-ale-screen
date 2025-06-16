@@ -264,7 +264,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             const secret = data.match(`fgtauth([^"]*)`)![1].slice(1)
             console.log('secret: ' + secret)
             const routerUrl = 'http://192.168.128.1:1000/fgtauth?'+secret
-            let body = encodeURIComponent('4Tredir=' + reDir)
+            let body = '4Tredir=' + encodeURIComponent(reDir)
             body = body + '&' + 'magic=' + encodeURIComponent(secret)
             body = body + '&' + 'answer=1'
             console.log('fetching ' + routerUrl)
