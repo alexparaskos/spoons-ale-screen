@@ -269,7 +269,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             body = body + '&' + 'answer=1'
             console.log('fetching ' + routerUrl)
             console.log('body": ' + body)
-            fetch(routerUrl).then(() => {
+            // fetch(routerUrl).then(() => {
               console.log('POSTING to: ' + routerUrl)
               fetch(routerUrl, {
                 method: 'POST',
@@ -286,9 +286,9 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                     // alert('Success!')
                   }
                 })
-            }).catch(() => console.log('failed GET to: ' + routerUrl))
+            }).catch(() => console.log('failed post'))
             // }
-          }).catch((err) => {console.log('Fetch to / failed',err)})
+          // }).catch((err) => {console.log('Fetch to / failed',err)})
         // .then((data) => {
         //   console.log(data)
         // })
