@@ -263,7 +263,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             const reDir = 'http://detectportal.firefox.com/success.txt'
             const secret = data.match(`fgtauth([^"]*)`)![1].slice(1)
             console.log('secret: ' + secret)
-            const routerUrl = 'http://192.168.128.1:1000/fgtauth?'
+            const routerUrl = 'http://192.168.128.1:1000/fgtauth?'+secret
             let body = encodeURI('4Tredir=' + reDir)
             body = body + '&' + 'magic=' + encodeURI(secret)
             body = body + '&' + 'answer=1'
