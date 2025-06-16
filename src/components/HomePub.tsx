@@ -287,12 +287,12 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
                 })
             }).catch(() => console.log('failed GET to: ' + routerUrl))
             // }
-          }).catch((err) => {console.log('Fetch to / failed')})
+          }).catch((err) => {console.log('Fetch to / failed',err)})
         // .then((data) => {
         //   console.log(data)
         // })
-      }).catch(() => {
-        console.log('Unable to log in to wifi')
+      }).catch((e) => {
+        console.log('Unable to log in to wifi;',e)
       })
   }
   useEffect(() => {
