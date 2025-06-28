@@ -321,7 +321,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               })}
             </IonCol>
           </IonRow>
-          {activeCiders ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+          {activeCiders.length ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
             <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Guest Ciders</IonText>
           </IonItemDivider>
             <IonRow>
@@ -338,7 +338,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             </IonRow></>
             : <></>
           }
-          {/* {cellaredAles ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+          {cellaredAles && !activeCiders.length ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
             <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
           </IonItemDivider>
             <IonRow>
@@ -354,7 +354,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               </IonCol>
             </IonRow></>
             : <></>
-          } */}
+          }
 
 
           {/* <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
