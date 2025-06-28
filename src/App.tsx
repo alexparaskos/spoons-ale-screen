@@ -136,7 +136,9 @@ type Cider = {
   ]
 
 }
-let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] } = {
+let defConfig: {
+  ciders: string[]; homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] 
+} = {
   homePub: "",
   homePubDetails: {
     id: 0,
@@ -172,6 +174,7 @@ let defConfig: { homePub: string, homePubDetails: PubDetails, permAles: string[]
       pubIsTemporaryClosed: false
     }
   },
+  ciders: [],
   guestCiders: [],
   permAles: [],
   areaPubs: {},

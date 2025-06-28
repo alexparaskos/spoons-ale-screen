@@ -3,7 +3,7 @@ import './HomePub.css';
 import { createRef, useContext, useEffect, useRef, useState } from 'react';
 import defaultAles from "../defaultAles.json";
 import permAles from "../permAles.json";
-import ciders from "../ciders.json";
+import ciders from "../ciderTemp.json";
 import AleItem from './AleItem';
 import AutoScroll from './AutoScroll';
 import CiderItem from './CiderItem';
@@ -42,7 +42,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
   const activeAles = ales.filter((ale) => !ale.is_cellared)
   let cellaredAles = ales.filter((ale) => ale.is_cellared)
   const onPermAles = permAles.filter((ale) => config.permAles.includes(ale.product))
-
+  const activeCiders = ciders.filter((cider)=>config.ciders.includes(cider.product))
   const contentRef = useRef<HTMLIonContentElement>(null);
   let [position, setPosition] = useState(0)
 
@@ -252,7 +252,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
       }).catch(() => {
         console.log('failed to fetch, attempting to login into spoons wifi')
         console.log('fetching /')
-        fetch("http://spoons.alexparaskos.com", { method: "GET",cache:"no-store" })
+        fetch("http://spoons.alexparaskos.com", { method: "GET", cache: "no-store" })
           .then((response) => response.text())
           .then((data) => {
             console.log('1')
@@ -263,37 +263,37 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             const reDir = 'http://detectportal.firefox.com/success.txt'
             const secret = data.match(`fgtauth([^"]*)`)![1].slice(1)
             console.log('secret: ' + secret)
-            const routerUrl = 'http://192.168.128.1:1000/fgtauth?'+secret
+            const routerUrl = 'http://192.168.128.1:1000/fgtauth' + secret
             let body = '4Tredir=' + encodeURIComponent(reDir)
-            body = body + '&' + 'magic=' + encodeURIComponent(secret)
+            body = body + '&' + 'magic=' + secret
             body = body + '&' + 'answer=1'
             console.log('fetching ' + routerUrl)
             console.log('body": ' + body)
             // fetch(routerUrl).then(() => {
-              console.log('POSTING to: ' + routerUrl)
-              fetch(routerUrl, {
-                method: 'POST',
-                body: body,
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded",
-                },
+            console.log('POSTING to: ' + routerUrl)
+            fetch(routerUrl, {
+              method: 'POST',
+              body: body,
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                console.log(data)
+                if (data.includes('success')) {
+                  console.log('success bypass')
+                  // alert('Success!')
+                }
               })
-                .then((response) => response.text())
-                .then((data) => {
-                  console.log(data)
-                  if (data.includes('success')) {
-                    console.log('success bypass')
-                    // alert('Success!')
-                  }
-                })
-            }).catch(() => console.log('failed post'))
-            // }
-          // }).catch((err) => {console.log('Fetch to / failed',err)})
+          }).catch(() => console.log('failed post'))
+        // }
+        // }).catch((err) => {console.log('Fetch to / failed',err)})
         // .then((data) => {
         //   console.log(data)
         // })
       }).catch((e) => {
-        console.log('Unable to log in to wifi;',e)
+        console.log('Unable to log in to wifi;', e)
       })
   }
   useEffect(() => {
@@ -321,6 +321,23 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
               })}
             </IonCol>
           </IonRow>
+          {activeCiders ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
+            <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>Guest Ciders</IonText>
+          </IonItemDivider>
+            <IonRow>
+              <IonCol size='6'>
+                {activeCiders.map((i, j) => {
+                  return !(j % 2) ? <CiderItem cider={i} key={j} /> : <></>
+                })}
+              </IonCol>
+              <IonCol size='6'>
+                {activeCiders.map((i, j) => {
+                  return !!(j % 2) ? <CiderItem cider={i} key={j} /> : <></>
+                })}
+              </IonCol>
+            </IonRow></>
+            : <></>
+          }
           {cellaredAles ? <><IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
             <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>
           </IonItemDivider>
@@ -338,6 +355,7 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             </IonRow></>
             : <></>
           }
+
 
           {/* <IonItemDivider color="light-grey" sticky={true} className='ion-color ion-color-light-grey item md item-lines-full'>
             <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>In the cellar</IonText>

@@ -3,7 +3,7 @@ import './Setup.css';
 import { useContext } from 'react';
 import { ConfigContext, PubDetails } from '../App';
 import global from "../global.json";
-import ciders from "../ciders.json";
+import ciders from "../ciderTemp.json";
 interface ContainerProps {
 
 }
@@ -56,6 +56,14 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
               <IonSelectOption value="Ruddles Best">Ruddles Best</IonSelectOption>
               <IonSelectOption value="Doom Bar">Doom Bar</IonSelectOption>
               <IonSelectOption value="80 Shilling">80 Shilling</IonSelectOption>
+            </IonSelect>
+          </IonItem>
+          <IonItem>
+            <IonSelect label="Guest Ciders" value={config.ciders} multiple={true} onIonChange={(e) => {
+              setConfig(//@ts-ignore
+                { ...config, ciders: e.detail.value })
+            }}>
+              {ciders.map((v, i) =><IonSelectOption key={i} value={v.product}>{v.product}</IonSelectOption>)}
             </IonSelect>
           </IonItem>
           <IonItem>
