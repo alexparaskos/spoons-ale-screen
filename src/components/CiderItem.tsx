@@ -1,5 +1,5 @@
 import { IonIcon, IonItem, IonText } from '@ionic/react';
-import './AleItem.css';
+import './CiderItem.css';
 
 interface ContainerProps {
   cider: {

@@ -1,8 +1,10 @@
-[    {
+[
+    {
         "product": "Thistly Cross Whisky Cask 6.7% ABV",
         "brewery": "Thistly Cross, East Lothian. Est. 2008",
         "product_description": "This cider, blended with single malt scotch whisky casks. Warming notes of oak, vanilla and honey."
-    },    {
+    },
+    {
         "product": "Monkey Mango 4.0% ABV",
         "brewery": "Cockeyed Cider, Devon. Est. 2012",
         "product_description": "This clear cider, fermented mainly from desert fruit, blended with traditional mango."
@@ -16,85 +18,5 @@
         "product": "Broadoak Moonshine 7.5% ABV",
         "brewery": "Broadoak Cider, Somerset. Est. 1984",
         "product_description": "This strong, clear and very drinkable cider, with a crisp refreshing taste and little evidence of alcoholic content."
-    },
-    {
-        "product": "Healeys Flattler Cornish Pear Cyder 3.4% ABV",
-        "brewery": "Healeys Cyder Farm, Cornwall. Est. 1980",
-        "product_description": "This clear golden cider has a sweet flavour, with a well-balanced fruity character leading to a pear drop finish."
-    },
-    {
-        "product": "Pulp Peach Mojito 3.4% ABV",
-        "brewery": "Celtic Marches, Herefordshire. Est. 2011",
-        "product_description": "This hazy yellow, sweet cider is a fruity twist on a classic mojito, with refreshing flavours of peach, lime and rum."
-    },
-    {
-        "product": "Sandford Orchards Cherry 3.4% ABV ",
-        "brewery": "Sandford Orchards, Devon. Est. 2002",
-        "product_description": "This clear deep red cider is sweet and tangy, bursting with a luscious blend of cherry flavours and a Bakewell tart hint.  "
-    },
-    {
-        "product": "Barbourne Rhoobarb & Custard 4.0% ABV",
-        "brewery": "Barbourne Cider, Worcestershire. Est. 2014",
-        "product_description": "This slightly hazy pale pink cider blends tanginess with sweet and creamy vanilla, resulting in a perfect sweet and sour balance."
-    },
-    {
-        "product": "Broadoak Moonshine Rum & Raisin 4.0% ABV",
-        "brewery": "Broadoak Cider, Somerset. Est. 1984",
-        "product_description": "This clear amber, medium-sweet cider has been infused with rum and raisins, resulting in a distinctive, very drinkable character."
-    },
-    {
-        "product": "Snails Bank Toffee Apple 4.0% ABV",
-        "brewery": "Snails Bank Cider, Herefordshire. Est. 2008",
-        "product_description": "This clear golden medium-sweet cider blends toffee and vanilla with juicy apple, delivering a distinctive, sumptuous flavour. "
-    },
-    {
-        "product": "Harry’s Corker 4.5% ABV ",
-        "brewery": "Harry’s Cider, Somerset. Est. 2012",
-        "product_description": "This clear light amber medium cider uses early season apples to deliver its soft, easy-drinking, fruity character.  "
-    },
-    {
-        "product": "Dorset Nectar Dabinett 5.0% ABV ",
-        "brewery": "Dorset Nectar, Dorset. Est. 2008",
-        "product_description": "This clear orange-yellow medium-dry cider uses the single-variety organic apple to deliver a full-bodied, fruity character with tannin notes."
-    },
-    {
-        "product": "Mr Whitehead’s Midnight Special 5.0% ABV",
-        "brewery": "Mr Whitehead’s Cider, Hampshire. Est. 2003",
-        "product_description": "This hazy straw-coloured medium-sweet perry uses a blend of dessert and perry pears to deliver a pleasing aroma and subtle(yet full-bodied) flavour."
-    },
-    {
-        "product": "Purbeck Joe’s Farmhouse Dry 5.6% ABV",
-        "brewery": "Purbeck Cider, Dorset. Est. 2014",
-        "product_description": "This clear pale golden cider has a full-bodied, well-balanced flavour, leading to a traditional dry finish, with a pleasing lemon zest hint. "
-    },
-    {
-        "product": "Hecks Dabinett 6.0% ABV",
-        "brewery": "Hecks Cider, Somerset. Est. 1896",
-        "product_description": "This hazy golden medium-dry cider is made using a local single-variety Somerset cider apple, delivering a distinctive, well-rounded, fruity flavour."
-    },
-    {
-        "product": "Rich’s Dry Farmhouse Cider 6.0% ABV",
-        "brewery": "Rich’s Cider, Somerset. Est. 1954",
-        "product_description": "This hazy golden medium-dry cider is made using a local single-variety Somerset cider apple, delivering a distinctive, well-rounded, fruity flavour."
-    },
-    {
-        "product": "Hecks Dabinett 6.0% ABV",
-        "brewery": "Hecks Cider, Somerset. Est. 1896",
-        "product_description": "This hazy golden dry cider is made from freshly pressed local apples, matured in oak vats to give a full, rounded flavour and a bitter edge in the finish."
-    },
-    {
-        "product": "Sheppy’s Orchard Dew 6.0% ABV",
-        "brewery": "Sheppy’s Cider, Somerset. Est. 1816",
-        "product_description": "This cloudy golden medium traditional Somerset cider, from this award-winning producer, has a crisp, refreshing, fruity flavour throughout. "
-    },
-    {
-        "product": "Hunts Barn Screecher 6.2% ABV ",
-        "brewery": "Hunts Devon Cider, Devon. Est. 1805",
-        "product_description": "This clear deep golden dry cider is packed full of tannins and juicy, tangy apple flavours, resulting in a moreish, refreshing character."
-    },
-    {
-        "product": "Gwynt y Ddraig Fiery Fox 6.5% ABV ",
-        "brewery": "Gwynt Cider, Rhondda Cynon Taff. Est 2001",
-        "product_description": "This clear straw-coloured medium cider has a fruity, smooth,balanced flavour, leading to a refreshing sharpness in the finish."
     }
 ]
