@@ -1,4 +1,4 @@
-import { IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonListHeader, IonButton } from '@ionic/react';
+import { IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonListHeader, IonButton, IonToggle } from '@ionic/react';
 import './Setup.css';
 import { useContext } from 'react';
 import { ConfigContext, PubDetails } from '../App';
@@ -63,7 +63,7 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
               setConfig(//@ts-ignore
                 { ...config, ciders: e.detail.value })
             }}>
-              {ciders.map((v, i) =><IonSelectOption key={i} value={v.product}>{v.product}</IonSelectOption>)}
+              {ciders.map((v, i) => <IonSelectOption key={i} value={v.product}>{v.product}</IonSelectOption>)}
             </IonSelect>
           </IonItem>
           <IonItem>
@@ -84,6 +84,12 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
                 return <IonSelectOption key={v.identifier} value={v.identifier}>{v.name}</IonSelectOption>
               })}
             </IonSelect>
+          </IonItem>
+          <IonItem>
+            <IonToggle  onIonChange={(e) => {
+              setConfig(//@ts-ignore
+                { ...config, hotels: !!e.detail.value })
+            }} checked={!!config.hotels}>Show Hotel Vid</IonToggle>
           </IonItem>
           {/* <IonItem>
             <IonSelect label="Guest Ciders" value={Object.keys(config.guestCiders)} multiple={true} onIonChange={(e) => {

@@ -9,9 +9,12 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import HomeScreen from './HomeScreen';
 import AreaScreen from './AreaScreen';
+import HotelScreen from './HotelScreen';
+import HotelVideo from '../components/HotelVideo';
+import { ConfigContext } from '../App';
 
 const fetchAndConnect = (url: string) => {
   fetch(url)
@@ -30,6 +33,10 @@ const download = (url: string) => {
 }
 
 const MainScreen: React.FC = () => {
+  const {
+    config,
+    setConfig
+  } = useContext(ConfigContext);
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
@@ -38,37 +45,39 @@ const MainScreen: React.FC = () => {
     //@ts-ignore
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
-  useEffect(()=>{
+  useEffect(() => {
     fetchAndConnect('https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json')
-  },[])
+  }, [])
+  if (!config.hotels) return <HomeScreen />
   return (
-  //   <Swiper
-  //     spaceBetween={30}
-  //     // centeredSlides={true}
-  //     autoplay={{
-  //       delay: 25000,
-  //       disableOnInteraction: false,
-  //     }}
-  //     // pagination={{
-  //     // clickable: true,
-  //     // }}
-  //     // navigation={true}
-  //     modules={[Autoplay, Pagination, Navigation]}
-  //     onAutoplayTimeLeft={onAutoplayTimeLeft}
-  //     className="mySwiper"
-  //   >
-  //     <SwiperSlide><HomeScreen /></SwiperSlide>
-  //     {/* <SwiperSlide><AreaScreen /></SwiperSlide> */}
-  //     {/* <div className="autoplay-progress" slot="container-end">
-  //       <svg viewBox="0 0 48 48" ref={progressCircle}>
-  //         <circle cx="24" cy="24" r="20"></circle>
-  //       </svg>
-  //       <span ref={progressContent}></span> */}
-  //     {/* </div> */}
-  //   </Swiper>
-  // );
-  <HomeScreen />
-  )
+    <Swiper
+      // spaceBetween={30}
+      // centeredSlides={true}
+      autoplay={{
+        delay: 50000,
+        disableOnInteraction: false,
+      }}
+      // pagination={{
+      // clickable: true,
+      // }}
+      // navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+      onAutoplayTimeLeft={onAutoplayTimeLeft}
+      className="mySwiper"
+    >
+      <SwiperSlide><HomeScreen /></SwiperSlide>
+      {/* <SwiperSlide><HotelScreen /></SwiperSlide> */}
+      <SwiperSlide><HotelVideo name={''} /></SwiperSlide>
+      <div className="autoplay-progress" slot="container-end">
+        <svg viewBox="0 0 48 48" ref={progressCircle}>
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span ref={progressContent}></span>
+      </div>
+    </Swiper>
+  );
+  // <HomeScreen />
+  // )
 };
 
 export default MainScreen;

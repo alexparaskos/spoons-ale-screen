@@ -137,7 +137,7 @@ type Cider = {
 
 }
 let defConfig: {
-  ciders: string[]; homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] 
+  hotels: boolean,ciders: string[]; homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] 
 } = {
   homePub: "",
   homePubDetails: {
@@ -179,6 +179,7 @@ let defConfig: {
   permAles: [],
   areaPubs: {},
   setup: true,
+  hotels: false
 }
 
 function useInterval(callback: unknown, delay: number) {

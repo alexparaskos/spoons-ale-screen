@@ -1,0 +1,43 @@
+/* Match Ionic style */
+.scrolling-toolbar {
+    --background: #222;
+    color: white;
+    height: 44px;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Scrolling container */
+  .scrolling-text-container {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  /* The actual scrolling line */
+  .scrolling-text-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 20s linear infinite;
+  }
+  
+  /* Individual item spacing */
+  .scrolling-text-track span {
+    display: inline-block;
+    margin: 0 2rem;
+  }
+  
+  /* Animation definition */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
