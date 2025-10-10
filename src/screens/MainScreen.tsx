@@ -39,6 +39,7 @@ const MainScreen: React.FC = () => {
   } = useContext(ConfigContext);
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
+  const videoRef = useRef(null);
   const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
     //@ts-ignore
     progressCircle.current.style.setProperty('--progress', 1 - progress);
@@ -48,15 +49,32 @@ const MainScreen: React.FC = () => {
   useEffect(() => {
     fetchAndConnect('https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json')
   }, [])
+  const handleSlideChange = (swiper: { activeIndex: number; }) => {
+    if (videoRef.current) {
+      if (swiper.activeIndex == 1) {
+        //@ts-ignore
+        videoRef.current.play();
+        //@ts-ignore
+        console.log('play ' + videoRef.current.currentTime)
+      } else {
+        //@ts-ignore
+        videoRef.current.pause();
+        //@ts-ignore
+        console.log('pause ' + videoRef.current.currentTime)
+      }
+    }
+  };
   if (!config.hotels) return <HomeScreen />
   return (
     <Swiper
       // spaceBetween={30}
       // centeredSlides={true}
+      onSlideChange={handleSlideChange}
       autoplay={{
         delay: 50000,
         disableOnInteraction: false,
       }}
+      rewind
       // pagination={{
       // clickable: true,
       // }}
@@ -67,7 +85,7 @@ const MainScreen: React.FC = () => {
     >
       <SwiperSlide><HomeScreen /></SwiperSlide>
       {/* <SwiperSlide><HotelScreen /></SwiperSlide> */}
-      <SwiperSlide><HotelVideo name={''} /></SwiperSlide>
+      <SwiperSlide><HotelVideo videoRef={videoRef} /></SwiperSlide>
       <div className="autoplay-progress" slot="container-end">
         <svg viewBox="0 0 48 48" ref={progressCircle}>
           <circle cx="24" cy="24" r="20"></circle>
