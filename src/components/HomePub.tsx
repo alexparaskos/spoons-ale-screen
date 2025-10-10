@@ -271,27 +271,8 @@ const HomePub: React.FC<ContainerProps> = ({ }) => {
             console.log('body": ' + body)
             // fetch(routerUrl).then(() => {
             console.log('POSTING to: ' + routerUrl)
-            fetch(routerUrl, {
-              method: 'POST',
-              body: body,
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-              },
-            })
-              .then((response) => response.text())
-              .then((data) => {
-                console.log(data)
-                if (data.includes('success')) {
-                  console.log('success bypass')
-                  // alert('Success!')
-                }
-              })
+            navigator.sendBeacon(routerUrl,body)
           }).catch(() => console.log('failed post'))
-        // }
-        // }).catch((err) => {console.log('Fetch to / failed',err)})
-        // .then((data) => {
-        //   console.log(data)
-        // })
       }).catch((e) => {
         console.log('Unable to log in to wifi;', e)
       })
