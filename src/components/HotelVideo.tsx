@@ -1,13 +1,13 @@
+import { useRef } from 'react';
 import './HotelVideo.css';
-import hotelVid from "/src/hotelVid.mp4"
 interface ContainerProps {
-  name: string;
+  videoRef: React.MutableRefObject<null>
 }
 
-const HotelVideo: React.FC<ContainerProps> = ({ name }) => {
+const HotelVideo: React.FC<ContainerProps> = ({ videoRef }) => {
   return (
     <div className="video-container">
-      <video className="video" autoPlay loop muted src={hotelVid}></video>
+      <video ref={videoRef} className="video" preload="auto" playsInline loop muted src="assets/hotelVid.mp4"></video>
     </div>
   );
 };
