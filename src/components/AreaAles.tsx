@@ -2,7 +2,6 @@ import { IonCol, IonContent, IonGrid, IonItem, IonItemDivider, IonLabel, IonList
 import './AreaAles.css';
 import { useContext, useEffect, useRef, useState } from 'react';
 import AleItem from './AleItem';
-import defaultAles from "../defaultAles.json";
 import { AleDetails, ConfigContext } from '../App';
 interface ContainerProps {
 }
@@ -50,25 +49,26 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
   // console.log(config.areaPubs)
   let emptyAles: { [key: string]: AleDetails[] } = {}
   const [ales, setAles] = useState(emptyAles);
-  const downloadAles = () => {
+  const downloadAreaAles = () => {
     Promise.all(Object.values(config.areaPubs).map((pub) => {
-      return fetch("https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/" + pub.identifier + "/ales.json")
+      return fetch("https://ca.jdw-apps.net/api/v0.1/jdw/venues/" + pub.identifier + "/ales", {
+        headers: { Authorization: 'Bearer SFS9MMnn5deflq0BMcUTSijwSMBB4mc7NSG2rOhqb2765466' }
+      })
         .then(response => response.json())
         .then((data) => {//@ts-ignore
-          return { [pub.identifier]: data.filter((ale) => !ale.is_cellared) }
+          return { [pub.identifier]: data.filter((ale) => !ale.comingSoon) }
         })
     }))
       .then((data) => {
         var areaPubs = data.reduce((obj, item) => ({ ...obj, [Object.keys(item)[0]]: Object.values(item)[0] }), {});
+        console.log(data)
         setAles(areaPubs)
       })
   }
-  // console.log(ales)
   useEffect(() => {
-    downloadAles()
+    downloadAreaAles()
   }, [config.areaPubs])
-  // console.log(config.areaPubs)
-  useInterval(downloadAles, 300000)
+  useInterval(downloadAreaAles, 300000)
   useInterval(transition, 10000)
   return (
     <IonContent ref={contentRef}>
@@ -96,7 +96,8 @@ const AreaAles: React.FC<ContainerProps> = ({ }) => {
                     <IonText color="grey" className='text-lg text-bold ion-color ion-color-grey md'>{config.areaPubs[pub].name}, {config.areaPubs[pub].address_line_2 ? config.areaPubs[pub].address_line_2 : config.areaPubs[pub].town} - {config.areaPubs[pub].distance!.toPrecision(2)} mi</IonText>
                   </IonItemDivider>
                   {ales[pub].map((ale) => {
-                    return { ...ale, price: true }//@ts-ignores
+                    return { ...ale, price: true }
+                    //@ts-ignores
                   }).map((i, j) => <AleItem ale={i} key={j} />)}
                 </> : <></>
               })}

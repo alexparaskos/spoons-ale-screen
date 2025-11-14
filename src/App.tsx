@@ -78,41 +78,16 @@ export interface PubDetails {
   distance?: number;
 }
 export interface AleDetails {
-  id: number;
-  identifier: string;
   brewery: string;
-  product: string;
-  name: string;
-  brewer_product: string;
-  colour_code: string;
   abv: string;
-  allergens: {
-    eggs: string;
-    fish: string;
-    milk: string;
-    nuts: string;
-    lupin: string;
-    celery: string;
-    mustard: string;
-    peanuts: string;
-    molluscs: string;
-    soyabeans: string;
-    sesameSeed: string;
-    crustaceans: string;
-    sulphur_dioxide: string;
-    cereals_containing_gluten: string;
-    units: string;
-    price_band: string;
-    product_description: string;
-    location: string;
-    est_date: string;
-    is_favourite: number;
-    is_cellared: number;
-    active_sales_areas: {
-      id: number;
-    }[];
-  };
-}
+  name: string;
+  description: string
+  type: {
+    key: string
+  }
+  comingSoon: boolean
+};
+
 type AreaPubs = {
   [key: string]: PubDetails
 }
@@ -137,7 +112,7 @@ type Cider = {
 
 }
 let defConfig: {
-  hotels: boolean,ciders: string[]; homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean,guestCiders: Cider[] 
+  hotels: boolean, ciders: string[]; homePub: string, homePubDetails: PubDetails, permAles: string[], areaPubs: AreaPubs, setup: boolean, guestCiders: Cider[]
 } = {
   homePub: "",
   homePubDetails: {

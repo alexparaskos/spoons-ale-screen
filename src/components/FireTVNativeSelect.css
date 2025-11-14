@@ -1,0 +1,28 @@
+.firetv-native-select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--ion-color-medium);
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23a0a0a0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+}
+
+.firetv-native-select.multiple {
+  height: auto;
+  background-image: none; /* no dropdown arrow */
+}
+
+.firetv-native-select:focus {
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 2px var(--ion-color-primary-tint);
+}

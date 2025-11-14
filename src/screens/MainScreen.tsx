@@ -11,26 +11,8 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useContext, useEffect, useRef, useState } from 'react';
 import HomeScreen from './HomeScreen';
-import AreaScreen from './AreaScreen';
-import HotelScreen from './HotelScreen';
 import HotelVideo from '../components/HotelVideo';
 import { ConfigContext } from '../App';
-
-const fetchAndConnect = (url: string) => {
-  fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-      // console.log(data)
-      return data
-    }).catch((err) => {
-      console.log(err)
-      return err
-    })
-}
-
-const download = (url: string) => {
-  fetchAndConnect
-}
 
 const MainScreen: React.FC = () => {
   const {
@@ -46,9 +28,6 @@ const MainScreen: React.FC = () => {
     //@ts-ignore
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
-  useEffect(() => {
-    fetchAndConnect('https://oandp-appmgr-prod.s3.eu-west-2.amazonaws.com/pubs/7206/ales.json')
-  }, [])
   const handleSlideChange = (swiper: { activeIndex: number; }) => {
     if (videoRef.current) {
       if (swiper.activeIndex == 1) {
