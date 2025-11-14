@@ -1,44 +1,57 @@
 [
     {
         "brewery": "Greene King",
-        "product": "IPA",
+        "name": "IPA",
         "colour_code": "2",
         "abv": "3.4",
-        "units": "1.9",
-        "product_description": "Golden coloured, crisp and hoppy.",
-        "is_cellared": 0
+        "type": {
+            "key": "golden"
+        },
+        "description": "Golden coloured, crisp and hoppy.",
+        "comingSoon": false
     },
     {
         "brewery": "Greene King",
-        "product": "Abbot Ale",
+        "name": "Abbot Ale",
         "colour_code": "4",
         "abv": "5.0",
-        "units": "2.8",
-        "product_description": "Rich amber coloured, malty and bittersweet.",
-        "is_cellared": 0
-    },    {
+        "type": {
+            "key": "amber"
+        },
+        "description": "Rich amber coloured, malty and bittersweet.",
+        "comingSoon": false
+    },
+    {
         "brewery": "Greene King",
-        "product": "Ruddles Best",
+        "name": "Ruddles Best",
         "colour_code": "4",
         "abv": "3.4",
-        "units": "1.9",
-        "product_description": "Amber coloured, clean and hoppy.",
-        "is_cellared": 0
-    },  {
+        "type": {
+            "key": "amber"
+        },
+        "description": "Amber coloured, clean and hoppy.",
+        "comingSoon": false
+    },
+    {
         "brewery": "Sharp's",
-        "product": "Doom Bar",
+        "name": "Doom Bar",
         "colour_code": "4",
         "abv": "4.0",
-        "units": "2.3",
-        "product_description": "Amber coloured, malty and fruity.",
-        "is_cellared": 0
-    },  {
+        "type": {
+            "key": "amber"
+        },
+        "description": "Amber coloured, malty and fruity.",
+        "comingSoon": false
+    },
+    {
         "brewery": "Belhaven",
-        "product": "80 Shilling",
+        "name": "80 Shilling",
         "colour_code": "3",
         "abv": "3.9",
-        "units": "2.2",
-        "product_description": ".",
-        "is_cellared": 0
+        "type": {
+            "key": "golden"
+        },
+        "description": ".",
+        "comingSoon": false
     }
 ]

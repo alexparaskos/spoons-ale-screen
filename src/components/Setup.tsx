@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import { ConfigContext, PubDetails } from '../App';
 import global from "../global.json";
 import ciders from "../ciderTemp.json";
+import FireTVNativeSelect from "./FireTVNativeSelect";
+
 interface ContainerProps {
 
 }
@@ -45,7 +47,19 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
           <IonItem>
             <IonInput label="Pub Name" value={config.homePubDetails?.name} readonly></IonInput>
           </IonItem>
-
+          {/* <IonItem>
+            <FireTVNativeSelect multiple value={config.permAles} label='Permanent Ales' options={[
+              { label: "Greene King IPA", value: "IPA" },
+              { label: "Abbot Ale", value: "Abbot Ale" },
+              { label: "Ruddles Best", value: "Ruddles Best" },
+              { label: "Doom Bar", value: "Doom Bar" },
+              { label: "80 Shilling", value: "80 Shilling" },
+            ]} onChange={(e)=>{
+              console.log(e)
+              setConfig(//@ts-ignore
+                { ...config, permAles: e })
+            }}/>
+          </IonItem> */}
           <IonItem>
             <IonSelect label="Permanent Ales" value={config.permAles} multiple={true} onIonChange={(e) => {
               setConfig(//@ts-ignore
@@ -86,7 +100,7 @@ const Setup: React.FC<ContainerProps> = ({ }) => {
             </IonSelect>
           </IonItem>
           <IonItem>
-            <IonToggle  onIonChange={(e) => {
+            <IonToggle onIonChange={(e) => {
               setConfig(//@ts-ignore
                 { ...config, hotels: !!e.detail.value })
             }} checked={!!config.hotels}>Show Hotel Vid</IonToggle>
