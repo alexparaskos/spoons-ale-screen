@@ -18,5 +18,30 @@
         "product": "Broadoak Moonshine 7.5% ABV",
         "brewery": "Broadoak Cider, Somerset. Est. 1984",
         "product_description": "This strong, clear and very drinkable cider, with a crisp refreshing taste and little evidence of alcoholic content."
+    },
+    {
+        "product": "Sandford Orchards Cherry 3.4% ABV",
+        "brewery": "Sandford Orchards, Devon. Est. 2002",
+        "product_description": "This clear deep red cider is sweet and tangy, bursting with a luscious blend of cherry flavours and a Bakewell tart hint."
+    },
+    {
+        "product": "Snails Bank Rhubarb 4.0% ABV",
+        "brewery": "Snails Bank, Herefordshire. Est. 2008",
+        "product_description": "This medium real apple cider is infused with tart rhubarb and blended with vanilla, resulting in a pleasing, smooth and complex flavour."
+    },
+    {
+        "product": "Snails Bank Raspberry Ripple 4.0% ABV",
+        "brewery": "Snails Bank, Herefordshire. Est. 2008",
+        "product_description": "This sweet cider is infused with tart raspberry and rippled through with vanilla, resulting in a distinctive fruity flavour and smooth character, with emerging vanilla notes in the finish."
+    },
+    {
+        "product": "Healey's Flattler Original 5.5% ABV",
+        "brewery": "Healey's Cyder Farm, Cornwall. Est. 1980",
+        "product_description": "This traditional cloudy cider has a light and refreshing character, with a tremendously fruity flavour and a distinctive bite in the finish."
+    },
+    {
+        "product": "Thatchers Stan's Cheddar Valley 6.0% ABV ",
+        "brewery": "Thatchers Cider, Somerset. Est. 1904",
+        "product_description": "This cloudy, still, medium-dry cider is made using Dabinett and Tremlett’s Bitter apples, two classic west country varieties, which help to create a robust and rich farmhouse-style character."
     }
 ]
