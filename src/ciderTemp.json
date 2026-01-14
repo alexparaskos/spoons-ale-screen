@@ -10,6 +10,11 @@
         "product_description": "This clear cider, fermented mainly from desert fruit, blended with traditional mango."
     },
     {
+        "product": "Westons' Cider Old Rosie 6.8% ABV ",
+        "brewery": "Westons' Cider, Herefordshire. Est. 1880",
+        "product_description": "A straw coloured hazy cider, Em Tetley's favoured tipple."
+    },
+    {
         "product": "Pear Mania 7.0% ABV",
         "brewery": "Cockeyed Cider, Devon. Est. 2012",
         "product_description": "This clear golden traditional cider from desert apples, blended with pear. Strong."
